@@ -1,5 +1,22 @@
 @import 'tailwindcss/base';
 
-@import 'tailwindcss/components';
-
 @import 'tailwindcss/utilities';
+
+.container {
+    @apply p-2;
+    @apply min-h-screen;
+}
+
+.post {
+    @apply mt-4;
+
+    &:first-child {
+        @apply mt-0;
+    }
+}
+
+.member-categories li {
+    &:last-child {
+        @apply border-b-0;
+    }
+}
