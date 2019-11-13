@@ -1,6 +1,12 @@
-<article class="rounde-full border-gray-200 post">
-	<header class="bg-gray-200 text-gray-800 p-2">
-		<h2 class="text-xl">{{ $post->title }}</h2>
+<article class="round-full bg-white mb-4 p-2">
+	<header class="text-gray-800">
+		@if(!is_null($post->image))
+			<div class="flex justify-center">
+				<img src="{{ $post->image->url }}" alt="{{ $post->title }}" />
+			</div>
+		@endif
+
+		<h2 class="text-3xl">{{ $post->title }}</h2>
 		<span></span>
 	</header>
 
@@ -9,6 +15,6 @@
 		</p>
 
 	<div class="flex justify-end">
-		<button class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded m-2">Les mer</button>
+		<a class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded m-2" href="{{ route('post', ['slug' => $post->slug]) }}">Les mer</a>
 	</div>
 </article>

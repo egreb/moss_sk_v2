@@ -11,8 +11,26 @@
 |
 */
 
-Route::get('/', 'App\HomeController@index');
-Route::get('/about', 'App\HomeController@about');
-Route::get('/login', function () {
-	return view('login');
+// admin routes
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+	Route::get('/', 'Admin\HomeController@index')->name('index');
+
+	Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
+		Route::get('/', 'Admin\PostController@index')->name('index');
+		Route::get('/create', 'Admin\PostController@create')->name('create');
+		Route::get('/{id}', 'Admin\PostController@edit')->name('edit');
+
+		Route::post('/', 'Admin\PostController@store')->name('store');
+		Route::post('store', 'Admin\PostController@store')->name('store');
+		Route::post('{id}', 'Admin\PostController@update')->name('update');
+		Route::delete('{id}', 'Admin\PostController@destroy')->name('delete');
+	});
 });
+
+// authentication
+Auth::routes();
+
+// app routes
+Route::get('/', 'App\HomeController@index')->name('home');
+Route::get('/about', 'App\HomeController@about')->name('about');
+Route::get('/{slug}', 'PostController@get')->name('post');

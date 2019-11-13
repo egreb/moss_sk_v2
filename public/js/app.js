@@ -93,17 +93,54 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// require('./bootstrap');
 (function () {
-  var toggleMenuButton = document.getElementById('toggle-menu');
+  var toggleMenuButton = document.getElementById("toggle-menu");
 
   if (toggleMenuButton) {
-    toggleMenuButton.addEventListener('click', function () {
-      var menu = document.querySelector('#menu');
+    toggleMenuButton.addEventListener("click", function () {
+      var menu = document.querySelector("#menu");
 
       if (menu) {
-        menu.classList.toggle('hidden');
+        menu.classList.toggle("hidden");
       }
+    });
+  }
+
+  deletePostBtn = document.getElementById("delete-post");
+
+  if (deletePostBtn) {
+    deletePostBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      var ok = confirm("Vil du slette denne posten?");
+
+      if (ok) {
+        var url = deletePostBtn.dataset.url;
+
+        if (url) {
+          fetch(url, {
+            method: "DELETE",
+            redirect: "follow",
+            headers: {
+              "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').attributes.content.value
+            }
+          }).then(function (result) {
+            return window.location = result.url;
+          })["catch"](function (error) {
+            console.error("Something went wrong deleting post ".concat(error));
+          });
+          return;
+        }
+
+        console.error("url missing from deleting post");
+      }
+    });
+  }
+
+  var uploadPostImage = document.getElementById("image");
+
+  if (uploadPostImage) {
+    uploadPostImage.addEventListener("change", function () {
+      this.form.submit();
     });
   }
 })();

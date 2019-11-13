@@ -1,10 +1,11 @@
 @import 'tailwindcss/base';
-
+@import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 .container {
     @apply p-2;
     @apply min-h-screen;
+    @apply mx-auto;
 }
 
 .post {
@@ -19,4 +20,8 @@
     &:last-child {
         @apply border-b-0;
     }
+}
+
+.custom-label input:checked + svg {
+    display: block !important;
 }
