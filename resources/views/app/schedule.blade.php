@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="p-1 sm:p-2">
+    <section class="p-1 sm:p-2 w-full">
         <h1 class="text-3xl">{{ isset($schedule) ? $schedule->title : '' }}</h1>
 
         @if(isset($schedule))

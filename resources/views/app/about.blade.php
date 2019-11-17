@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="p-1 sm:p-2">
+    <section class="p-1 sm:p-2 w-full">
         <h2 class="text-gray-800 text-3xl">Klubbinformasjon</h2>
 
         <section class="bg-2 mt-2">
