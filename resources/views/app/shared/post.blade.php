@@ -1,4 +1,4 @@
-<article class="round-full bg-white mb-4 p-2">
+<article class="round-full bg-white mb-4 p-2 w-full">
 	<header class="text-gray-800">
 		@if(!is_null($post->image))
 			<div class="flex justify-center">

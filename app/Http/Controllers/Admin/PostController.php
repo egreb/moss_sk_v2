@@ -65,7 +65,7 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->draft = $request->has('draft') ? false : true;
 
-        if ($image) {
+        if (isset($image) && !is_null($image)) {
             $post->image_id = $image->id;
         }
         $post->save();

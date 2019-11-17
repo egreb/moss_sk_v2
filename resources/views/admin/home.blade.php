@@ -43,7 +43,7 @@
 
     <section class="p-2 w-full flex flex-col justify-center">
         <h2 class="text-3xl">Medlemmer</h2>
-        @if(isset($members) && !$mebers->isEmpty())
+        @if(isset($members) && !$members->isEmpty())
             <ul class="flex flex-col">
                 @foreach($members as $member)
                     <a class="flex justify-between border mt-2 p-2 md:w-10/12 lg:w-8/12"
