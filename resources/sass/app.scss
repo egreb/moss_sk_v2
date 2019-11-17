@@ -1,11 +1,36 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
 
 .container {
-    @apply p-2;
-    @apply min-h-screen;
     @apply mx-auto;
+}
+
+.btn {
+    @apply font-bold py-2 px-4 rounded;
+
+    &.btn-blue {
+        @apply bg-blue-500 text-white;
+
+        &:hover {
+            @apply bg-blue-800;
+        }
+    }
+
+    &.btn-teal {
+        @apply bg-teal-500 text-white;
+
+        &:hover {
+            @apply bg-teal-800;
+        }
+    }
+
+    &.btn-danger {
+        @apply bg-red-500 text-white;
+
+        &:hover {
+            @apply bg-red-800;
+        }
+    }
 }
 
 .post {
@@ -25,3 +50,50 @@
 .custom-label input:checked + svg {
     display: block !important;
 }
+
+article.article {
+    @apply p-2;
+
+    h1 {
+        @apply text-5xl;
+    }
+    h2 {
+        @apply text-4xl;
+    }
+    h3 {
+        @apply text-3xl;
+    }
+    h4 {
+        @apply text-2xl;
+    }
+    h5 {
+        @apply text-xl;
+    }
+    h6 {
+        @apply text-base;
+    }
+}
+
+a {
+    @apply text-blue-600;
+
+    &:hover {
+        @apply text-blue-300 cursor-pointer;
+    }
+}
+
+input {
+    &[type="text"],
+    &[type="date"],
+    &[type="datetime-local"],
+    &[type="number"],
+    &[type="email"]{
+        @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight max-w-lg;
+
+        &:focus {
+            @apply outline-none shadow-outline;
+        }
+    }
+}
+
+@tailwind utilities;

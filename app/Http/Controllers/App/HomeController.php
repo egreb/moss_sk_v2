@@ -4,7 +4,9 @@ namespace App\Http\Controllers\App;
 
 use App\BoardMember;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ScheduleController;
 use App\Post;
+use App\Schedule;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -36,5 +38,15 @@ class HomeController extends Controller
         ];
 
         return view('app.about', ['boardmembers' => $boardmembers, 'teams' => $teams]);
+    }
+
+    public function schedule()
+    {
+        $schedule = Schedule::where('active', true)->first();
+        if (is_null($schedule)) {
+            $schedule = Schedule::first();
+        }
+
+        return view('app.schedule', ['schedule' => $schedule]);
     }
 }

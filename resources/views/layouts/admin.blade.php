@@ -9,8 +9,9 @@
 	<title>Moss Schakklub</title>
 
 	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 	<link href="/css/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+
 </head>
 
 <body>

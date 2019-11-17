@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "easymde": "2.8.0",
         "tailwindcss": "1.1.3"
     }
 }

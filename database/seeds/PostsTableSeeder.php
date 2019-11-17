@@ -29,6 +29,7 @@ class PostsTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'slug' => $slug_generator->createSlug('Min første post'),
+            'draft' => false
         ]);
         DB::table('posts')->insert([
             'title' => 'Min andre post',
@@ -38,6 +39,7 @@ class PostsTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'slug' => $slug_generator->createSlug('Min andre post'),
+            'draft' => false
         ]);
 
         $users = App\User::findMany([1, 2]);

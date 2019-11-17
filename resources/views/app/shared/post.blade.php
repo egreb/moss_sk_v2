@@ -6,13 +6,18 @@
 			</div>
 		@endif
 
-		<h2 class="text-3xl">{{ $post->title }}</h2>
-		<span></span>
+		<a href="{{ $post->url }}">
+			<h2 class="text-3xl">{{ $post->title }}</h2>
+		</a>
 	</header>
 
-	<p class="bg-white p-2">
-			{{ $post->ingress }}
-		</p>
+	<p class="mt-2">
+			@if(!empty($post->ingress))
+				{!! parsedown($post->ingress) !!}
+			@else
+				{!! parsedown($post->content) !!}
+			@endif
+	</p>
 
 	<div class="flex justify-end">
 		<a class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded m-2" href="{{ route('post', ['slug' => $post->slug]) }}">Les mer</a>

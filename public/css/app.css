@@ -627,6 +627,121 @@ video {
   }
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn.btn-blue {
+  background-color: #4299e1;
+  color: #fff;
+}
+
+.btn.btn-blue:hover {
+  background-color: #2c5282;
+}
+
+.btn.btn-teal {
+  background-color: #38b2ac;
+  color: #fff;
+}
+
+.btn.btn-teal:hover {
+  background-color: #285e61;
+}
+
+.btn.btn-danger {
+  background-color: #f56565;
+  color: #fff;
+}
+
+.btn.btn-danger:hover {
+  background-color: #9b2c2c;
+}
+
+.post {
+  margin-top: 1rem;
+}
+
+.post:first-child {
+  margin-top: 0;
+}
+
+.member-categories li:last-child {
+  border-bottom-width: 0;
+}
+
+.custom-label input:checked + svg {
+  display: block !important;
+}
+
+article.article {
+  padding: 0.5rem;
+}
+
+article.article h1 {
+  font-size: 3rem;
+}
+
+article.article h2 {
+  font-size: 2.25rem;
+}
+
+article.article h3 {
+  font-size: 1.875rem;
+}
+
+article.article h4 {
+  font-size: 1.5rem;
+}
+
+article.article h5 {
+  font-size: 1.25rem;
+}
+
+article.article h6 {
+  font-size: 1rem;
+}
+
+a {
+  color: #3182ce;
+}
+
+a:hover {
+  color: #90cdf4;
+  cursor: pointer;
+}
+
+input[type=text], input[type=date], input[type=datetime-local], input[type=number], input[type=email] {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  color: #4a5568;
+  line-height: 1.25;
+  max-width: 32rem;
+}
+
+input[type=text]:focus, input[type=date]:focus, input[type=datetime-local]:focus, input[type=number]:focus, input[type=email]:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -11399,29 +11514,6 @@ video {
 
 .z-auto {
   z-index: auto;
-}
-
-.container {
-  padding: 0.5rem;
-  min-height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.post {
-  margin-top: 1rem;
-}
-
-.post:first-child {
-  margin-top: 0;
-}
-
-.member-categories li:last-child {
-  border-bottom-width: 0;
-}
-
-.custom-label input:checked + svg {
-  display: block !important;
 }
 
 @media (min-width: 640px) {

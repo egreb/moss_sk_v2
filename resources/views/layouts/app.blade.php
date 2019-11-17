@@ -14,10 +14,10 @@
 </head>
 
 <body>
-	<main class="min-h-screen flex flex-col bg-gray-100">
+	<main class="min-h-screen flex flex-col">
 		@include('app.shared.header')
 
-	<div class="container">
+	<div class="container flex justify-center flex-col items-center max-w-4xl">
 		@yield('content')
 	</div>
 
