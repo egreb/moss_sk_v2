@@ -7,7 +7,7 @@
     </a>
     <a href="{{ route('admin.post.index') }}"
        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Poster
+        Nyheter
     </a>
 
     <a href="{{ route('admin.schedule.index') }}"
