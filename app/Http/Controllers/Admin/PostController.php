@@ -13,6 +13,10 @@ use App\User;
 
 class PostController extends Controller
 {
+    private $imageRepo;
+    private $user_id;
+    private $slug_generator;
+
     public function __construct(ImageRepository $imageRepo)
     {
         $this->user_id = Auth::id();
@@ -49,14 +53,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $image = null;
+
+        if ($request->has('delete_image')){
+            return view('admin.post.create', ['image' => $image]);
+        }
+
+        if ($request->has('image')) {
+            $image = $this->imageRepo->store($request);
+
+            if (empty($request->title)) {
+                return view('admin.post.create', ['image' => $image]);
+            }
+        }
+
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
         ]);
-
-        if ($request->has('image')) {
-            $image = $image = $this->imageRepo->store($request);
-        }
 
         $post = new Post();
         $post->title = $request->title;
@@ -65,9 +79,12 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->draft = $request->has('draft') ? false : true;
 
-        if (isset($image) && !is_null($image)) {
+        if (!is_null($image)) {
             $post->image_id = $image->id;
+        } else if(!empty($request->image_id)) {
+            $post->image_id = $request->image_id;
         }
+
         $post->save();
 
         $post->authors()->syncWithoutDetaching($this->user_id);
@@ -116,7 +133,7 @@ class PostController extends Controller
             abort(404);
         }
 
-        if ($request->has('delete-image')) {
+        if ($request->has('delete_image')) {
             if (!is_null($post->image)) {
                 $post->image()->delete();
             }
