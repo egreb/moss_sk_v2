@@ -31,6 +31,14 @@
             @apply bg-red-800;
         }
     }
+
+    &.btn-success {
+        @apply bg-green-500 text-white;
+
+        &:hover {
+            @apply bg-green-800;
+        }
+    }
 }
 
 .post {
@@ -94,6 +102,10 @@ input {
             @apply outline-none shadow-outline;
         }
     }
+}
+
+.items-start {
+    align-items: flex-start;
 }
 
 @tailwind utilities;
