@@ -14,8 +14,9 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::where('draft', false)->get()->sortByDesc('created_at');
-
-        return view('app.index', ['posts' => $posts]);
+        $schedule = Schedule::where('active', true)->first();
+        $event = $schedule->nextEvent();
+        return view('app.index', ['posts' => $posts, 'event' => $event]);
     }
 
     public function about()
