@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class ScheduleEvent extends Model
 {
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'date'
+    ];
+
     public function schedule()
     {
         return $this->belongsTo(Schedule::class);
-    }
-
-    public function format_date()
-    {
-        return Carbon::parse($this->date)->format('d-m-Y');
     }
 }

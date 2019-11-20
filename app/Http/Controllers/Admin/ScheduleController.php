@@ -52,7 +52,7 @@ class ScheduleController extends Controller
         $schedule = new Schedule();
         $schedule->title = $request->title;
         $schedule->active = $request->has('active') ? true : false;
-
+        $schedule->touch();
         $schedule->save();
 
         return redirect()->route('admin.schedule.edit', ['id' => $schedule->id]);
@@ -73,11 +73,13 @@ class ScheduleController extends Controller
 
         $schedule->title = $request->schedule_title;
         $schedule->active = $active;
+        $schedule->touch();
 
         if ($active) {
             $schedules = Schedule::where('id', '!=', intval($id));
             foreach ($schedules as $s) {
                 $s->active = false;
+                $s->touch();
                 $s->save();
             }
         }

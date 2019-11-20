@@ -10,7 +10,9 @@ class Schedule extends Model
     protected $fillable = [
         'title',
         'active',
-        'date'
+        'date',
+        'created_at',
+        'updated_at'
     ];
 
     public function events()
@@ -21,7 +23,7 @@ class Schedule extends Model
     public function nextEvent()
     {
         foreach ($this->events as $event) {
-            $interval[] = abs(strtotime(Carbon::parse($event->date)) - strtotime(Carbon::now()));
+            $interval[] = abs(strtotime($event->date) - strtotime(Carbon::now()));
         }
         asort($interval);
         return $this->events[key($interval)];

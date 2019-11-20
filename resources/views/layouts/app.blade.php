@@ -18,15 +18,7 @@
     @include('app.shared.header')
 
     <div class="container flex">
-        <aside class="sidebar hidden lg:flex flex-col lg:w-3/12 px-2 py-4">
-            @if(isset($event))
-                <section class="flex flex-col items-center bg-white rounded px-4 py-2">
-                    <h3 class="text-gray-800">Neste event:</h3>
-                    <h2 class="text-xl">{{ $event->title  }}</h2>
-                    <span>{{ $event->format_date() }}</span>
-                </section>
-            @endif
-        </aside>
+        @include('app.shared.sidebar')
 
         <main class="w-12/12 lg:w-9/12">
             @yield('content')
