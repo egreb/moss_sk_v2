@@ -17,12 +17,11 @@
 <div class="min-h-screen">
     @include('app.shared.header')
 
-    <div class="container flex">
-        @include('app.shared.sidebar')
-
-        <main class="w-12/12 lg:w-9/12">
+    <div class="container flex mt-4">
+        <main class="w-12/12 lg:w-8/12">
             @yield('content')
         </main>
+        @include('app.shared.sidebar')
     </div>
 
     @include('app.shared.footer')

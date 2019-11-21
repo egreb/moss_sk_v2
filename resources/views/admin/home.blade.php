@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section class="p-2 w-full flex flex-col" style="align-items: flex-start;">
+    <section class="p-2 w-full flex flex-col mt-4 bg-white" style="align-items: flex-start;">
         <header class="flex justify-between md:w-10/12 lg:w-8/12 items-center">
             <h2 class="text-3xl">Nyheter</h2>
         </header>

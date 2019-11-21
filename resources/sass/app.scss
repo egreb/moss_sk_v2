@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 body {
-    @apply bg-gray-100;
+    @apply bg-gray-400;
 }
 
 .container {
@@ -50,6 +50,16 @@ body {
     &:first-child {
         @apply mt-0;
     }
+
+    section.ingress {
+        @apply text-gray-800;
+        a {
+            color: inherit;
+        }
+        p {
+            @apply py-2;
+        }
+    }
 }
 
 .member-categories li {
@@ -63,7 +73,7 @@ body {
 }
 
 article.article {
-    @apply p-2;
+    @apply p-4;
 
     h1 {
         @apply text-5xl;
@@ -118,8 +128,13 @@ input {
 
 aside.sidebar {
     @apply text-gray-800;
-    align-items: center;
+    align-items: flex-start;
     section {
+        @apply mt-3;
+        &:first-child {
+            @apply mt-0;
+        }
+
         h3 {
             @apply text-gray-800;
         }

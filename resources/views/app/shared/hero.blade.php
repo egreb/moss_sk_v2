@@ -1,5 +1,5 @@
 <section class="hero mb-6 text-gray-800 w-full bg-white rounded shadow">
-    <div class="m-2 px-2 py-4 sm:flex">
+    <div class="px-4 py-4 sm:flex">
         <div class="w-4/4 sm:w-3/4">
             <h1 class="text-3xl border-b text-center sm:text-left">Velkommen til Moss Schakklub</h1>
             <p class="mt-1">

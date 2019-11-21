@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Schedule;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,6 +16,8 @@ class PostController extends Controller
             abort(404);
         }
 
-        return view('app.post', ['post' => $post]);
+        $event = Schedule::where('active', true)->first()->nextEvent();
+
+        return view('app.post', ['post' => $post, 'event' => $event]);
     }
 }

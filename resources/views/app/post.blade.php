@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<article class="article">
-	<header class="flex flex-col">
+<article class="article rounded shadow bg-white p-4">
+	<header class="flex flex-col text-gray-800">
 		@if(!is_null($post->image))
 			<img src="{{ $post->image->url }}" alt="{{ $post->title }}" />
 		@endif

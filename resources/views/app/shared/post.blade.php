@@ -1,25 +1,28 @@
-<article class="round-full bg-white mb-4 p-2 w-full">
-	<header class="text-gray-800">
-		@if(!is_null($post->image))
-			<div class="flex justify-center">
-				<img src="{{ $post->image->url }}" alt="{{ $post->title }}" />
-			</div>
-		@endif
+<article class="rounded mb-4 p-2 w-full max-w-3xl text-gray-800 post">
+    <header class="text-teal-200">
+        @if(!is_null($post->image))
+            <a href="{{ route('post', ['slug' => $post->slug]) }}">
+                <div class="relative" style="padding-bottom: 60%;">
+                    <img class="absolute top-0 w-full object-cover h-full w-full rounded" src="{{ $post->image->url }}"
+                         alt="{{ $post->title }}"/>
+                </div>
+            </a>
+        @endif
 
-		<a href="{{ $post->url }}">
-			<h2 class="text-3xl">{{ $post->title }}</h2>
-		</a>
-	</header>
-
-	<p class="mt-2">
-			@if(!empty($post->ingress))
-				{!! parsedown($post->ingress) !!}
-			@else
-				{!! parsedown($post->content) !!}
-			@endif
-	</p>
-
-	<div class="flex justify-end">
-		<a class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded m-2" href="{{ route('post', ['slug' => $post->slug]) }}">Les mer</a>
-	</div>
+        <a href="{{ route('post', ['slug' => $post->slug]) }}">
+            <h2 class="text-3xl">{{ $post->title }}</h2>
+        </a>
+        <p class="text-gray-600">
+            <small>Publisert av {{ implode(", ", $post->published_by()) }} den {{ $post->updated_at->format('d-m-Y') }}</small>
+        </p>
+    </header>
+    <section class="ingress">
+        <a href="{{ route('post', ['slug' => $post->slug]) }}">
+            @if(!empty($post->ingress))
+                {!! parsedown($post->ingress) !!}
+            @else
+                {!! parsedown($post->content) !!}
+            @endif
+        </a>
+    </section>
 </article>

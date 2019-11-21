@@ -21,4 +21,14 @@ class Post extends Model
     {
         return $this->belongsTo('App\Image', 'image_id', 'id');
     }
+
+    public function published_by():array
+    {
+        $names = [];
+        foreach($this->authors as $author) {
+            $names[] = $author->name;
+        }
+
+        return $names;
+    }
 }

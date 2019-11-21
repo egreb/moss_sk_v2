@@ -84,10 +84,8 @@ class PostController extends Controller
         } else if(!empty($request->image_id)) {
             $post->image_id = $request->image_id;
         }
-
         $post->save();
-
-        $post->authors()->syncWithoutDetaching($this->user_id);
+        $post->authors()->sync([Auth::id()]);
 
         return redirect()->route('admin.post.index');
     }
@@ -163,8 +161,7 @@ class PostController extends Controller
         $post->draft = $request->has('draft') ? false : true;
         $post->touch(); // update timestamp
         $post->save();
-
-        $post->authors()->syncWithoutDetaching($this->user_id);
+        $post->authors()->syncWithoutDetaching([Auth::id()]);
 
         return redirect()->route('admin.post.index');
     }
