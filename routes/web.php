@@ -14,7 +14,7 @@
 // admin routes
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 	Route::get('/', 'Admin\HomeController@index')->name('index');
-
+    Route::get('/gallery', 'ImageController@show')->name('gallery');
 	Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
 		Route::get('/', 'Admin\PostController@index')->name('index');
 		Route::get('/create', 'Admin\PostController@create')->name('create');

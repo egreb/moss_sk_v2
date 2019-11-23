@@ -18,7 +18,7 @@
     @include('app.shared.header')
 
     <div class="container flex mt-4">
-        <main class="w-12/12 lg:w-8/12">
+        <main class="w-full lg:w-8/12">
             @yield('content')
         </main>
         @include('app.shared.sidebar')

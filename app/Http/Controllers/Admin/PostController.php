@@ -26,7 +26,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\View
      */
     public function index()
     {
