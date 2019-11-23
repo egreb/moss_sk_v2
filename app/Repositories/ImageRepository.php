@@ -3,10 +3,13 @@
 namespace App\Repositories;
 
 // TODO: Create BaseRepository for caching stuff.
+use App\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 use App\Image as ImageModel;
+use Illuminate\Support\Facades\DB;
 
 class ImageRepository
 {
@@ -34,6 +37,11 @@ class ImageRepository
 
 		return $imageModel;
 	}
+
+	public function get($limit = 10, $offset = 0): Collection
+    {
+        return DB::table('images')->offset($offset)->limit($limit)->get();
+    }
 
 	public function getPath($size, $filename)
 	{

@@ -60,14 +60,13 @@
                         </a>
                     @endforeach
                 </ul>
-
-                <footer class="mt-3">
-                    <a href="{{ route('admin.member.create') }}" class="btn btn-success">Ny</a>
-                    <a href="{{ route('admin.member.index') }}" class="btn btn-blue mt-3"><small>Se alle</small></a>
-                </footer>
             @else
-                <p class="text-gray-500">Det er ikke opprettet noen medlemmer enda</p>
+                <p class="text-red-500 p-2">Det er ikke opprettet noen medlemmer enda</p>
             @endif
+            <footer class="mt-3">
+                <a href="{{ route('admin.member.create') }}" class="btn btn-success">Ny</a>
+                <a href="{{ route('admin.member.home') }}" class="btn btn-blue mt-3"><small>Se alle</small></a>
+            </footer>
         @endcomponent
     </div>
 @endsection
