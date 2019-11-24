@@ -71,4 +71,6 @@
             </div>
         </form>
     </div>
+
+    @include('admin.shared.modal', ['title' => 'Galleri'])
 @endsection

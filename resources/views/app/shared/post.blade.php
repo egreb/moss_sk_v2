@@ -13,7 +13,7 @@
             <h2 class="text-3xl">{{ $post->title }}</h2>
         </a>
         <p class="text-gray-600">
-            <small>Publisert av {{ implode(", ", $post->published_by()) }} den {{ $post->updated_at->format('d-m-Y') }}</small>
+            <small>Publisert av {{ implode(", ", $post->published_by()) }} <time>{{ $post->updated_at->format('d-m-Y') }}</time></small>
         </p>
     </header>
     <section class="ingress">

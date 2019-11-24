@@ -1,7 +1,17 @@
 @tailwind base;
 @tailwind components;
+
 body {
     @apply bg-gray-200;
+}
+
+.modal {
+    transition: opacity 0.25s ease;
+}
+
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
 }
 
 .container {
@@ -42,10 +52,18 @@ body {
             @apply bg-green-800;
         }
     }
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .post {
     @apply mt-4;
+
+    time {
+        @apply text-gray-800;
+    }
 
     &:first-child {
         @apply mt-0;
@@ -75,6 +93,19 @@ body {
 article.article {
     @apply p-4;
 
+    img, p > img {
+        width: 95%;
+        object-fit: cover;
+        @apply mx-auto my-1 h-auto;
+
+        @media (min-width: 640px) {
+            width: 90%;
+        }
+
+        @media (min-width: 1024px) {
+            width: 75%;
+        }
+    }
     h1 {
         @apply text-5xl;
     }
