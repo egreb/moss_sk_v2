@@ -1,9 +1,9 @@
 import EasyMDE from "easymde";
 
-(function() {
+(function () {
     const toggleMenuButton = document.getElementById("toggle-menu");
     if (toggleMenuButton) {
-        toggleMenuButton.addEventListener("click", function() {
+        toggleMenuButton.addEventListener("click", function () {
             const menu = document.querySelector("#menu");
             if (menu) {
                 menu.classList.toggle("hidden");
@@ -13,7 +13,7 @@ import EasyMDE from "easymde";
 
     const deletePostBtn = document.getElementById("delete-post");
     if (deletePostBtn) {
-        deletePostBtn.addEventListener("click", function(event) {
+        deletePostBtn.addEventListener("click", function (event) {
             event.preventDefault();
             const ok = confirm("Vil du slette denne posten?");
             if (ok) {
@@ -43,7 +43,7 @@ import EasyMDE from "easymde";
 
     const uploadPostImage = document.getElementById("image");
     if (uploadPostImage) {
-        uploadPostImage.addEventListener("change", function() {
+        uploadPostImage.addEventListener("change", function () {
             this.form.submit();
         });
     }
@@ -54,10 +54,10 @@ import EasyMDE from "easymde";
 
     const ingress = document.getElementById("ingress");
     if (ingress) {
-        const e = new EasyMDE({
+        new EasyMDE({
             element: ingress,
             initialValue: ingress.value,
-            ...markdownConfig
+            ...markdownConfig,
         });
     }
 
@@ -66,76 +66,84 @@ import EasyMDE from "easymde";
         new EasyMDE({
             element: content,
             initialValue: content.value,
-            ...markdownConfig
+            ...markdownConfig,
+            toolbar: [
+                "bold", "italic", "heading", "|", "quote", "|", "ordered-list", "unordered-list", "|",
+                {
+                    name: "image",
+                    action: toggleGallery,
+                    className: "fa fa-image",
+                    title: "Vis Galleri",
+                }
+            ]
+
         });
     }
 
-    // const createEventBtn = document.getElementById("create-event");
-    // if (createEventBtn) {
-    //     createEventBtn.addEventListener("click", async function(e) {
-    //         const event = document.getElementById("event");
-    //         const date = document.getElementById("date");
-    //         const id = document.getElementById("schedule_id");
-
-    //         if (!event || !date) return;
-
-    //         if (!event.value || !date.value) {
-    //             alert("Event og dato er påkrevd");
-    //             return;
-    //         }
-
-    //         try {
-    //             const res = await fetch("/admin/event/store", {
-    //                 method: "POST",
-    //                 headers: {
-    //                     "X-CSRF-TOKEN": document.querySelector(
-    //                         'meta[name="csrf-token"]'
-    //                     ).attributes.content.value,
-    //                     "Content-Type": "application/json"
-    //                 },
-    //                 body: JSON.stringify({
-    //                     event: event.value,
-    //                     date: date.value,
-    //                     schedule_id: id.value
-    //                 })
-    //             });
-
-    //             const json = await res.json();
-    //             if (json.success) {
-    //                 renderEvents(json.events);
-    //             }
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     });
-    // }
+    const closeModalBtns = document.querySelectorAll('.modal-close');
+    if (closeModalBtns) {
+        closeModalBtns.forEach(btn => btn.addEventListener('click', toggleModal))
+    }
 })();
 
-function renderEvents(events = []) {
-    const list = document.getElementById("event-list");
-    if (!list) return;
+async function toggleGallery(editor) {
+    toggleModal();
+    const content = document.getElementById('content'); // textarea
+    if (!content) return;
 
-    list.innerHTML = "";
+    const modal_content = document.querySelector('.modal-body');
+    if (!document.body.classList.contains('modal-active') || modal_content.innerHTML !== '') return;
+    try {
+        const result = await fetch('/api/image', {});
+        const data = await result.json();
 
-    events.forEach(event => {
-        list.appendChild(createEvent(event));
-    });
+        if (data.success) {
+            Object.values(data.data).forEach(image => {
+                const imageContainer = document.createElement('a');
+                imageContainer.className = 'relative w-1/3';
+                imageContainer.innerHTML = `
+                    <img class="" src="${image.url}" alt="${image.name}" style="">
+                `;
+                imageContainer.addEventListener('click', function (event) {
+                    toggleModal();
+
+                    const newText = `![${image.name}](${image.url})`;
+                    const doc = editor.codemirror.getDoc();
+                    const cursor = doc.getCursor();
+                    doc.replaceRange(newText, cursor);
+                }.bind(image, editor));
+
+                modal_content.appendChild(imageContainer);
+            })
+        }
+    } catch (e) {
+        console.error('fetching images', e);
+    }
 }
 
-function createEvent(event = null) {
-    let li = document.createElement("li");
-    li.classList.add("flex", "mt-2", "p-2", "border", "rounded");
+function toggleModal() {
+    const modal = document.querySelector('.modal');
+    if (!modal) return;
 
-    const title = document.createElement("div");
-    title.classList.add("w-3/4");
-    title.innerHTML = `${event.title}`;
+    const body = document.querySelector('body');
+    modal.classList.toggle('opacity-0');
+    modal.classList.toggle('pointer-events-none');
+    body.classList.toggle('modal-active')
+}
 
-    const date = document.createElement("div");
-    date.classList.add("w-1/4");
-    date.innerHTML = `${event.date}`;
+function insertAtCursor(input, textToInsert) {
+    const isSuccess = document.execCommand("insertText", false, textToInsert);
 
-    li.appendChild(title);
-    li.appendChild(date);
+    // Firefox (non-standard method)
+    if (!isSuccess && typeof input.setRangeText === "function") {
+        const start = input.selectionStart;
+        input.setRangeText(textToInsert);
+        // update cursor to be at the end of insertion
+        input.selectionStart = input.selectionEnd = start + textToInsert.length;
 
-    return li;
+        // Notify any possible listeners of the change
+        const e = document.createEvent("UIEvent");
+        e.initEvent("input", true, false);
+        input.dispatchEvent(e);
+    }
 }

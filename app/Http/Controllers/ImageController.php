@@ -29,6 +29,15 @@ class ImageController extends Controller
     {
         $images = $this->imageRepo->get();
 
-        return view('admin.gallery', ['images' => $images]);
+        return view('admin.gallery', ['images' => $images->toArray()]);
+    }
+
+    public function fetch()
+    {
+        $images = $this->imageRepo->get();
+        return response()->json([
+            'success' => true,
+            'data' => $images
+        ]);
     }
 }
