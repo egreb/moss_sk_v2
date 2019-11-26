@@ -18,9 +18,9 @@ class ImageRepository
 		$this->user_id = Auth::id();
 	}
 
-	public function store(Request $request)
+	public function store(Request $request, $name = 'image')
 	{
-		$file = $request->file('image');
+		$file = $request->file($name);
 		$fileName = time() . '.' . $file->getClientOriginalExtension();
 
 		\Cloudinary::config(config('cloudinary'));

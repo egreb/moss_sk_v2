@@ -21,8 +21,10 @@ class ImageController extends Controller
             return response()->json(['data' => null, 'error' => 'no image provided']);
         }
         $image = $this->imageRepo->store($request);
-
-        return response()->json(['data' => $image, 'error' => null]);
+        $data = [
+            'data' => ['filePath' => $image->url]
+        ];
+        return response()->json($data);
     }
 
     public function show()

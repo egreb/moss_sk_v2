@@ -66,15 +66,18 @@ import EasyMDE from "easymde";
         new EasyMDE({
             element: content,
             initialValue: content.value,
+            uploadImage: true,
+            imageUploadEndpoint: '/api/image',
             ...markdownConfig,
             toolbar: [
                 "bold", "italic", "heading", "|", "quote", "|", "ordered-list", "unordered-list", "|",
                 {
-                    name: "image",
+                    name: "gallery",
                     action: toggleGallery,
                     className: "fa fa-image",
                     title: "Vis Galleri",
-                }
+                },
+                'upload-image'
             ]
 
         });
@@ -85,6 +88,10 @@ import EasyMDE from "easymde";
         closeModalBtns.forEach(btn => btn.addEventListener('click', toggleModal))
     }
 })();
+
+function uploadImage(editor) {
+
+}
 
 async function toggleGallery(editor) {
     toggleModal();

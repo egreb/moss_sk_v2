@@ -59,8 +59,8 @@ class PostController extends Controller
             return view('admin.post.create', ['image' => $image]);
         }
 
-        if ($request->has('image')) {
-            $image = $this->imageRepo->store($request);
+        if ($request->has('main_image')) {
+            $image = $this->imageRepo->store($request, 'main-image');
 
             if (empty($request->title)) {
                 return view('admin.post.create', ['image' => $image]);
@@ -145,8 +145,8 @@ class PostController extends Controller
             'content' => 'required',
         ]);
 
-        if ($request->has('image')) {
-            $image = $this->imageRepo->store($request);
+        if ($request->has('main_image')) {
+            $image = $this->imageRepo->store($request, 'main_image');
             if (!is_null($image)) {
                 $post->image_id = $image->id;
                 $post->save();

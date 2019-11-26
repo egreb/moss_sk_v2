@@ -94,9 +94,10 @@ article.article {
     @apply p-4;
 
     img, p > img {
-        width: 95%;
-        object-fit: cover;
-        @apply mx-auto my-1 h-auto;
+        width: 100%;
+        object-fit: contain;
+        max-height: 400px;
+        @apply mx-auto mt-6 mb-6;
 
         @media (min-width: 640px) {
             width: 90%;
