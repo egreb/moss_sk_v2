@@ -10,22 +10,25 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-<div class="min-h-screen">
+<div class="min-h-screen relative">
     @include('app.shared.header')
 
     <div class="container flex mt-4">
-        <main class="w-full lg:w-8/12">
+        <main class="w-full justify-center pb-32 {{ isset($width) ? $width : 'lg:w-8/12' }}">
             @yield('content')
         </main>
-        @include('app.shared.sidebar')
+        @if (!isset($sidebar) || $sidebar)
+            @include('app.shared.sidebar')
+        @endif
     </div>
 
     @include('app.shared.footer')
 </div>
+
 <script src="{{ asset('js/app.js')}}"></script>
 </body>
 </html>

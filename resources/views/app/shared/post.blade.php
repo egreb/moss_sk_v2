@@ -20,8 +20,6 @@
         <a href="{{ route('post', ['slug' => $post->slug]) }}">
             @if(!empty($post->ingress))
                 {!! parsedown($post->ingress) !!}
-            @else
-                {!! parsedown($post->content) !!}
             @endif
         </a>
     </section>
