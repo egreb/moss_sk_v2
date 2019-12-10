@@ -48,6 +48,15 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
         Route::get('{id}', 'MemberController@edit')->name('edit');
     });
+
+    Route::group(['prefix' => 'tournament', 'as' => 'tournament.'], function () {
+        Route::get('/', 'TournamentController@create')->name('create');
+        Route::post('store', 'TournamentController@store')->name('store');
+    });
+
+    Route::group(['prefix' => 'tournament_year', 'as' => 'tournament_year.'], function () {
+        Route::post('/', 'TournamentController@store')->name('store');
+    });
 });
 
 // authentication

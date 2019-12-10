@@ -68,5 +68,10 @@
                 <a href="{{ route('admin.member.home') }}" class="btn btn-blue mt-3"><small>Se alle</small></a>
             </footer>
         @endcomponent
+        @component('admin.shared.info_section')
+            <h2 class="text-3xl">Resultater</h2>
+
+            <a class="btn btn-success" href="{{ route('admin.tournament.create') }}">Ny</a>
+        @endcomponent
     </div>
 @endsection
