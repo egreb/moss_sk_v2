@@ -55,7 +55,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     });
 
     Route::group(['prefix' => 'tournament_year', 'as' => 'tournament_year.'], function () {
-        Route::post('/', 'TournamentController@store')->name('store');
+        Route::post('/', 'TournamentYearController@store')->name('store');
     });
 });
 

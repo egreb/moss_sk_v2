@@ -13,9 +13,9 @@ class TournamentYearController extends Controller
             'title' => 'required|max:255',
         ]);
 
-        $tournamentYear = (new TournamentYear([
+        $tournamentYear = TournamentYear::firstOrCreate([
             'title' => $request->title
-        ]))->firstOrCreate();
+        ]);
 
         return back()->with('tournament_year', $tournamentYear);
     }

@@ -23,12 +23,12 @@ class TournamentController extends Controller
             'tournament_year_id' => 'required'
         ]);
 
-        (new Tournament([
-           'title' => $request->title,
-           'url' => $request->url,
-           'tournament_year_id' => $request->tournament_year_id
-        ]))->firstOrCreate();
+        Tournament::firstOrCreate([
+            'title' => $request->title,
+            'url' => $request->url,
+            'tournament_year_id' => $request->tournament_year_id
+        ]);
 
-
+        return back();
     }
 }

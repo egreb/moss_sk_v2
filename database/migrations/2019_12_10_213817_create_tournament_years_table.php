@@ -15,7 +15,7 @@ class CreateTournamentYearsTable extends Migration
     {
         Schema::create('tournament_years', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('year');
+            $table->string('title');
             $table->timestamps();
         });
     }
