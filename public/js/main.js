@@ -94,7 +94,7 @@
 /***/ (function(module, exports) {
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  var toggable_menu_items = document.querySelectorAll('a[href="#toggle-menu"], li.submenu');
+  var toggable_menu_items = document.querySelectorAll('a[href="#toggle-menu"], li.toggle-menu');
   toggable_menu_items.forEach(function (item) {
     item.addEventListener('click', function (event) {
       event.preventDefault();

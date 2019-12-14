@@ -637,12 +637,15 @@ body.modal-active {
   overflow-y: visible !important;
 }
 
+.submenu {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 @media (min-width: 1024px) {
   .submenu {
     width: 200px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
   }
 }
 

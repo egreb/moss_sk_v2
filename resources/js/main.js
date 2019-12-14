@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    const toggable_menu_items = document.querySelectorAll('a[href="#toggle-menu"], li.submenu');
+    const toggable_menu_items = document.querySelectorAll('a[href="#toggle-menu"], li.toggle-menu');
 
     toggable_menu_items.forEach(function(item) {
         item.addEventListener('click', function(event) {
