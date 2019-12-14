@@ -1,3 +1,3 @@
-<div class="flex mx-auto {{ isset($class) ? $class : '' }}">
+<div class="container flex mx-auto {{ isset($class) ? $class : '' }}">
     {{ $slot }}
 </div>
