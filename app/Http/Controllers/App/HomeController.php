@@ -18,7 +18,6 @@ class HomeController extends Controller
         $schedule = Schedule::where('active', true)->first();
         $event = $schedule->nextEvent();
         $results = TournamentYear::with('tournaments')->get();
-
         return view('app.index', ['posts' => $posts, 'event' => $event, 'results' => $results]);
     }
 

@@ -7,9 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Moss Schakklub</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -29,6 +26,6 @@
     @include('app.shared.footer')
 </div>
 
-<script src="{{ asset('js/app.js')}}"></script>
+<script src="{{ asset('js/main.js')}}"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>Moss Schakklub</title>
+	<title>Dashboard - Moss Schakklub</title>
 
 	<!-- Fonts -->
 	<link href="/css/app.css" rel="stylesheet">
