@@ -1,9 +1,6 @@
 @tailwind base;
 @tailwind components;
 
-body {
-    @apply bg-gray-200;
-}
 
 .modal {
     transition: opacity 0.25s ease;
@@ -14,10 +11,15 @@ body.modal-active {
     overflow-y: visible !important;
 }
 
-.container {
-    @apply mx-auto;
-}
+.submenu {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 
+    @media (min-width: 1024px) {
+        width:200px;
+    }
+}
 .btn {
     @apply font-bold py-2 px-4 rounded;
 

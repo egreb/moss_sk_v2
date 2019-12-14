@@ -21,5 +21,6 @@ mix.sass("resources/sass/app.scss", "public/css")
     });
 
 if (mix.inProduction()) {
+    console.log('is production')
     mix.purgeCss().version();
 }

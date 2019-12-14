@@ -10,18 +10,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-gray-200">
 <div class="min-h-screen relative">
     @include('app.shared.header')
 
-    <div class="container flex mt-4">
+    @container(['class' => 'mt-4'])
         <main class="w-full justify-center pb-32 {{ isset($width) ? $width : 'lg:w-8/12' }}">
             @yield('content')
         </main>
         @if (!isset($sidebar) || $sidebar)
             @include('app.shared.sidebar')
         @endif
-    </div>
+    @endcontainer
 
     @include('app.shared.footer')
 </div>

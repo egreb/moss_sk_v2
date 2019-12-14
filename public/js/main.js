@@ -95,7 +95,6 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
   var toggable_menu_items = document.querySelectorAll('a[href="#toggle-menu"], li.submenu');
-  console.log(toggable_menu_items);
   toggable_menu_items.forEach(function (item) {
     item.addEventListener('click', function (event) {
       event.preventDefault();
@@ -104,6 +103,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
       menu.classList.toggle('hidden');
     });
   });
+  var toggleMenuButton = document.getElementById("toggle-menu");
+
+  if (toggleMenuButton) {
+    toggleMenuButton.addEventListener("click", function () {
+      var menu = document.querySelector("#menu");
+
+      if (menu) {
+        menu.classList.toggle("hidden");
+      }
+    });
+  }
 });
 
 /***/ }),
@@ -115,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/egreb/dev/moss_sk_2/resources/js/main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! /mnt/c/dev/sjakknet/resources/js/main.js */"./resources/js/main.js");
 
 
 /***/ })

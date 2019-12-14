@@ -627,10 +627,6 @@ video {
   }
 }
 
-body {
-  background-color: #edf2f7;
-}
-
 .modal {
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
@@ -641,9 +637,13 @@ body.modal-active {
   overflow-y: visible !important;
 }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
+@media (min-width: 1024px) {
+  .submenu {
+    width: 200px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
 }
 
 .btn {

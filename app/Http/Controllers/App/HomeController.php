@@ -16,9 +16,9 @@ class HomeController extends Controller
     {
         $posts = Post::where('draft', false)->get()->sortByDesc('created_at');
         $schedule = Schedule::where('active', true)->first();
-        $event = $schedule->nextEvent();
-        $results = TournamentYear::with('tournaments')->get();
-        return view('app.index', ['posts' => $posts, 'event' => $event, 'results' => $results]);
+        $event = !is_null($schedule) ? $schedule->nextEvent() : null;
+
+        return view('app.index', ['posts' => $posts, 'event' => $event]);
     }
 
     public function about()

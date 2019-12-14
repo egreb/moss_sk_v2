@@ -12,6 +12,8 @@
 */
 
 // admin routes
+use Illuminate\Support\Facades\Route;
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 	Route::get('/', 'Admin\HomeController@index')->name('index');
     Route::get('/gallery', 'ImageController@show')->name('gallery');
@@ -63,7 +65,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 Auth::routes();
 
 // app routes
-Route::get('/', 'App\HomeController@index')->name('home');
-Route::get('about', 'App\HomeController@about')->name('about');
-Route::get('schedule', 'App\HomeController@schedule')->name('schedule');
-Route::get('{slug}', 'PostController@get')->name('post');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'App\HomeController@index')->name('home');
+    Route::get('about', 'App\HomeController@about')->name('about');
+    Route::get('schedule', 'App\HomeController@schedule')->name('schedule');
+    Route::get('{slug}', 'PostController@get')->name('post');
+});
