@@ -14,7 +14,7 @@
 <div class="min-h-screen relative">
     @include('app.shared.header')
 
-    @container(['class' => 'mt-4'])
+    @container(['class' => 'mt-4 flex-col'])
         <main class="w-full justify-center pb-32 {{ isset($width) ? $width : 'lg:w-8/12' }}">
             @yield('content')
         </main>
