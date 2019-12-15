@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component('components.section', 'sect');
         Blade::component('components.container', 'container');
+        Blade::component('components.page', 'page');
     }
 }

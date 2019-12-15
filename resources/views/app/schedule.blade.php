@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @page()
     <section class="p-1 sm:p-2 w-full">
         <h1 class="text-3xl">{{ isset($schedule) ? $schedule->title : '' }}</h1>
 
@@ -24,4 +25,5 @@
             <p class="text-red-500">Det er ikke opprettet noe terminliste.</p>
         @endif
     </section>
+    @endpage
 @endsection

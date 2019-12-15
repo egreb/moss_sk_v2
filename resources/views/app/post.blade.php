@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<article class="article rounded shadow bg-white p-4">
+@page()
 	<header class="flex flex-col text-gray-800">
 		@if(!is_null($post->image))
 			<img src="{{ $post->image->url }}" alt="{{ $post->title }}" />
@@ -10,7 +10,7 @@
 			{{ $post->title }}
 		</h1>
 
-		<small>Oppdatert {{ $post->updated_at->toDateTimeString() }}</small>
+		<small>Oppdatert {{ $post->updated_at->toDateTimeString() }} av {{ $post->author_string() }}</small>
 	</header>
 
 	<p class="mt-3">
@@ -18,20 +18,5 @@
 	</p>
 
 	<p class="mt-3">{!! parsedown($post->content) !!}</p>
-
-	<p class="mt-3">
-		<small>
-			av
-			@php
-			$author_string = '';
-
-			foreach($post->authors as $author) {
-				$author_string .= $author->name . ', ';
-			}
-			@endphp
-
-			{{ rtrim($author_string, ', ') }}
-		</small>
-	</p>
-</article>
+@endpage
 @endsection
