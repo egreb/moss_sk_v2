@@ -14,8 +14,8 @@
 <div class="min-h-screen relative">
     @include('app.shared.header')
 
-    @container(['class' => 'mt-4 flex-col'])
-        <main class="w-full justify-center pb-32 {{ isset($width) ? $width : 'lg:w-8/12' }}">
+    @container(['class' => 'mt-4 flex-col lg:flex-row'])
+        <main class="w-full justify-center mb-3 lg:pb-32 {{ isset($width) ? $width : 'lg:w-8/12' }}">
             @yield('content')
         </main>
         @if (!isset($sidebar) || $sidebar)

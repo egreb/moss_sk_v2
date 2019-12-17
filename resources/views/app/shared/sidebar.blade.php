@@ -1,5 +1,5 @@
-<aside class="sidebar flex lg:justify-center px-2 md:w-4/12">
-    <div class="flex flex-col items-center bg-white rounded shadow">
+<aside class="sidebar flex lg:justify-center px-2 pb-32 lg:pb-0 w-full lg:w-4/12">
+    <div class="flex flex-col items-center bg-white rounded shadow pb-6 lg:pb-0 w-full">
         @include('app.shared.event', ['class' => 'hidden lg:flex'])
 
         @sect(['width' => 'w-10/12'])
@@ -15,7 +15,6 @@
             <a class="text-sm text-center mt-3"
                href="http://turneringsservice.sjakklubb.no/standings.aspx?TID=Ostlandsserien201920203div-NorgesSjakkforbund">Østlandsserien
                 2019 - 20 3. divisjon avd D</a>
-
         @endsect
     </div>
 </aside>

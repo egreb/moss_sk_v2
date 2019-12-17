@@ -20840,8 +20840,8 @@ function insertAtCursor(input, textToInsert) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/c/dev/sjakknet/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/c/dev/sjakknet/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/egreb/dev/moss_sk_2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/egreb/dev/moss_sk_2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
