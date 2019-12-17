@@ -658,6 +658,13 @@ body.modal-active {
   border-radius: 0.25rem;
 }
 
+.btn.sm {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .btn.btn-blue {
   background-color: #4299e1;
   color: #fff;
