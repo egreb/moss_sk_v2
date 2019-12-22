@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class TournamentController extends Controller
 {
+    public function index()
+    {
+        $results = Tournament::all();
+
+        return view('admin.tournament.index', ['results' => $results]);
+    }
+
     public function create()
     {
         $tournament_years = TournamentYear::all();

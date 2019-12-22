@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/egreb/dev/moss_sk_2/resources/js/main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! /mnt/c/dev/sjakknet/resources/js/main.js */"./resources/js/main.js");
 
 
 /***/ })

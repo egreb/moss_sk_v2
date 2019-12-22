@@ -18,7 +18,7 @@
 <div class="min-h-screen relative">
     @include('admin.shared.header')
 
-    <div class="flex pb-32">
+    <div class="flex">
         @include('components.admin.sidebar')
 
         <main class="w-9/12">

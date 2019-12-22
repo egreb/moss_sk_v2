@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="flex flex-col bg-white">
+    <div class="flex flex-col">
         @component('admin.shared.info_section')
             <header class="flex justify-between md:w-10/12 lg:w-8/12 items-center">
                 <h2 class="text-3xl">Nyheter</h2>
@@ -9,11 +9,11 @@
             @if(isset($posts) && !$posts->isEmpty())
                 <ul class="flex flex-col w-full">
                     @foreach($posts as $post)
-                        <li class="flex justify-between border mt-2 p-2 md:w-10/12 lg:w-8/12">
-                            <a href="{{ route('admin.post.edit', ['id' => $post->id]) }}"><h3>{{ $post->title }}</h3>
+                        @component('components.admin.page_list_element')
+                            <a href="{{ route('admin.post.edit', ['id' => $post->id]) }}"><h3 class="text-xl">{{ $post->title }}</h3>
                             </a>
                             <span class="text-gray-500">Oppdatert {{ $post->updated_at->format('h:t d-m-y') }}</span>
-                        </li>
+                        @endcomponent
                     @endforeach
                 </ul>
 
@@ -31,14 +31,17 @@
             @if(isset($posts))
                 <ul class="flex flex-col w-full">
                     @foreach($schedules as $schedule)
-                        <a class="flex justify-between border mt-2 p-2 md:w-10/12 lg:w-8/12"
-                           href="{{ route('admin.schedule.edit', ['id' => $schedule->id]) }}">
-                            <h2>{{ $schedule->title }}</h2>
+                        @component('components.admin.page_list_element')
+                            <h2>
+                                <a href="{{ route('admin.schedule.edit', ['id' => $schedule->id]) }}">
+                                    {{ $schedule->title }}
+                                </a>
+                            </h2>
 
                             @if($schedule->active)
                                 <span class="text-green-500">Aktiv</span>
                             @endif
-                        </a>
+                        @endcomponent
                     @endforeach
                 </ul>
 
@@ -54,10 +57,10 @@
             @if(isset($members) && !$members->isEmpty())
                 <ul class="flex flex-col w-full">
                     @foreach($members as $member)
-                        <a class="flex justify-between border mt-2 p-2 md:w-10/12 lg:w-8/12"
-                           href="{{ route('admin.schedule.edit', ['id' => $member->id]) }}">
+                        @component('components.admin.page_list_element')
+                            href="{{ route('admin.schedule.edit', ['id' => $member->id]) }}">
                             <h3>{{ $member->full_name() }}</h3>
-                        </a>
+                        @endcomponent
                     @endforeach
                 </ul>
             @else
