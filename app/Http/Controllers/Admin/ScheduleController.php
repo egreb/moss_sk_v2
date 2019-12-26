@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Schedule;
 use App\ScheduleEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class ScheduleController extends Controller
 {
@@ -13,7 +14,7 @@ class ScheduleController extends Controller
     {
         $schedules = Schedule::orderBy('updated_at', 'desc')->get();
 
-        return view('admin.schedule.index', ['schedules' => $schedules]);
+        return View::first('admin.schedule.index', ['schedules' => $schedules]);
     }
 
     public function show(string $id)

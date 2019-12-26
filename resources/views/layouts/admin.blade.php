@@ -21,7 +21,7 @@
     <div class="flex">
         @include('components.admin.sidebar')
 
-        <main class="w-9/12">
+        <main class="w-9/12 m-1 bg-white">
             @yield('content')
         </main>
     </div>

@@ -27,7 +27,8 @@
                                 @foreach($res->tournaments as $tournament)
                                     <a href="{{ $tournament->url }}"
                                        class="text-gray-800 flex justify-center py-2 text-xl items-center relative w-full text-center"
-                                       onclick="event.stopPropagation()">
+                                       onclick="event.stopPropagation()"
+                                       target="_blank">
                                         {{ $tournament->title }}
                                     </a>
                                 @endforeach
