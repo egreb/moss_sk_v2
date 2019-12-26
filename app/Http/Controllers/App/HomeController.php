@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\ScheduleController;
 use App\Post;
 use App\Schedule;
+use App\TournamentYear;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,9 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::where('draft', false)->get()->sortByDesc('created_at');
-        $schedule = Schedule::where('active', true)->first();
-        $event = $schedule->nextEvent();
-        return view('app.index', ['posts' => $posts, 'event' => $event]);
+
+        return view('app.index', ['posts' => $posts]);
     }
 
     public function about()

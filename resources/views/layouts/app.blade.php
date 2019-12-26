@@ -7,28 +7,25 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Moss Schakklub</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-gray-200">
 <div class="min-h-screen relative">
     @include('app.shared.header')
 
-    <div class="container flex mt-4">
-        <main class="w-full justify-center pb-32 {{ isset($width) ? $width : 'lg:w-8/12' }}">
+    @container(['class' => 'mt-4 flex-col lg:flex-row'])
+        <main class="w-full justify-center mb-3 lg:pb-32 {{ isset($width) ? $width : 'lg:w-8/12' }}">
             @yield('content')
         </main>
         @if (!isset($sidebar) || $sidebar)
             @include('app.shared.sidebar')
         @endif
-    </div>
+    @endcontainer
 
     @include('app.shared.footer')
 </div>
 
-<script src="{{ asset('js/app.js')}}"></script>
+<script src="{{ asset('js/main.js')}}"></script>
 </body>
 </html>

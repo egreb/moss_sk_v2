@@ -2,28 +2,33 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>Moss Schakklub</title>
+    <title>Dashboard - Moss Schakklub</title>
 
-	<!-- Fonts -->
-	<link href="/css/app.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <!-- Fonts -->
+    <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
 
 </head>
 
-<body>
-	<main class="min-h-screen flex flex-col">
-		@include('admin.shared.header')
+<body class="bg-gray-200">
+<div class="min-h-screen relative">
+    @include('admin.shared.header')
 
-	<div class="container">
-		@yield('content')
-	</div>
+    <div class="flex">
+        @include('components.admin.sidebar')
 
-		@include('app.shared.footer')
-	</main>
-	<script src="{{ asset('js/app.js')}}"></script>
+        <main class="w-9/12 m-1 bg-white">
+            @yield('content')
+        </main>
+    </div>
+
+    @include('app.shared.footer')
+</div>
+
+<script src="{{ asset('js/app.js')}}"></script>
 </body>
 </html>

@@ -1,10 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h2 class="text-2xl">Opprett post</h2>
-
-    <div class="w-full">
-        <form class="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4" method="post"
+    @component('components.admin.page', ['title' => 'Opprett nyhet'])
+        <form class="w-full" method="post"
               action="{{ route('admin.post.store') }}" enctype="multipart/form-data">
             @csrf
 
@@ -55,9 +53,9 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-between">
+            <div class="flex justify-start items-center">
                 <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-6">
                     Lagre
                 </button>
                 <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
@@ -66,5 +64,5 @@
                 </a>
             </div>
         </form>
-    </div>
+    @endcomponent
 @endsection

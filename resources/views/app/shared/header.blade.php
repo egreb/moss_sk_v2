@@ -1,23 +1,42 @@
 @extends('shared.nav')
 
-@section('urls')
-  <a href="{{ route('about') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-    Om klubben
-  </a>
-  <a href="{{ route('schedule') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-    Terminliste
-  </a>
-  <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-    Resultater
-  </a>
+@section('menu')
+    @component('components.header.menu_item', ['route' =>  route('about')])
+        Om klubben
+    @endcomponent
 
-  @if(Auth::check())
-    <a href="{{ route('admin.index') }}" class="block mt-4 lg:inline-block lg:ml-4 lg:mt-0 text-teal-200 hover:text-white">
-      Dashboard
-    </a>
-  @else
-    <a href="{{ route('login') }}" class="block mt-4 lg:inline-block lg:ml-4 lg:mt-0 text-teal-200 hover:text-white">
-    Logg inn
-  </a>
-  @endif
+    @component('components.header.menu_item', ['route' => route('schedule')])
+        Terminliste
+    @endcomponent
+
+    @isset($results)
+        @component('components.header.menu_item', ['route' => '#toggle-menu', 'icon' => true])
+            <div class="flex items-center justify-center">
+                Resultater
+            </div>
+
+            <ul class="flex flex-col bg-gray-200 rounded relative lg:absolute mt-2 hidden submenu">
+                @foreach($results as $res)
+                    @if(!$res->tournaments->isEmpty())
+                        <li class="text-gray-200 bg-gray-800 lg:text-gray-800 lg:bg-gray-200 flex justify-center text-xl items-center relative flex-col submenu border border-gray-800 lg:absolute toggle-menu">
+                            <div class="flex items-center w-full py-2 justify-center">
+                                <span class="mr-2">{{ $res->title }}</span>
+                            </div>
+
+                            <ul class="flex flex-col w-full hidden mx-1 bg-gray-200">
+                                @foreach($res->tournaments as $tournament)
+                                    <a href="{{ $tournament->url }}"
+                                       class="text-gray-800 flex justify-center py-2 text-xl items-center relative w-full text-center"
+                                       onclick="event.stopPropagation()"
+                                       target="_blank">
+                                        {{ $tournament->title }}
+                                    </a>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+                @endforeach
+            </ul>
+        @endcomponent
+    @endisset
 @endsection

@@ -12,6 +12,8 @@
 */
 
 // admin routes
+use Illuminate\Support\Facades\Route;
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 	Route::get('/', 'Admin\HomeController@index')->name('index');
     Route::get('/gallery', 'ImageController@show')->name('gallery');
@@ -48,13 +50,27 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
         Route::get('{id}', 'MemberController@edit')->name('edit');
     });
+
+    Route::group(['prefix' => 'tournament', 'as' => 'tournament.'], function () {
+        Route::get('/', 'TournamentController@index')->name('index');
+        Route::get('create', 'TournamentController@create')->name('create');
+        Route::post('store', 'TournamentController@store')->name('store');
+        Route::get('{tournament}', 'TournamentController@edit')->name('edit');
+        Route::post('{tournament}', 'TournamentController@update')->name('update');
+    });
+
+    Route::group(['prefix' => 'tournament_year', 'as' => 'tournament_year.'], function () {
+        Route::post('/', 'TournamentYearController@store')->name('store');
+    });
 });
 
 // authentication
 Auth::routes();
 
 // app routes
-Route::get('/', 'App\HomeController@index')->name('home');
-Route::get('about', 'App\HomeController@about')->name('about');
-Route::get('schedule', 'App\HomeController@schedule')->name('schedule');
-Route::get('{slug}', 'PostController@get')->name('post');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'App\HomeController@index')->name('home');
+    Route::get('about', 'App\HomeController@about')->name('about');
+    Route::get('schedule', 'App\HomeController@schedule')->name('schedule');
+    Route::get('{slug}', 'PostController@get')->name('post');
+});
