@@ -14,7 +14,7 @@ class ScheduleController extends Controller
     {
         $schedules = Schedule::orderBy('updated_at', 'desc')->get();
 
-        return View::first('admin.schedule.index', ['schedules' => $schedules]);
+        return view('admin.schedule.index', ['schedules' => $schedules]);
     }
 
     public function show(string $id)
