@@ -3,7 +3,7 @@
         @include('app.shared.event', ['class' => 'hidden lg:flex'])
 
         @sect(['width' => 'w-10/12'])
-            <h3 class="text-gray-800 text-lg">Aktuelle lenker</h3>
+            <h3 class="text-gray-800 text-lg text-center">Aktuelle lenker</h3>
             <a class="text-sm text-center mt-3"
                href="http://turneringsservice.sjakklubb.no/invitation.aspx?TID=KMhurtigsjakk2019-FredriksstadSchakselskap">
                 ØM i hurtigsjakk for lag 2019 Fredrikstad / Lisleby

@@ -77,7 +77,7 @@ body.modal-active {
     section.ingress {
         @apply text-gray-800;
         a {
-            color: inherit;
+            @apply text-blue-600;
         }
         p {
             @apply py-2;

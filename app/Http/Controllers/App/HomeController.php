@@ -48,6 +48,6 @@ class HomeController extends Controller
             $schedule = Schedule::first();
         }
 
-        return view('app.schedule', ['schedule' => $schedule]);
+        return view('app.schedule', ['active_schedule' => $schedule]);
     }
 }

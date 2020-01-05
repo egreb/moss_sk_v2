@@ -1,11 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section class="p-2">
-        <h3>Rediger terminliste </h3>
-        <h2 class="text-3xl"><span class="text-teal-500">{{ $schedule->title }}</span></h2>
+    <section class="p-2 pb-32">
+        <div class="flex items-end">
+            <h3 class="text-xl mr-1">Rediger terminliste</h3>
+            <h2 class="text-2xl text-blue-600">{{ $schedule->title }}</h2>
+        </div>
 
-        <form method="POST" action="{{ route('admin.schedule.update', ['id' => $schedule->id]) }}">
+        <form class="mt-3" method="POST" action="{{ route('admin.schedule.update', ['id' => $schedule->id]) }}">
             @csrf
             <label class="block text-gray-700 text-sm font-bold mb-2" for="schedule_title">
                 Tittel
@@ -54,12 +56,11 @@
             </label>
 
 
-                <div class="flex max-w-2xl w-full">
-                    <button class="btn btn-blue">Lagre</button>
-                    <a href="{{ route('admin.schedule.index') }}" class="btn">Avbryt</a>
-                    <a class="btn btn-danger ml-auto">Slett</a>
-                </div>
-
+            <div class="flex max-w-2xl w-full">
+                <button class="btn btn-blue">Lagre</button>
+                <a href="{{ route('admin.schedule.index') }}" class="btn">Avbryt</a>
+                <a class="btn btn-danger ml-auto">Slett</a>
+            </div>
 
 
         </form>
