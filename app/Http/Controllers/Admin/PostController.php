@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Auth;
 use App\Post;
-use Carbon\Carbon;
 use App\Services\Slug;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ImageRepository;
-use App\User;
 
 class PostController extends Controller
 {
@@ -26,7 +24,6 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\View
      */
     public function index()
     {
@@ -47,9 +44,6 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {

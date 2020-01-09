@@ -18,21 +18,16 @@
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="title" type="text" placeholder="Username" name="title" value="{{ $post->title }}">
             </div>
-            <div>
+            <div id="ingress">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="ingress">
                     Ingress
                 </label>
-                <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline h-32"
-                    id="ingress" name="ingress">{{ $post->ingress }}</textarea>
-            </div>
-            <div class="mb-6">
+                <markdown-area name="ingress" value="{{ $post->ingress }}" :upload-image="false"></markdown-area>
+            
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                     Innhold
                 </label>
-                <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline h-64"
-                    id="content" name="content">{{ $post->content }}</textarea>
+                <markdown-area name="content" value="{{ $post->content }}" :upload-image="true"></markdown-area>
             </div>
 
             <div class="mb-6">
@@ -54,9 +49,9 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-between">
+            <div class="flex items-center pb-32">
                 <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-3">
                     Lagre
                 </button>
 
@@ -64,7 +59,7 @@
                         class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Slett
                 </button>
-                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 ml-10"
                    href="{{ route('admin.post.index') }}">
                     Avbryt
                 </a>

@@ -5,5 +5,5 @@
        type="{{ isset($type) ? $type : 'text' }}" placeholder="{{ isset($placeholder) ? $placeholder : $label }}"
        name="{{ $name }}" value="{{ isset($value) ? $value : old($name) }}">
 @error($name)
-<p class="text-red-500 mt-2">{{ $message }}</p>
+    <p class="text-red-500 mt-2">{{ $message }}</p>
 @enderror

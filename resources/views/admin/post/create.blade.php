@@ -2,6 +2,8 @@
 
 @section('content')
     @component('components.admin.page', ['title' => 'Opprett nyhet'])
+        <div id="app"></div>
+
         <form class="w-full" method="post"
               action="{{ route('admin.post.store') }}" enctype="multipart/form-data">
             @csrf
@@ -18,21 +20,19 @@
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="title" type="text" placeholder="Tittel" name="title">
             </div>
-            <div>
+
+            <div id="ingress">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="ingress">
                     Ingress
                 </label>
-                <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline h-32"
-                    id="ingress" name="ingress"></textarea>
-            </div>
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
-                    Innhold
-                </label>
-                <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline h-64"
-                    id="content" name="content"></textarea>
+                <markdown-area name="ingress" :upload-image="false"></markdown-area>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
+                        Innhold
+                    </label>
+                    <markdown-area name="content" :upload-image="true"></markdown-area>
+                </div>
             </div>
 
             <div class="mb-6">
@@ -53,7 +53,7 @@
                 </label>
             </div>
 
-            <div class="flex justify-start items-center">
+            <div class="flex justify-start items-center pb-10">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-6">
                     Lagre
