@@ -3,7 +3,7 @@
 @endphp
 
 @if(isset($icon) && $icon)
-    <li class="{{ $class }} flex-col toggle-menu">
+    <li class="{{ $class }} flex-col toggle-menu lg:relative">
         {{ $slot }}
     </li>
 @else

@@ -1,22 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-@page()
-	<header class="flex flex-col text-gray-800">
-		@if(!is_null($post->image))
-			<img src="{{ $post->image->url }}" alt="{{ $post->title }}" />
-		@endif
-		<h1 class="text-3xl mb-0">
-			{{ $post->title }}
-		</h1>
+    @page()
+    <header class="flex flex-col text-gray-800">
+        @if(!is_null($post->image))
+            <img src="{{ $post->image->url }}" alt="{{ $post->title }}"/>
+        @endif
+        <h1 class="text-3xl mb-0 mt-3">
+            {{ $post->title }}
+        </h1>
+        <small>Oppdatert {{ $post->updated_at->format('d-m-Y h:m') }}</small>
+    </header>
 
-		<small>Oppdatert {{ $post->updated_at->toDateTimeString() }} av {{ $post->author_string() }}</small>
-	</header>
+    <section class="mt-3">
+        <p class="font-bold">{!! parsedown($post->ingress) !!}</p>
+    </section>
 
-	<p class="mt-3">
-		<strong>{!! parsedown($post->ingress) !!}</strong>
-	</p>
+    <section class="mt-3">
+        <p>{!! parsedown($post->content) !!}</p>
+    </section>
 
-	<p class="mt-3">{!! parsedown($post->content) !!}</p>
-@endpage
+    <footer class="mt-3">
+        <small>Publisert av {{ $post->author_string() }}</small>
+    </footer>
+    @endpage
 @endsection

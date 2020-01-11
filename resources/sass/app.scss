@@ -196,14 +196,14 @@ label {
 }
 
 li.page-list-element, a.page-list-element {
-    @apply text-2xl border p-2 mt-2 rounded bg-gray-200 flex;
+    @apply border p-2 mt-2 rounded bg-gray-200 flex justify-between items-center;
 }
 
 .menu-item {
-    @apply block mt-4 text-teal-200 mr-4 list-none;
+    @apply block mt-4 text-teal-200 list-none;
 
     @media (min-width: 1024px) {
-        @apply inline-block mt-0;
+        @apply inline-block mt-0 mr-4;
     }
 
     &:hover {

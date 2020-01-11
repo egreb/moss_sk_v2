@@ -860,7 +860,6 @@ label {
 }
 
 li.page-list-element, a.page-list-element {
-  font-size: 1.5rem;
   border-width: 1px;
   padding: 0.5rem;
   margin-top: 0.5rem;
@@ -868,13 +867,16 @@ li.page-list-element, a.page-list-element {
   background-color: #edf2f7;
   display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 .menu-item {
   display: block;
   margin-top: 1rem;
   color: #b2f5ea;
-  margin-right: 1rem;
   list-style-type: none;
 }
 
@@ -882,6 +884,7 @@ li.page-list-element, a.page-list-element {
   .menu-item {
     display: inline-block;
     margin-top: 0;
+    margin-right: 1rem;
   }
 }
 

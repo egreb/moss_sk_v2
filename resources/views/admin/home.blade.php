@@ -9,11 +9,11 @@
             @if(isset($posts) && !$posts->isEmpty())
                 <ul class="flex flex-col w-full">
                     @foreach($posts as $post)
-                        @component('components.admin.page_list_element')
-                            <a href="{{ route('admin.post.edit', ['id' => $post->id]) }}"><h3 class="text-xl">{{ $post->title }}</h3>
-                            </a>
+                        <a class="page-list-element" href="{{ route('admin.post.edit', ['id' => $post->id]) }}">
+                            <span class="text-xl">{{ $post->title }}</span>
                             <span class="text-gray-500">Oppdatert {{ $post->updated_at->format('h:t d-m-y') }}</span>
-                        @endcomponent
+                        </a>
+
                     @endforeach
                 </ul>
 
@@ -31,17 +31,12 @@
             @if(isset($posts))
                 <ul class="flex flex-col w-full">
                     @foreach($schedules as $schedule)
-                        @component('components.admin.page_list_element')
-                            <h2>
-                                <a href="{{ route('admin.schedule.edit', ['id' => $schedule->id]) }}">
-                                    {{ $schedule->title }}
-                                </a>
-                            </h2>
-
+                        <a class="page-list-element" href="{{ route('admin.schedule.edit', ['id' => $schedule->id]) }}">
+                            <span class="text-xl">{{ $schedule->title }}</span>
                             @if($schedule->active)
                                 <span class="text-green-500">Aktiv</span>
                             @endif
-                        @endcomponent
+                        </a>
                     @endforeach
                 </ul>
 

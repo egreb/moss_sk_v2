@@ -7,7 +7,8 @@
 
         @include('components.header.toggle_menu')
 
-        <section class="w-full hidden flex flex-grow flex-col items-end lg:flex lg:items-center lg:w-auto" id="menu">
+        <section class="w-full hidden flex flex-grow flex-col items-end lg:flex lg:flex-row lg:items-center lg:w-auto"
+                 id="menu">
             @yield('menu')
         </section>
     </nav>
