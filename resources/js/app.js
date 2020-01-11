@@ -1,14 +1,18 @@
 window.Vue = require('vue');
 Vue.component('markdown-area', require('./components/MarkdownArea').default);
 
-const app = new Vue({
-    el: '#ingress'
-});
+if (document.querySelector('#ingress')) {
+    const app = new Vue({
+        el: '#ingress'
+    });
+}
 
 const toggleMenuButton = document.getElementById("toggle-menu");
 if (toggleMenuButton) {
     toggleMenuButton.addEventListener("click", function () {
+        console.log('click')
         const menu = document.querySelector("#menu");
+        console.log('menu', menu)
         if (menu) {
             menu.classList.toggle("hidden");
         }

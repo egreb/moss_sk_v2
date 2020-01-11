@@ -30800,14 +30800,20 @@ module.exports = g;
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('markdown-area', __webpack_require__(/*! ./components/MarkdownArea */ "./resources/js/components/MarkdownArea.vue")["default"]);
-var app = new Vue({
-  el: '#ingress'
-});
+
+if (document.querySelector('#ingress')) {
+  var app = new Vue({
+    el: '#ingress'
+  });
+}
+
 var toggleMenuButton = document.getElementById("toggle-menu");
 
 if (toggleMenuButton) {
   toggleMenuButton.addEventListener("click", function () {
+    console.log('click');
     var menu = document.querySelector("#menu");
+    console.log('menu', menu);
 
     if (menu) {
       menu.classList.toggle("hidden");
@@ -31108,8 +31114,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/egreb/dev/moss_sk_2/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/egreb/dev/moss_sk_2/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/sib/dev/sjakknet/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/sib/dev/sjakknet/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

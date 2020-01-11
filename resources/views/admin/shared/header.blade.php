@@ -1,28 +1,28 @@
 @extends('shared.nav')
 
-@section('urls')
+@section('menu')
     <a href="{{ route('admin.member.home') }}"
-       class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+       class="menu-item">
         Medlemmer
     </a>
     <a href="{{ route('admin.post.index') }}"
-       class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+       class="menu-item">
         Nyheter
     </a>
 
     <a href="{{ route('admin.schedule.index') }}"
-       class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+       class="menu-item">
         Terminlister
     </a>
 
-    <a href="{{ route('home') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+    <a href="{{ route('home') }}" class="menu-item">
         Se nettsiden
     </a>
 
 
     <form method="POST" action="/logout">
         @csrf
-        <button class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        <button class="menu-item">
             Logg ut
         </button>
     </form>

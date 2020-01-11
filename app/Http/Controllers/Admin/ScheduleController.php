@@ -30,7 +30,7 @@ class ScheduleController extends Controller
 
     public function create()
     {
-        return view('admin.schedule.create');
+        return view('admin.schedule.create', ['title' => 'Opprett terminliste']);
     }
 
     public function edit(string $id)

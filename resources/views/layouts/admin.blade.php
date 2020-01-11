@@ -14,20 +14,21 @@
 
 </head>
 
-<body class="bg-gray-200">
-<div class="min-h-screen relative">
-    @include('admin.shared.header')
+<body class="bg-gray-200 min-h-screen relative">
 
-    <div class="flex">
-        @include('components.admin.sidebar')
+@include('admin.shared.header')
 
-        <main class="w-9/12 m-1 bg-white">
+<main class="flex">
+    @include('components.admin.sidebar')
+
+    <section class="w-full sm:w-9/12 m-1 min-h-full pb-32 flex justify-center">
+        @component('components.admin.page', ['title' => isset($title) ? $title : null])
             @yield('content')
-        </main>
-    </div>
+        @endcomponent
+    </section>
+</main>
 
-    @include('app.shared.footer')
-</div>
+@include('app.shared.footer')
 
 <script src="{{ asset('js/app.js')}}"></script>
 </body>

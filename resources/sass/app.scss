@@ -16,9 +16,10 @@ body.modal-active {
     transform: translateX(-50%);
 
     @media (min-width: 1024px) {
-        width:200px;
+        width: 200px;
     }
 }
+
 .btn {
     @apply font-bold py-2 px-4 rounded;
 
@@ -79,6 +80,7 @@ body.modal-active {
         a {
             @apply text-blue-600;
         }
+
         p {
             @apply py-2;
         }
@@ -112,6 +114,7 @@ article.article {
             width: 75%;
         }
     }
+
     h1 {
         @apply text-5xl;
     }
@@ -150,12 +153,17 @@ input {
     &[type="date"],
     &[type="datetime-local"],
     &[type="number"],
-    &[type="email"] {
-        @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight max-w-lg;
+    &[type="email"],
+    &[type="password"] {
+        @apply shadow appearance-none border rounded py-3 px-3 text-xl text-gray-800 leading-tight max-w-lg mt-1;
 
         &:focus {
             @apply outline-none shadow-outline;
         }
+    }
+
+    &[type="date"] {
+        @apply text-sm;
     }
 }
 
@@ -166,6 +174,7 @@ input {
 aside.sidebar {
     @apply text-gray-800;
     align-items: flex-start;
+
     section {
         @apply mt-3;
         &:first-child {
@@ -179,6 +188,26 @@ aside.sidebar {
 
     &:empty {
         display: none;
+    }
+}
+
+label {
+    @apply block text-gray-600 text-xl mt-3;
+}
+
+li.page-list-element, a.page-list-element {
+    @apply text-2xl border p-2 mt-2 rounded bg-gray-200 flex;
+}
+
+.menu-item {
+    @apply block mt-4 text-teal-200 mr-4 list-none;
+
+    @media (min-width: 1024px) {
+        @apply inline-block mt-0;
+    }
+
+    &:hover {
+        @apply text-white;
     }
 }
 

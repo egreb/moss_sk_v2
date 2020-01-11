@@ -1,3 +1,3 @@
-<li class="flex justify-between mt-2 px-2 py-3 md:w-10/12 lg:w-8/12 bg-white border border-gray-400 rounded">
+<li class="text-2xl border p-2 mt-2 rounded bg-gray-200 flex">
     {{ $slot }}
 </li>
