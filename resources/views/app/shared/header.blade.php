@@ -18,7 +18,7 @@
             <ul class="flex flex-col rounded relative lg:absolute hidden submenu">
                 @foreach($results as $res)
                     @if(!$res->tournaments->isEmpty())
-                        <li class="menu-item lg:absolute toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full lg:mr-0">
+                        <li class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full lg:mr-0">
                             <div class="flex items-center w-full justify-end lg:justify-center pr-2 lg:pr-0">
                                 <span class="text-white mr-1 lg:hidden">+</span>{{ $res->title }}
                             </div>
