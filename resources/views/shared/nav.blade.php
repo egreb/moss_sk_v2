@@ -1,5 +1,5 @@
 <header class="bg-gray-800 w-full p-6">
-    @container(['class' => 'w-full'])
+    @container(['class' => 'w-full px-2'])
     <nav class="flex items-center flex-wrap justify-between w-full">
         <a href="/" class="flex items-center flex-shrink-0 text-white mr-6">
             @include('components.header.logo')
