@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 
+body {
+    font-family: 'Muli', sans-serif;
+}
 
 .modal {
     transition: opacity 0.25s ease;
