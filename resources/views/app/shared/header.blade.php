@@ -18,13 +18,13 @@
 
         <ul class="flex flex-col rounded relative lg:absolute hidden submenu">
             <a class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full lg:mr-0"
-               href="https://www.chess.com/club/moss-schakklub">
+               href="https://www.chess.com/club/moss-schakklub" onclick="event.stopPropagation();">
                 <div class="flex items-center w-full justify-end lg:justify-center pr-2 lg:pr-0">
                     <span class="text-white mr-1 lg:hidden">+</span>Chess.com
                 </div>
             </a>
             <a class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full lg:mr-0"
-               href="https://lichess.org/team/moss-schakklub">
+               href="https://lichess.org/team/moss-schakklub" onclick="event.stopPropagation();">
                 <div class="flex items-center w-full justify-end lg:justify-center pr-2 lg:pr-0">
                     <span class="text-white mr-1 lg:hidden">+</span>Lichess.org
                 </div>
