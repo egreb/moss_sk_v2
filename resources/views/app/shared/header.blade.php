@@ -11,7 +11,26 @@
 
     @includeIf('app.shared.results-menu-item', ['results' => $results])
 
-    <section class="flex ml-auto mt-6 lg:mt-0">
+    @component('components.header.menu_item', ['route' => '#toggle-menu', 'icon' => true])
+        <div class="menu-item flex justify-end list-none lg:flex-row-reverse">
+            <span class="text-white mr-2 lg:ml-1 lg:mr-0">+</span>Online
+        </div>
+
+        <ul class="flex flex-col rounded relative lg:absolute hidden submenu">
+            <a class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full lg:mr-0">
+                <div class="flex items-center w-full justify-end lg:justify-center pr-2 lg:pr-0">
+                    <span class="text-white mr-1 lg:hidden">+</span>Chess.com
+                </div>
+            </a>
+            <a class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full lg:mr-0">
+                <div class="flex items-center w-full justify-end lg:justify-center pr-2 lg:pr-0">
+                    <span class="text-white mr-1 lg:hidden">+</span>Lichess.org
+                </div>
+            </a>
+        </ul>
+    @endcomponent
+
+    <section class="flex ml-auto mt-6 lg:mt-0 items-center">
         <a href="https://www.facebook.com/pages/category/Sports-Team/Moss-Schakklub-1543400812547928/" target="_blank">
             <svg class="text-teal-200 hover:text-white fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 20 20">
