@@ -6,7 +6,7 @@
         @if(!is_null($post->image))
             <img src="{{ $post->image->url }}" alt="{{ $post->title }}"/>
         @endif
-        <h1 class="text-3xl mb-0 mt-3">
+        <h1 class="text-3xl mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
             {{ $post->title }}
         </h1>
         <small>Oppdatert {{ $post->updated_at->format('d-m-Y h:m') }}</small>

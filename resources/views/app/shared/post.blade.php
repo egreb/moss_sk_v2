@@ -7,13 +7,9 @@
     <a href="{{ route('post', ['slug' => $post->slug]) }}">
         <h2 class="text-3xl">{{ $post->title }}</h2>
     </a>
-    <section class="text-gray-800 text-sm flex justify-between">
-        <span>Publisert av {{ $post->author_string() }}</span>
-        <span>{{ $post->updated_at->format('d-m-Y h:m') }}</span>
-    </section>
 
     @if(!is_null($post->ingress))
-        <section class="mt-3">
+        <section class="mt-1">
             <p class="text-3xl">
                 {!! parsedown($post->ingress) !!}
             </p>

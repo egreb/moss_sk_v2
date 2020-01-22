@@ -16,5 +16,15 @@
            href="http://turneringsservice.sjakklubb.no/standings.aspx?TID=Ostlandsserien201920203div-NorgesSjakkforbund">Østlandsserien
             2019 - 20 3. divisjon avd D</a>
         @endsect
+
+        @sect(['width' => 'w-10/12'])
+        <h3 class="text-gray-800 text-lg text-center">Sponsorer</h3>
+
+        <a href="https://www.norsk-tipping.no/grasrotandelen#search=983764886" class="flex justify-center mt-3">
+            <img src="/img/grasrot_liggende.png" class="block lg:hidden">
+            <img src="/img/grasrot.png" class="hidden lg:block" style="width: 150px;height: 400px;">
+        </a>
+
+        @endsect
     </div>
 </aside>

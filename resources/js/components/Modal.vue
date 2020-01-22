@@ -61,7 +61,7 @@
             close: Function
         },
         watch: {
-            show: function (oldValue, newValue) {
+            show: function () {
                 document.querySelector('body').classList.toggle('modal-active')
             }
         },
