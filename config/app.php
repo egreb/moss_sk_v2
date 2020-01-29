@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Parsedown\Providers\ParsedownServiceProvider::class,
+        Davmixcool\MetaManager\MetaServiceProvider::class,
     ],
 
     /*

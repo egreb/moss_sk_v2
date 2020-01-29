@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="nb">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    @include('meta::manager', [
+        'title'         => isset($ogTitle) ? sprintf("%s - Moss Schakklub", $ogTitle) : 'Moss Schakklub',
+        'description'   => isset($ogDescription) ? $ogDescription : 'Velkommen til Moss Schakklub!',
+        'image'         => isset($ogImage) ? $ogImage : 'https://unsplash.com/photos/fzOITuS1DIQ',
+    ])
 
     <title>Moss Schakklub</title>
 
