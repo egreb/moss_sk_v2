@@ -13,7 +13,6 @@
     ])
 
     <title>Moss Schakklub</title>
-
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>

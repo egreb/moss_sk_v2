@@ -214,4 +214,12 @@ li.page-list-element, a.page-list-element {
     }
 }
 
+.page-title {
+    @apply text-3xl text-gray-800;
+}
+
+.page-subtitle {
+    @apply text-2xl text-gray-800;
+}
+
 @tailwind utilities;

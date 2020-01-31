@@ -25,11 +25,20 @@ class HomeController extends Controller
         $secondleader = BoardMember::Create('Torbjørn Bakke Henriksen', 'Nestleder', 'tbh@getmail.no', 40247353);
         $secretary = BoardMember::Create('Svein Rishovd', 'Sekretær', 'svein@flexipharma.no', 94816322);
         $youthleader = BoardMember::Create('Jonathan M. Andersen', 'Ungdomsleder', 'sjakkjonis@hotmail.com', 95976686);
-        $tournamentdirector = BoardMember::Create('Arnstein Johansen', 'Turneringsleder', 'arnstein.joh@gmail.com', 48095594);
+        $tournamentdirector = BoardMember::Create('Arnstein Johansen', 'Turneringsleder', 'arnstein.joh@gmail.com',
+            48095594);
         $firstvara = BoardMember::Create('Lasse Dahl', '1.vara', 'lasseda@hotmail.com', 97961957);
         $secondvara = BoardMember::Create('Håvard Gunnerud', '2.vara', 'gunneru@online.no', 91347644);
 
-        $boardmembers = [$leader, $secondleader, $secretary, $youthleader, $tournamentdirector, $firstvara, $secondvara];
+        $boardmembers = [
+            $leader,
+            $secondleader,
+            $secretary,
+            $youthleader,
+            $tournamentdirector,
+            $firstvara,
+            $secondvara
+        ];
 
         $teams = [
             ['name' => 'Lag 1', 'leader' => 'Svein Rishovd', 'phone' => 94816322],
@@ -49,5 +58,10 @@ class HomeController extends Controller
         }
 
         return view('app.schedule', ['active_schedule' => $schedule]);
+    }
+
+    public function rules()
+    {
+        return view('app.rules');
     }
 }
