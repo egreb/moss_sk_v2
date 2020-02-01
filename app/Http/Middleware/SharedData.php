@@ -12,8 +12,8 @@ class SharedData
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -21,9 +21,15 @@ class SharedData
         $results = TournamentYear::with('tournaments')->get();
         $schedule = Schedule::where('active', true)->first();
         $event = !is_null($schedule) ? $schedule->nextEvent() : null;
+        $about_club_header_routes = [
+            'Klubbinformasjon' => route('about'),
+            'Vedtekter' => route('laws'),
+            'Regler' => route('rules')
+        ];
 
         View::share('results', $results);
         View::share('event', $event);
+        View::share('about_routes', $about_club_header_routes);
 
         return $next($request);
     }

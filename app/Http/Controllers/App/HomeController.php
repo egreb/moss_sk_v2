@@ -64,4 +64,9 @@ class HomeController extends Controller
     {
         return view('app.rules');
     }
+
+    public function laws()
+    {
+        return view('app.laws');
+    }
 }

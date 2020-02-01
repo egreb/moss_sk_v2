@@ -72,6 +72,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'App\HomeController@index')->name('home');
     Route::get('about', 'App\HomeController@about')->name('about');
     Route::get('rules', 'App\HomeController@rules')->name('rules');
+    Route::get('laws', 'App\HomeController@laws')->name('laws');
     Route::get('schedule', 'App\HomeController@schedule')->name('schedule');
     Route::get('{slug}', 'PostController@get')->name('post');
 });

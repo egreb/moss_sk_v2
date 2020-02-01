@@ -2,190 +2,100 @@
 
 @section('content')
     @page
-    <h1 class="page-title">Vedtekter</h1>
+    <h1 class="page-title">Regler</h1>
 
-    <h2 class="page-subtitle mt-3">§ 1 Formål/Bakgrunn</h2>
-
-    <p class="p-1">
-        Moss Schakklub er en sammenslutning av Arbeidernes Sjakk-klub 1933 og Moss Schakklub.
-        Klubbens formål er å utbre interessen for sjakk samt å opprettholde et samlingsted for sjakkinteresserte.
+    <h2 class="page-subtitle mt-3">§ 1 Regelverk</h2>
+    <p>Moss Schakklub spiller etter FIDEs regler for sjakk slik de er oversatt av NSF: <a
+            href="http://www.sjakk.no/lover-og-reglementer/sjakkreglene/">http://www.sjakk.no/lover-og-reglementer/sjakkreglene/</a>
     </p>
 
-    <h2 class="page-subtitle mt-3">§ 2 Medlemskap</h2>
-    <p class="p-1 mb-2">
-        Moss Schakklub er tilsluttet Norges Sjakkforbund gjennom Østfold sjakkrets.
-        <br/><br/>
-        Klubben er i prinsippet åpen for alle interesserte, såfremt ikke vedkommende på grunn av opptreden eller
-        handlemåte antas å komme til å skade klubben, miljøet eller klubbens omdømme. Styret kan avslå søknaden om
-        medlemskap hvis forpliktelser til annen klubb tilsluttet Norges Sjakkforbund ikke er oppfylt.
-        <br/><br/>
-        Klubbkveldene er i prinsippet åpne for både medlemmer og andre sjakkinteresserte, men det kreves medlemskap for
-        deltagelse i følgende turneringer: KM langsjakk, KM lynsjakk, KM hurtigsjakk og høstmesterskapet.
-    </p>
-    <p class="p-1 mb-2">
-        <b>For deltagelse i ratede turneringer følges også NSFs krav til medlemskap.</b>
-    </p>
+    <p>Fra FIDE-reglene gjøres det her unntak for mobilreglene i § 6, og presisering i forhold til fremmøtetidspunkter i
+        § 4.</p>
 
-    <h2 class="page-subtitle mt-3">§ 3 Medlemskontingent</h2>
+    <h2 class="page-subtitle mt-3">§ 2 Turneringsform</h2>
 
-    <p class="p-1 mb-2">Medlemskontingentens størrelse blir fastsatt av generalforsamlingen. Kontingenten betales til
-        klubbens
-        driftskonto etter anvisning fra kasserer. <br/>
-        Æresmedlemmer i klubben skal ha fri kontingent. Trygdede og streikende
-        medlemmer kan søke om nedsettelse av, eventuelt fritakelse av kontingent. Betalt kontingent gir adgang til
-        klubbens lokaler og til deltagelse i turneringer.</p>
+    <p>Styret bestemmer turneringsform, klasseinndeling, betenkningstid, kvalitetsberegning og premiering i henhold til
+        det som til enhver tid anses best for klubbens medlemmer. Det bør arrangeres klubbmesterskap i lynsjakk,
+        hurtigsjakk og langsjakk årlig.</p>
 
-    <h2 class="page-subtitle mt-3">§ 4 Avsluttet medlemskap</h2>
+    <h2 class="page-subtitle mt-3">§ 3 Regelbrudd</h2>
 
-    <p class="p-1 mb-2">Ethvert medlem som ikke har betalt kontingent for inneværende år, eller på annen måte skylder
-        penger, kan strykes
-        som medlem. Vedkommende skal imidlertid varsles om dette 2 - to uker før strykning finner sted. Medlemskapet
-        kan, etter styrebehandling, gjenopprettes når de økonomiske forpliktelser igjen er oppfylt.</p>
+    <p class="p-1 mb-2">Ved brudd på spillereglene skal turneringsleder tilkalles og treffe en avgjørelse basert på
+        gjeldende regler.</p>
 
-    <p class="p-1 mb-2">Et medlem hvis opptreden eller handle måte skader klubben, kan likeledes suspenderes - eventuelt
-        ekskluderes.
-        Styrets avgjørelse om dette kan innankes for generalforsamlingen. Avgjørelsen i strid med styrets vedtak må her
-        fattes med alminnelig flertall.</p>
+    <p class="p-1 mb-2">Turneringsleders avgjørelse kan innklages til en turneringskomité bestående av leder, nestleder
+        og turneringsleder. Dersom en av disse er inhabil, eller av andre grunner ikke bør behandle saken, utnevner
+        styret en erstatter. Klage skal meddeles komitéen innen 48 timer etter partislutt, og skal leveres skriftlig
+        innen 1 uke fra partislutt.</p>
 
-    <h2 class="page-subtitle mt-3">§ 5 Generalforsamling</h2>
+    <h2 class="page-subtitle mt-3">§ 4 Fremmøte</h2>
 
-    <p class="p-1 mb-2">
-        Ordinær generalforsamling holdes i januar, og innkalles av styret med 14 - fjorten dagers varsel. <br/>
-        Saksliste, årsberetning, innkomne forslag og revidert årsregnskap samt valgkomiteens innstilling legges
-        tilgjengelig for klubbens medlemmer i klubbens lokale på generalforsamlingen eller tilgjengeliggjøres/fremvises
-        på annen måte. Forslag som ønskes behandlet på generalforsamlingen må være styret i hende senest 1 - en uke før
-        møtet.<br/>
-        Etter denne tid kan bare et forslag behandles dersom 2/3 av de fremmøtte medlemmer vedtar dette.<br/>
-        Klubbens nedre stemmerettsalder er 14 år. Unntatt fra dette er, klubbens bimedlemmer som kun har forslagsrett.
-    </p>
+    <p class="p-1 mb-2">I de fleste turneringer i Moss Schakklub settes rundene opp på spilledagen. Spillere som ikke er
+        tilstede ved oppsett av runden får ikke spille, med mindre turneringsleder er informert om deltagelse på
+        forhånd. Turneringsleder kan sette tidligere tidspunkter for oppmøte dersom dette opplyses på forhånd.</p>
+    <p class="p-1 mb-2">I turneringer hvor runden er satt opp på forhånd starter klokkene ved oppsatt starttidspunkt.
+        Dersom en av spillerne ikke møter innen 30 min. etter oppsatt starttidspunkt dømmes vedkommende til tap, med
+        mindre turneringsleder er informert om forsinkelsen på forhånd.</p>
 
-    <p class="p-1 mb-2">Generalforsamlingen er klubbens høyeste myndighet.</p>
 
-    <h2 class="page-subtitle mt-3">§ 6 Ekstraordinær generalforsamling</h2>
 
-    <p class="p-1 mb-2">Ekstraordinær generalforsamling kan sammenkalles med 8 - åtte dagers varsel, hvis styret finner
-        det nødvendig,
-        eller dersom ¼ av de stemmeberettigede medlemmer skriftlig forlanger det.</p>
+    <h2 class="page-subtitle mt-3">§ 5 Utsatte partier</h2>
+    <p class="p-1 mb-2">Enkelte turneringer gjennomføres med mulighet for å utsette partier. For å utsette et parti skal
+        motstander informeres så tidlig som mulig, senest kl. 16.00 på spilledagen. Turneringsleder skal også
+        informeres.</p>
 
-    <h2 class="page-subtitle mt-3">§ 7 Beslutningsdyktig generalforsamling</h2>
+    <p class="p-1 mb-2">Utsatte partier bør spilles så raskt som mulig, helst på første mulige avsatte dag for utsatte
+        partier. Det er spillernes eget ansvar å få gjennomført partiene. Partier kan også spilles på forhånd av oppsatt
+        dato. Hvis ikke turneringsleder har oppsatt en annen frist må partier være gjennomført før siste runde.</p>
 
-    <p class="p-1 mb-2">
-        Enhver lovlig innkalt generalforsamling er beslutningsdyktig med de stemmeberettigede medlemmer som er tilstede.
-    </p>
+    <p class="p-1 mb-2">Partier som ikke blir spilt dømmes som tap for begge spillere, med mindre turneringsleder finner
+        at en av spillerne har gjort tilstrekkelig innsats for å få gjennomført partiet. Vedkommende skal i så fall
+        idømmes seier på WO. Ved forfall i siste runde dømmes seier på WO til den fremmøtte spiller.</p>
 
-    <h2 class="page-subtitle mt-3">§ 8 Valg</h2>
-    <p class="p-1 mb-2">
-        På ordinær generalforsamling foretas alle valg. Ved stemmelikhet foretas omvalg. Bare stemmeberettigede
-        medlemmer er valgbare og pliktige til å motta valg. Styrets medlemmer kan frasi seg gjenvalg for 1 - ett-år.
-        <br/>
-        Klubbens styre skal bestå av 6 - seks medlemmer: Leder, nestleder, kasserer, sekretær, turneringsleder og
-        ungdomsleder. Til styret velges 2-to varamenn. <br/>
-        Foruten styret skal det på generalforsamlingen velges: 1 - en revisor med 1 - en varamann, valgkomite på 2 - to
-        medlemmer. Det tredje medlemmet utpekes av det kommende styret. Representanter til Krets- og Forbundstinget
-        utpekes av det kommende styret.
-    </p>
+    <h2 class="page-subtitle mt-3">§ 6 Mobiltelefon</h2>
 
-    <h2 class="page-subtitle mt-3"></h2>
+    <p class="p-1 mb-2">Med mindre annet er opplyst av turneringsleder skal mobiltelefoner være fullstendig avslått når
+        det spilles langsjakk, mens den i turneringer i lyn- og hurtigsjakk minimum skal være lydløs. Gir telefonen lyd
+        dømmes spilleren til tap.</p>
 
-    <p class="p-1 mb-2">På ordinær generalforsamling skal følgende årsberetning leses opp:</p>
+    <p class="p-1 mb-2">Dersom en spiller har behov for mobilbruk i strid med dette må dette godkjennes av
+        turneringsleder før partistart.</p>
 
-    <ol>
-        <li>a) Styrets beretning ved sekretær.</li>
-        <li>b) Turneringsleders beretning om klubbens sjakkaktiviteter.</li>
-        <li>c) Kasserers beretning om klubbens finansielle stilling og materielle eiendeler.</li>
-        <li>d) Ungdomsleders beretning om barn-og ungdomsjakken i klubbens regi.</li>
-        <li>e) Valgkomiteens innstilling.</li>
-    </ol>
+    <p class="p-1 mb-2">Moss Schakklub fraviker med dette FIDEs totalforbud mot mobil i spillelokalet. Turneringsleder
+        kan stille strengere eller mildere krav dersom dette opplyses før partistart.</p>
 
-    <h2 class="page-subtitle mt-3">§ 10 Voteringer</h2>
+    <h2 class="page-subtitle mt-3">§ 7 Premieklasser</h2>
 
-    <p class="p-1 mb-2">Alle saker som behandles på generalforsamlingen med unntak av vedtektsendringer, avgjøres ved
-        alminnelig
-        flertall. Ved stemmelikhet er lederens stemme utslagsgivende.</p>
+    <p class="p-1 mb-2">For turneringer hvor alle spiller i samme gruppe, men skal premieres i ulike klasser, benyttes i
+        utgangspunktet følgende ratingklasser: Mester (1800+), A (1400-1799) og B (Under 1400). Aktuell FIDE-rating
+        (lyn/hurtig/lang) ved turneringens start legges til grunn. For klubbmesterskapet i langsjakk følger annen
+        klasseinndeling. Dersom en spiller ikke har aktuell rating plasseres vedkommende av turneringsleder med
+        utgangspunkt i spillerens andre ratingtall eller kjente prestasjoner.</p>
 
-    <h2 class="page-subtitle mt-3">§ 11 Styremøter</h2>
+    <p class="p-1 mb-2">Styret bestemmer hvilke turneringer som skal premieres og antall premier i hver klasse. Styret
+        står fritt til å benytte andre premieklasser dersom spesielle forhold (f.eks. høyt eller lavt deltagerantall)
+        tilsier at en annen klasseinndeling er bedre egnet.</p>
 
-    <p class="p-1 mb-2">
-        Styret ivaretar klubbens interesser i overenstemmelse med klubbens lover og generalforsamlingens vedtak.
-        Styremøte avholdes:
-    </p>
+    <h2 class="page-subtitle mt-3">§ 8 Klubbmesterskapet</h2>
 
-    <p class="p-1 mb-2">
-        1) Når leder forlanger det.
-        2) Når to av styremedlemmene forlanger det.
-    </p>
+    <p class="p-1 mb-2">Klubbmesterskapet i langsjakk arrangeres årlig. Styret bestemmer turneringsform. Dersom det
+        spilles i adskilte grupper benyttes følgende regler for opprykk og klasseinndeling:</p>
+    <ul>
+        <li>- De to best plasserte i hver klasse rykker opp.</li>
+        <li>- Kvalifisert for en klasse er også de tre første fra forrige års klubbmesterskap.</li>
+        <li>- Øvrige plasser besettes etter aktuell ratingliste ved starttidspunktet.</li>
+        <li>- Spillere uten rating plasseres av turneringsleder. Dersom særlige grunner tilsier det kan turneringsleder
+            gi en spiller tillatelse til å delta i en annen klasse enn det ratingen tilsier.
+        </li>
+    </ul>
 
-    <p class="p-1 mb-2">
-        Styret er beslutningsdyktig når minst halvparten av dets medlemmer er tilstede. Beslutninger fattes med
-        alminnelig flertall - ved stemmelikhet er lederens stemme utslagsgivende. Styrets medlemmer har taushetsplikt.
-    </p>
+    <h2 class="page-subtitle mt-3">§ 9 Poenglikhet</h2>
 
-    <h2 class="page-subtitle mt-3">§ 12 Styrets oppgaver</h2>
+    <p class="p-1 mb-2">Ved poenglikhet mellom spillere benyttes turneringens kvalitetsberegning for å rangere spillerne
+        og kåre en vinner.</p>
 
-    <p class="p-1 mb-2">Styret handler på vegne av Moss Schakklub og klubbens medlemmer. Styremedlemmene fordeler
-        arbeidet ut i fra hva
-        som faller naturlig til hvert enkelt verv og arbeidsfordelinger internt i styret.</p>
-
-    <h2 class="page-subtitle mt-3">§ 13 Bankkontoer</h2>
-
-    Klubben skal ha 2-to adskilte bankkontoer.
-
-    <p class="p-1 mb-2"><b>Driftskonto:</b></p>
-
-    <p class="p-1 mb-2">
-        Kontoen som kasserer bruker til å betale regninger fra. Penger som er stilet til klubben blir
-        plassert her. Kasseres underskrift er oppbevart i banken.
-        Nyvalgt kasserer eller andre som styret bemyndiger til å kunne bruke denne konto, må levere fullmakt og
-        prøveunderskrift til banken.
-    </p>
-
-    <p class="p-1 mb-2"><b>Høyrentekonto og Reidar Bergs Fond:</b></p>
-
-    <p class="p-1 mb-2">
-        Dette er klubbens sparekonto. Kapitalen skal brukes ved større investeringer, større
-        årsunderskudd o.l. og krever skriftlig fullmakt av leder og kasserer.
-        Reidar Bergs gavefond er lagt inn i klubbens høyrente konto.
-        Dette fondet har et grunnbeløp på kr 10,000,- som kun skal benyttes i nødsfall Kfr. statutter,
-        og krever årsmøtets/generalforsamlingens godkjenning og fullmakt.
-        Kasserer er ansvarlig for at underskriftene til det nye styrets leder og kasserer er levert til
-        klubbens bankforbindelse.
-    </p>
-
-    <h2 class="page-subtitle mt-3">§ 14 Utmeldelser</h2>
-
-    <p class="p-1 mb-2">Utmeldelser av klubben må meldes til styret. Et utmeldt eller strøket medlem hefter fremdeles
-        for enhver gjeld
-        til klubben.</p>
-
-    <h2 class="page-subtitle mt-3">§ 15 Vedtektsendring</h2>
-
-    <p class="p-1 mb-2">Forandring av vedtekter kan kun skje på generalforsamling. Det krever 2/3 flertall.</p>
-
-    <h2 class="page-subtitle mt-3">§ 16 Oppløsning</h2>
-
-    <p class="p-1 mb-2">
-        Moss Schakklub kan ikke oppløses hvis minst 6-seks-medlemmer vil opprettholde den.
-        I tilfelle oppløsning tilfaller klubbens eiendeler og formue Østfold Sjakkrets, mot at denne
-        ivaretar materialer og midler på en slik måte at dette kan komme til nytte ved en
-        gjenopptagelse av klubben.
-    </p>
-
-    <h2 class="page-subtitle mt-3">§ 17 Turneringsreglement</h2>
-
-    <p class="p-1 mb-2">
-        Turneringsreglementet av 2019, utarbeidet med fullmakt fra generalforsamlingen 2019, gjelder som en del av disse
-        lover.
-    </p>
-
-    <p class="p-1 mb-2">
-        <b>
-            Disse vedtekter er vedtatt på klubbens generalforsamling den 5.mai 1975 og avløser i sin helhet vedtektene
-            av
-            6.mai 1969. Vedtektene er revidert på generalforsamling den 10.mai 1982, 20.mai 1987, 19.mai 1995, 30. mai
-            2002,
-            27. mai 2004, 26.mai 2005, 18.mai 2006, 25.januar 2007, 5.november 2009, 4.februar 2016, 2.februar 2017,
-            8.februar 2018, 31.januar 2019 og 16.januar 2020.
-        </b>
-    </p>
+    <p class="p-1 mb-2">Det spilles kun stikkamp dersom spillerne i kampen om en klubbmestertittel ikke kan skilles med
+        turneringens kvalitetsberegning. I en slik situasjon bestemmer turneringsleder gjennomføringsmåte og
+        betenkningstid for stikkampen.</p>
     @endpage
 @endsection
