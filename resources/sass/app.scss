@@ -219,7 +219,7 @@ li.page-list-element, a.page-list-element {
 }
 
 .page-subtitle {
-    @apply text-2xl text-gray-800;
+    @apply text-2xl text-gray-800 mt-5;
 }
 
 @tailwind utilities;

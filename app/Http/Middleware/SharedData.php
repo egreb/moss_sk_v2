@@ -24,7 +24,8 @@ class SharedData
         $about_club_header_routes = [
             'Klubbinformasjon' => route('about'),
             'Vedtekter' => route('laws'),
-            'Regler' => route('rules')
+            'Regler' => route('rules'),
+            'Æresmedlemmer' => route('honored')
         ];
 
         View::share('results', $results);

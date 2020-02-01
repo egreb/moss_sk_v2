@@ -69,4 +69,9 @@ class HomeController extends Controller
     {
         return view('app.laws');
     }
+
+    public function honored()
+    {
+        return view('app.honorary_members');
+    }
 }
