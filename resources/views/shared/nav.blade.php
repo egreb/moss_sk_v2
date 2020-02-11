@@ -1,4 +1,4 @@
-<header class="bg-gray-800 w-full p-6">
+<header class="bg-gray-800 w-full p-6 absolute top-0">
     @container(['class' => 'w-full px-2'])
     <nav class="flex items-center flex-wrap justify-between w-full">
         <a href="/" class="flex items-center flex-shrink-0 text-white mr-6">

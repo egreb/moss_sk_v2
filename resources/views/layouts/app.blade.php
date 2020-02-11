@@ -17,22 +17,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-gray-200">
-<div class="min-h-screen relative">
+<body class="bg-gray-200 relative">
+<main class="min-h-screen pt-20">
     @include('app.shared.header')
 
     @container(['class' => 'mt-4 flex-col lg:flex-row'])
-    <main class="w-full justify-center mb-3 lg:pb-40 {{ isset($width) ? $width : 'lg:w-8/12' }}">
+    <article class="w-full justify-center mb-3 lg:pb-40 {{ isset($width) ? $width : 'lg:w-8/12' }}">
         @yield('content')
-    </main>
+    </article>
     @if (!isset($sidebar) || $sidebar)
         @include('app.shared.sidebar')
     @endif
     @endcontainer
-
-    @include('app.shared.footer')
-</div>
-
+</main>
+@include('app.shared.footer')
 <script src="{{ asset('js/main.js')}}"></script>
 </body>
 </html>

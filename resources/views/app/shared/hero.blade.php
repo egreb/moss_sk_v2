@@ -1,6 +1,6 @@
 @sect(['customClasses' => 'mb-3 shadow'])
 <div class="px-0 sm:px-4 py-4 sm:flex">
-    <div class="w-4/4 sm:w-3/4">
+    <div class="w-4/4">
         <h1 class="text-2xl sm:text-3xl border-b text-center sm:text-left">Velkommen til Moss Schakklub</h1>
         <p class="mt-1 text-justify sm:text-left">
             I Moss Schakklub har vi åpent for alle som vil spille sjakk. <br/>
@@ -14,11 +14,6 @@
         <p class="text-center"><strong>Vi har åpent fra kl. 18:00 - 23:00 hver torsdag.</strong></p>
 
         @include('app.shared.event', ['class' => 'flex lg:hidden shadow px-6 py-2 bg-gray-200 rounded mt-3'])
-    </div>
-
-    <div class="hidden sm:w-1/4 sm:flex sm:ml-4 items-center justify-center">
-        <img
-            src="https://images.unsplash.com/photo-1545927088-dab09318f32e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80">
     </div>
 </div>
 @endsect
