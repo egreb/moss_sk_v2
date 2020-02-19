@@ -12,7 +12,7 @@ class TournamentController extends Controller
     {
         $results = Tournament::all();
 
-        return view('admin.tournament.index', ['results' => $results, 'title' => 'Resultater']);
+        return view('admin.tournament.index', ['results' => $results]);
     }
 
     public function create()

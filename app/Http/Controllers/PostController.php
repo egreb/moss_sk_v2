@@ -29,7 +29,7 @@ class PostController extends Controller
                 'post' => $post,
                 'event' => $event,
                 'ogTitle' => $post->title,
-                'ogDescription' => $ogDescription,
+                'ogDescription' => strip_tags($ogDescription),
                 'ogImage' => !is_null($post->image) ? $post->image->url : null
             ]);
     }

@@ -13,7 +13,7 @@
                 @csrf
                 <ul class="flex flex-col">
                     @foreach($schedules as $schedule)
-                        <li class="text-2xl border p-2 mt-2 rounded bg-gray-200 flex">
+                        <li class="text-2xl border-b p-2 mt-2 rounded flex">
                             <div class="w-3/4">
                                 <a href="{{ route('admin.schedule.edit', ['id' => $schedule->id ]) }}">{{ $schedule->title }}</a>
                             </div>

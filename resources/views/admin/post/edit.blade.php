@@ -25,7 +25,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                 Innhold
             </label>
-            <markdown-area name="content" value="{{ $post->content }}" :upload-image="true"></markdown-area>
+            <markdown-area name="body" value="{{ $post->content }}" :upload-image="true"></markdown-area>
         </div>
 
         <div class="mb-6">

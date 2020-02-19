@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Auth;
 use App\Post;
 use App\Services\Slug;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ImageRepository;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -21,13 +23,14 @@ class PostController extends Controller
         $this->slug_generator = new Slug();
         $this->imageRepo = $imageRepo;
     }
+
     /**
      * Display a listing of the resource.
      *
      */
     public function index()
     {
-        $posts = Post::all()->sortByDesc('updated_at');
+        $posts = Post::all()->sortByDesc('created_at');
 
         return view('admin.post.index', ['posts' => $posts]);
     }
@@ -35,7 +38,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
@@ -44,12 +47,15 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param  $request Request
+     * @return View
+     * @throws \Exception
      */
     public function store(Request $request)
     {
         $image = null;
 
-        if ($request->has('delete_image')){
+        if ($request->has('delete_image')) {
             return view('admin.post.create', ['image' => $image]);
         }
 
@@ -70,13 +76,15 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $this->slug_generator->createSlug($request->title);
         $post->ingress = $request->ingress;
-        $post->content = $request->content;
+        $post->content = $request->body;
         $post->draft = $request->has('draft') ? false : true;
 
         if (!is_null($image)) {
             $post->image_id = $image->id;
-        } else if(!empty($request->image_id)) {
-            $post->image_id = $request->image_id;
+        } else {
+            if (!empty($request->image_id)) {
+                $post->image_id = $request->image_id;
+            }
         }
         $post->save();
         $post->authors()->sync([Auth::id()]);
@@ -87,7 +95,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param \App\Post $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -98,8 +106,9 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param string $id
+     * @return RedirectResponse
+     * @return View
      */
     public function edit(string $id)
     {
@@ -114,9 +123,10 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param string $id
+     * @return RedirectResponse
+     * @throws \Exception
      */
     public function update(Request $request, string $id)
     {
@@ -151,7 +161,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $this->slug_generator->createSlug($post->title, $id);
         $post->ingress = $request->ingress;
-        $post->content = $request->content;
+        $post->content = $request->body;
         $post->draft = $request->has('draft') ? false : true;
         $post->touch(); // update timestamp
         $post->save();
@@ -163,10 +173,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  string $id
-     * @return \Illuminate\Http\Response
+     * @param string $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request, string $id)
+    public function destroy(string $id)
     {
         $post = Post::find($id);
 

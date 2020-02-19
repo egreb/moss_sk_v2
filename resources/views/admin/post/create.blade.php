@@ -30,7 +30,7 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                     Innhold
                 </label>
-                <markdown-area name="content" :upload-image="true"></markdown-area>
+                <markdown-area name="body" :upload-image="true"></markdown-area>
             </div>
         </div>
 
