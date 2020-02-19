@@ -18,7 +18,7 @@
 
 @include('admin.shared.header')
 
-<main class="flex" id="admin">
+<main class="flex pt-20" id="admin">
     @include('components.admin.sidebar')
 
     <section class="w-full sm:w-9/12 m-1 min-h-full pb-32 flex justify-center">
