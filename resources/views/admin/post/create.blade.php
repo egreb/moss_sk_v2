@@ -7,9 +7,11 @@
           action="{{ route('admin.post.store') }}" enctype="multipart/form-data">
         @csrf
 
-        @include('admin.post.shared.image', ['image' => isset($post) ? $post->image : isset($image) ? $image : null])
-
-        <input type="hidden" name="image_id" value="{{ isset($image) ? $image->id : '' }}">
+        <post-image post-id="{{ isset($post) ? $post->id : null }}"
+                    image-id="{{ isset($post) && !is_null($post->image) ? $post->image->id : null }}"
+                    image-name="{{ isset($post) && !is_null($post->image) ? $post->image->name : null }}"
+                    image-url="{{ isset($post) && !is_null($post->image) ? $post->image->url() : null }}"
+                    image-srcset="{{ isset($post) && !is_null($post->image) ? $post->image->srcset() : null }}"></post-image>
 
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="title">

@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
         Route::post('/', 'Admin\PostController@store')->name('store');
         Route::post('store', 'Admin\PostController@store')->name('store');
+        Route::delete('{id}/image/delete', 'Admin\PostController@deleteImage')->name('post.delete.image');
+        Route::post('{id}/image/upload', 'Admin\PostController@uploadImage')->name('post.upload.image');
         Route::post('{id}', 'Admin\PostController@update')->name('update');
         Route::delete('{id}', 'Admin\PostController@destroy')->name('delete');
     });

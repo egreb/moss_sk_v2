@@ -14,9 +14,19 @@ class Image extends Model
         'public_id'
     ];
 
-    public function path($size = 'large')
+    public function url($size = 'large')
     {
-        $imageRepo = new ImageRepository();
-        return $imageRepo->getPath($size, $this->name);
+        return '/img/uploads/' . $size . '/' . $this->name;
+    }
+
+    public function srcset(): string
+    {
+        $srcset = [];
+
+        foreach (['small' => 480, 'medium' => 720, 'large' => 980] as $size => $width) {
+            $srcset[] = '/img/uploads/' . $size . '/' . $this->name . ' ' . $width . 'w';
+        }
+
+        return implode(',', $srcset);
     }
 }

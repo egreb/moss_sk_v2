@@ -3,48 +3,59 @@
 namespace App\Repositories;
 
 // TODO: Create BaseRepository for caching stuff.
-use App\Image;
+use App\Image as ImageModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
-use App\Image as ImageModel;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ImageRepository
 {
-	public function __construct()
-	{
-		$this->user_id = Auth::id();
-	}
+    private $sizes = ['small', 'medium', 'large'];
 
-	public function store(Request $request, $name = 'image')
-	{
-		$file = $request->file($name);
-		$fileName = time() . '.' . $file->getClientOriginalExtension();
+    public function __construct()
+    {
+        $this->user_id = Auth::id();
+    }
 
-		\Cloudinary::config(config('cloudinary'));
-		$resp = \Cloudinary\Uploader::upload($file->getRealPath(), array("responsive_breakpoints" => array(
-			"create_derived" => true, "bytes_step" => 20000, "min_width" => 200, "max_width" => 1000,
-			"transformation" => array("crop" => "fill", "aspect_ratio" => "16:9", "gravity" => "auto")
-		)));
+    public function store(Request $request, $name = 'image')
+    {
+        $image = $request->file($name);
+        $filename = time() . '.' . $image->getClientOriginalExtension();
 
-		$imageModel = ImageModel::create([
-			'name' => $fileName,
-			'url' => $resp['url'],
-			'public_id' => $resp['public_id']
-		]);
+        $image->move(public_path() . '/img/uploads/full/', $filename);
 
-		return $imageModel;
-	}
+        $imageSizes = [
+            'small' => 480,
+            'medium' => 720,
+            'large' => 960
+        ];
 
-	public function get($limit = 10, $offset = 0): Collection
+        foreach ($imageSizes as $size => $width) {
+            $img = Image::make(public_path() . '/img/uploads/full/' . $filename)->resize($width, null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+
+            $img->save('img/uploads/' . $size . '/' . $filename);
+        }
+
+        $imageModel = ImageModel::create([
+            'name' => $filename,
+        ]);
+
+        return $imageModel;
+    }
+
+    public function get($limit = 10, $offset = 0): Collection
     {
         return DB::table('images')->offset($offset)->limit($limit)->get();
     }
 
-	public function getPath($size, $filename)
-	{
-		return $this->path[$size] . '/' . $filename;
-	}
+    public function getPath($size, $filename)
+    {
+        return $this->path[$size] . '/' . $filename;
+    }
 }

@@ -1,8 +1,16 @@
 @tailwind base;
 @tailwind components;
 
+@import 'post';
+
 body {
-    font-family: 'Muli', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+p {
+    font-family: 'Roboto Regular', sans-serif;
 }
 
 .modal {

@@ -22,7 +22,12 @@ class ImageController extends Controller
         }
         $image = $this->imageRepo->store($request);
         $data = [
-            'data' => ['filePath' => $image->url]
+            'data' => [
+                'filePath' => $image->url('small'),
+                'id' => $image->id,
+                'url' => $image->url(),
+                'srcset' => $image->srcset()
+            ]
         ];
         return response()->json($data);
     }

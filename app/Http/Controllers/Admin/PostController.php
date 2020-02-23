@@ -53,39 +53,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $image = null;
-
-        if ($request->has('delete_image')) {
-            return view('admin.post.create', ['image' => $image]);
-        }
-
-        if ($request->has('main_image')) {
-            $image = $this->imageRepo->store($request, 'main-image');
-
-            if (empty($request->title)) {
-                return view('admin.post.create', ['image' => $image]);
-            }
-        }
-
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'content' => 'required',
+            'body' => 'required',
         ]);
-
+        
         $post = new Post();
         $post->title = $request->title;
         $post->slug = $this->slug_generator->createSlug($request->title);
         $post->ingress = $request->ingress;
         $post->content = $request->body;
         $post->draft = $request->has('draft') ? false : true;
+        $post->image_id = $request->image_id;
 
-        if (!is_null($image)) {
-            $post->image_id = $image->id;
-        } else {
-            if (!empty($request->image_id)) {
-                $post->image_id = $request->image_id;
-            }
-        }
         $post->save();
         $post->authors()->sync([Auth::id()]);
 
@@ -112,7 +92,7 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        $post = Post::find($id);
+        $post = Post::with('image')->find($id);
         if (is_null($post)) {
             return redirect()->route('admin.post.index');
         }
@@ -135,34 +115,17 @@ class PostController extends Controller
             abort(404);
         }
 
-        if ($request->has('delete_image')) {
-            if (!is_null($post->image)) {
-                $post->image()->delete();
-            }
-
-            return back()->with('post', $post);
-        }
-
-
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'content' => 'required',
+            'body' => 'required',
         ]);
-
-        if ($request->has('main_image')) {
-            $image = $this->imageRepo->store($request, 'main_image');
-            if (!is_null($image)) {
-                $post->image_id = $image->id;
-                $post->save();
-            }
-            return back()->with('post', $post);
-        }
 
         $post->title = $request->title;
         $post->slug = $this->slug_generator->createSlug($post->title, $id);
         $post->ingress = $request->ingress;
         $post->content = $request->body;
         $post->draft = $request->has('draft') ? false : true;
+        $post->image_id = $request->image_id;
         $post->touch(); // update timestamp
         $post->save();
         $post->authors()->syncWithoutDetaching([Auth::id()]);
@@ -186,5 +149,48 @@ class PostController extends Controller
 
         $post->delete();
         return redirect()->route('admin.post.index');
+    }
+
+    public function deleteImage(string $id)
+    {
+        $post = Post::find($id);
+        if (is_null($post)) {
+            return response('not found', 404);
+        }
+
+        $post->image_id = null;
+
+        $ok = $post->saveOrFail();
+        if ($ok) {
+            return response('ok', 200);
+        }
+
+        return response('something went wrong saving post', 500);
+    }
+
+    public function uploadImage(Request $request, string $id)
+    {
+        $all = $request->all();
+        $files = $request->allFiles();
+        $post = Post::find($id);
+        if (is_null($post)) {
+            return response('post not found', 404);
+        }
+
+        if ($request->has('image')) {
+            $image = $this->imageRepo->store($request, 'image');
+
+            if (!is_null($image)) {
+                return response()->json([
+                    'id' => $image->id,
+                    'url' => $image->url(),
+                    'srcset' => $image->srcset()
+                ], 200);
+            }
+
+            return response('could not upload image', 501);
+        }
+
+        return response('need image', 402);
     }
 }
