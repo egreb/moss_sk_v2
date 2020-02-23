@@ -6,8 +6,10 @@
           action="{{ route('admin.post.update', ['id' => $post->id]) }}" enctype="multipart/form-data">
         @csrf
 
-        @include('admin.post.shared.image', ['image' => $post->image])
-
+        <post-image post-id="{{ $post->id }}" image-id="{{ !is_null($post->image) ? $post->image->id : null }}"
+                    image-name="{{ !is_null($post->image) ? $post->image->name : null }}"
+                    image-url="{{ !is_null($post->image) ? $post->image->url() : null }}"
+                    image-srcset="{{ !is_null($post->image) ? $post->image->srcset() : null }}"></post-image>
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
                 Tittel

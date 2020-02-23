@@ -1,7 +1,8 @@
 <article class="flex flex-col bg-white overflow-hidden w-full py-2 px-5 lg:px-16 mb-6 border-b">
     @if(!is_null($post->image))
         <div class="bg-red-500 pb-2/3">
-            <img class="object-cover h-64 w-full" src="{{ $post->image->url }}" alt="{{ $post->title }}">
+            <img class="object-cover w-full" src="{{ $post->image->url() }}" srcset="{{ $post->image->srcset() }}"
+                 alt="{{ $post->title }}">
         </div>
     @endif
     <a href="{{ route('post', ['slug' => $post->slug]) }}">

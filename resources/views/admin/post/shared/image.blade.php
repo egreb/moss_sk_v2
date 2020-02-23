@@ -2,7 +2,7 @@
     @if(isset($image) && !is_null($image))
         <div class="flex flex-col post-image items-center">
             <div class="w-6/12">
-                <img src="{{ $image->url }}" />
+                <img src="{{ $image->url() }}" srcset="{{ $image->srcset() }}"/>
             </div>
             <button name="delete_image" value="delete"
                     class="btn btn-danger mt-1">Slett bilde

@@ -1,0 +1,12 @@
+article.post {
+    .content, .ingress {
+        p {
+            @apply font-normal text-gray-800;
+        }
+
+        img {
+            margin: 0 auto;
+            @apply my-3;
+        }
+    }
+}
