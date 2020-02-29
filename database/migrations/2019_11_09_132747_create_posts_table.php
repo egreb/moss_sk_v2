@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('ingress')->nullable()->default(null);
-            $table->text('content');
+            $table->text('story');
             $table->boolean('draft')->default(true);
             $table->unsignedInteger('image_id')->nullable();
             $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');

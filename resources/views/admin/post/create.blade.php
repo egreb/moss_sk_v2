@@ -19,20 +19,27 @@
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="title" type="text" placeholder="Tittel" name="title">
+                id="title" type="text" placeholder="Tittel" name="title" value="{{ old('title') }}">
+
+            @error('title')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
 
         <div id="ingress">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="ingress">
                 Ingress
             </label>
-            <markdown-area name="ingress" :upload-image="false"></markdown-area>
+            <markdown-area name="ingress" :upload-image="false" value="{{ old('ingress') }}"></markdown-area>
 
             <div class="mb-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                     Innhold
                 </label>
-                <markdown-area name="body" :upload-image="true"></markdown-area>
+                @error('story')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+                <markdown-area name="story" :upload-image="true" value="{{ old('story') }}"></markdown-area>
             </div>
         </div>
 

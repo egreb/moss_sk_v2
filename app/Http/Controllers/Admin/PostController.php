@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Post as PostRequest;
 use Auth;
 use App\Post;
 use App\Services\Slug;
@@ -47,25 +48,18 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param  $request Request
-     * @return View
+     * @param  $request PostRequest
+     * @return RedirectResponse
      * @throws \Exception
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'body' => 'required',
+        $request->merge([
+            'slug' => $this->slug_generator->createSlug($request->title),
+            'draft' => $request->has('draft') ? false : true
         ]);
-        
-        $post = new Post();
-        $post->title = $request->title;
-        $post->slug = $this->slug_generator->createSlug($request->title);
-        $post->ingress = $request->ingress;
-        $post->content = $request->body;
-        $post->draft = $request->has('draft') ? false : true;
-        $post->image_id = $request->image_id;
 
+        $post = Post::create($request->except('file'));
         $post->save();
         $post->authors()->sync([Auth::id()]);
 
@@ -108,22 +102,16 @@ class PostController extends Controller
      * @return RedirectResponse
      * @throws \Exception
      */
-    public function update(Request $request, string $id)
+    public function update(PostRequest $request, string $id)
     {
         $post = Post::find($id);
         if (is_null($post)) {
             abort(404);
         }
 
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'body' => 'required',
-        ]);
-
         $post->title = $request->title;
-        $post->slug = $this->slug_generator->createSlug($post->title, $id);
         $post->ingress = $request->ingress;
-        $post->content = $request->body;
+        $post->story = $request->story;
         $post->draft = $request->has('draft') ? false : true;
         $post->image_id = $request->image_id;
         $post->touch(); // update timestamp

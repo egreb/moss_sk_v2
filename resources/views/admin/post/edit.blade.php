@@ -16,18 +16,25 @@
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="title" type="text" placeholder="Username" name="title" value="{{ $post->title }}">
+                id="title" type="text" placeholder="Username" name="title" value="{{ old('title') ?? $post->title }}">
+            @error('title')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div id="ingress">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="ingress">
                 Ingress
             </label>
-            <markdown-area name="ingress" value="{{ $post->ingress }}" :upload-image="false"></markdown-area>
+            <markdown-area name="ingress" value="{{ old('ingress') ?? $post->ingress }}"
+                           :upload-image="false"></markdown-area>
 
             <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                 Innhold
             </label>
-            <markdown-area name="body" value="{{ $post->content }}" :upload-image="true"></markdown-area>
+            @error('story')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+            <markdown-area name="story" value="{{ old('story') ?? $post->story }}" :upload-image="true"></markdown-area>
         </div>
 
         <div class="mb-6">
