@@ -7,7 +7,7 @@
             <h3 class="text-gray-800 text-lg text-center">Aktuelle lenker</h3>
             @foreach($relevant_links as $link)
                 <a class="text-base lg:text-lg text-center mt-6 lg:mt-3"
-                   href="{{ $link->url }}">
+                   href="{{ $link->url }}" target="_blank">
                     {{ $link->description }}
                 </a>
             @endforeach
