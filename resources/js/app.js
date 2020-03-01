@@ -1,6 +1,7 @@
 window.Vue = require('vue');
 Vue.component('markdown-area', require('./components/MarkdownArea').default);
 Vue.component('post-image', require('./components/PostImage').default);
+Vue.component('relevant-links', require('./components/RelevantLinks').default);
 new Vue({
     el: '#admin'
 });

@@ -64,6 +64,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::group(['prefix' => 'tournament_year', 'as' => 'tournament_year.'], function () {
         Route::post('/', 'TournamentYearController@store')->name('store');
     });
+
+    Route::group(['prefix' => 'relevant_links', 'as' => 'relevant_links.'], function () {
+        Route::get('/', 'RelevantLinksController@index')->name('index');
+        Route::post('store', 'RelevantLinksController@store')->name('store');
+        Route::delete('{id}', 'RelevantLinksController@delete')->name('delete');
+    });
 });
 
 // authentication

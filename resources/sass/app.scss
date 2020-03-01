@@ -234,4 +234,20 @@ li.page-list-element, a.page-list-element {
     @apply text-red-500 font-bold text-lg mx-1;
 }
 
+.form-control {
+    @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+
+    &:focus {
+        @apply outline-none shadow-outline;
+    }
+}
+
+ul.list {
+    @apply mt-1 flex flex-col;
+
+    &:first-child {
+        @apply mt-0;
+    }
+}
+
 @tailwind utilities;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Controllers\RelevantLinksController;
 use App\Schedule;
 use App\TournamentYear;
 use Closure;
@@ -27,11 +28,12 @@ class SharedData
             'Regler' => route('rules'),
             'Æresmedlemmer' => route('honored')
         ];
+        $relevant_links = RelevantLinksController::active();
 
         View::share('results', $results);
         View::share('event', $event);
         View::share('about_routes', $about_club_header_routes);
-
+        View::share('relevant_links', $relevant_links);
         return $next($request);
     }
 }

@@ -97,7 +97,7 @@
                             'Content-Type': 'application/json',
                             'X-CSRF-Token': csrfToken
                         }
-                    })
+                    });
 
                     if (response.status === 200) {
                         this.image = null;
