@@ -17,7 +17,7 @@ class CreateScheduleEventsTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->date('date');
-            $table->unsignedInteger('schedule_id');
+            $table->unsignedBigInteger('schedule_id');
             $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->timestamps();
         });

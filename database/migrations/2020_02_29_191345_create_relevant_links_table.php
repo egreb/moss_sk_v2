@@ -16,7 +16,7 @@ class CreateRelevantLinksTable extends Migration
         Schema::create('relevant_links', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('description');
-            $table->text('url')->unique();
+            $table->char('url', 255)->unique();
             $table->date('expires')->nullable()->default(null);
             $table->timestamps();
         });

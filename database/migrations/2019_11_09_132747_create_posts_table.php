@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreatePostsTable extends Migration
@@ -20,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->text('ingress')->nullable()->default(null);
             $table->text('story');
             $table->boolean('draft')->default(true);
-            $table->unsignedInteger('image_id')->nullable();
+            $table->unsignedBigInteger('image_id')->nullable()->unsigned();
             $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');
 
             $table->softDeletes();
