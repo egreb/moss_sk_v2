@@ -4,10 +4,10 @@
     @page()
     <article class="post">
         <header class="flex flex-col text-gray-800">
-            @if(!is_null($post->image))
-                <img src="{{ $post->image->url }}" alt="{{ $post->title }}"/>
-            @endif
-            <h1 class="text-3xl mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
+            @if($post->image)
+                <img src="{{ $post->image->url() }}" alt="{{ $post->title }}"/>
+            @endisset
+            <h1 class="text-2xl mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
                 {{ $post->title }}
             </h1>
             <small>Oppdatert {{ $post->updated_at->format('d-m-Y h:m') }}</small>

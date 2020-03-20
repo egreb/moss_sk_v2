@@ -16,8 +16,10 @@ class PostController extends Controller
             abort(404);
         }
 
-        $event = Schedule::where('active', true)->first()->nextEvent();
-
+        $event = Schedule::where('active', true)->first();
+        if (!is_null($event)) {
+            $event = $event->nextEvent();
+        }
         if (!empty($post->ingress)) {
             $ogDescription = parsedown($post->ingress);
         } else {
@@ -30,7 +32,7 @@ class PostController extends Controller
                 'event' => $event,
                 'ogTitle' => $post->title,
                 'ogDescription' => strip_tags($ogDescription),
-                'ogImage' => !is_null($post->image) ? $post->image->url : null
+                'ogImage' => $post->image ? $post->image->url() : null
             ]);
     }
 }
