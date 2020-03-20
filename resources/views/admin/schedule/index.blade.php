@@ -5,7 +5,7 @@
         <header class="flex items-center justify-between">
             <h2 class="text-3xl">Terminlister</h2>
 
-            <a href="{{ route('admin.schedule.create') }}" class="btn btn-blue">Opprett ny</a>
+            <a href="{{ route('admin.schedule.create') }}" class="btn btn-success">Opprett ny</a>
         </header>
 
         @if(!$schedules->isEmpty())

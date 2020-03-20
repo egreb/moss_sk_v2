@@ -4,7 +4,7 @@
     <section class="p-1">
         <header class="flex items-center justify-between mb-3">
             <h1 class="text-3xl">Medlemmer</h1>
-            <a class="btn btn-blue" href="{{ route('admin.member.create') }}">Legg til</a>
+            <a class="btn btn-success" href="{{ route('admin.member.create') }}">Legg til</a>
         </header>
 
         @if(!$members->isEmpty())
