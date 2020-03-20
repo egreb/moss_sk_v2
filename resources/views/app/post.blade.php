@@ -7,10 +7,11 @@
             @if($post->image)
                 <img src="{{ $post->image->url() }}" alt="{{ $post->title }}"/>
             @endisset
-            <h1 class="text-2xl mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
+            <h1 class="text-2xl text-gray-800 mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
                 {{ $post->title }}
             </h1>
-            <small>Oppdatert {{ $post->updated_at->format('d-m-Y h:m') }}</small>
+            <p class="text-gray-700">Publisert {{ $post->updated_at->format('h:m d-m-Y') }}
+                av {{ $post->author_string() }}</p>
         </header>
 
         <section class="ingress mt-3">
@@ -20,10 +21,6 @@
         <section class="content mt-3">
             {!! parsedown($post->content) !!}
         </section>
-
-        <footer class="mt-3">
-            <small>Publisert av {{ $post->author_string() }}</small>
-        </footer>
     </article>
     @endpage
 @endsection
