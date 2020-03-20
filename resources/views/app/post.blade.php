@@ -19,7 +19,7 @@
         </section>
 
         <section class="content mt-3">
-            {!! parsedown($post->content) !!}
+            {!! parsedown($post->story) !!}
         </section>
     </article>
     @endpage
