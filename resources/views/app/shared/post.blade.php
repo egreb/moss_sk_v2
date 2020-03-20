@@ -1,7 +1,8 @@
 <article class="flex flex-col bg-white overflow-hidden w-full py-2 px-5 lg:px-16 mb-6 border-b pb-8">
     @if(!is_null($post->image))
         <div class="pb-2/3">
-            <img class="object-cover w-full" src="{{ $post->image->url() }}" srcset="{{ $post->image->srcset() }}"
+            <img class="object-cover w-full rounded" src="{{ $post->image->url() }}"
+                 srcset="{{ $post->image->srcset() }}"
                  alt="{{ $post->title }}">
         </div>
     @endif
