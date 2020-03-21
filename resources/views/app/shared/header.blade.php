@@ -3,7 +3,7 @@
 @section('menu')
 @isset($about_routes)
 @component('components.header.menu_item', ['route' => '#toggle-menu', 'icon' => true])
-<div class="menu-item flex justify-end list-none lg:flex-row-reverse">
+<div class="menu-item flex justify-end list-none lg:flex-row-reverse cursor-pointer">
     <span class="text-white mr-2 lg:ml-1 lg:mr-0">+</span>Om klubben
 </div>
 
@@ -26,7 +26,7 @@
 @includeIf('app.shared.results-menu-item', ['results' => $results])
 
 @component('components.header.menu_item', ['route' => '#toggle-menu', 'icon' => true])
-<div class="menu-item flex justify-end list-none lg:flex-row-reverse">
+<div class="menu-item flex justify-end list-none lg:flex-row-reverse cursor-pointer">
     <span class="text-white mr-2 lg:ml-1 lg:mr-0">+</span>Online
 </div>
 
