@@ -1,16 +1,16 @@
 @tailwind base;
 @tailwind components;
 
-@import 'post';
+@import "post";
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     line-height: 1.6;
     font-size: 16px;
 }
 
 p {
-    font-family: 'Roboto Regular', sans-serif;
+    font-family: "Roboto Regular", sans-serif;
 }
 
 .modal {
@@ -78,6 +78,10 @@ body.modal-active {
 .post {
     @apply mt-4;
 
+    p {
+        @apply mb-2 text-lg;
+    }
+
     time {
         @apply text-gray-800;
     }
@@ -111,7 +115,8 @@ body.modal-active {
 article.article {
     @apply p-4;
 
-    img, p > img {
+    img,
+    p > img {
         width: 100%;
         object-fit: contain;
         max-height: 400px;
@@ -124,6 +129,10 @@ article.article {
         @media (min-width: 1024px) {
             width: 75%;
         }
+    }
+
+    p {
+        @apply mb-1;
     }
 
     h1 {
@@ -206,8 +215,13 @@ label {
     @apply block text-gray-600 text-xl mt-3;
 }
 
-li.page-list-element, a.page-list-element {
-    @apply p-2 mt-2 flex justify-between items-center border-b border-b-2 border-gray-200;
+li.page-list-element,
+a.page-list-element {
+    @apply p-2 mt-2 flex flex-col border-b border-b-2 border-gray-200;
+
+    @media (min-width: 1024px) {
+        @apply flex-row items-center justify-between;
+    }
 }
 
 .menu-item {
