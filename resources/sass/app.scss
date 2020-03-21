@@ -225,10 +225,10 @@ a.page-list-element {
 }
 
 .menu-item {
-    @apply block mt-4 text-teal-200 list-none;
+    @apply block mt-4 text-teal-200 list-none text-lg;
 
     @media (min-width: 1024px) {
-        @apply inline-block mt-0 mr-4;
+        @apply inline-block mt-0 mr-8;
     }
 
     &:hover {
