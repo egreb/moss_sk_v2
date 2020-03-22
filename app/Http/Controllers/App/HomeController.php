@@ -25,8 +25,12 @@ class HomeController extends Controller
         $secondleader = BoardMember::Create('Torbjørn Bakke Henriksen', 'Nestleder', 'tbh@getmail.no', 40247353);
         $secretary = BoardMember::Create('Svein Rishovd', 'Sekretær', 'svein@flexipharma.no', 94816322);
         $youthleader = BoardMember::Create('Jonathan M. Andersen', 'Ungdomsleder', 'sjakkjonis@hotmail.com', 95976686);
-        $tournamentdirector = BoardMember::Create('Arnstein Johansen', 'Turneringsleder', 'arnstein.joh@gmail.com',
-            48095594);
+        $tournamentdirector = BoardMember::Create(
+            'Arnstein Johansen',
+            'Turneringsleder',
+            'arnstein.joh@gmail.com',
+            48095594
+        );
         $firstvara = BoardMember::Create('Lasse Dahl', '1.vara', 'lasseda@hotmail.com', 97961957);
         $secondvara = BoardMember::Create('Håvard Gunnerud', '2.vara', 'gunneru@online.no', 91347644);
 
@@ -73,5 +77,15 @@ class HomeController extends Controller
     public function honored()
     {
         return view('app.honorary_members');
+    }
+
+    /**
+     * The old website had /main.
+     * Redirect from this to avoid any confusion for new users.
+     * @return Request      
+     */
+    public function redirectFromOldMainRoute()
+    {
+        return redirect('/');
     }
 }
