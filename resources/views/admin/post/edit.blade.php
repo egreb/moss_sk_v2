@@ -54,7 +54,7 @@
                     </svg>
                 </div>
             </label>
-            <input class="ml-5" type="date" name="published_at" value="{{ old('published_at') ?? $post->published_at }}">
+            <input class="ml-5" type="date" name="published_at" value="{{ old('published_at') ?? $post->published_at->format('Y-m-d') }}">
         </div>
 
         <div class="flex items-center pb-32">
