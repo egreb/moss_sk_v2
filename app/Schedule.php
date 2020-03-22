@@ -25,6 +25,10 @@ class Schedule extends Model
         foreach ($this->events as $event) {
             $interval[] = abs(strtotime($event->date) - strtotime(Carbon::now()));
         }
+        if (empty($interval)) {
+            return null;
+        }
+
         asort($interval);
         return $this->events[key($interval)];
     }

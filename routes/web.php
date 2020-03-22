@@ -37,8 +37,9 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'a
         Route::get('edit/{id}', 'Admin\ScheduleController@edit')->name('edit');
         Route::post('store', 'Admin\ScheduleController@store')->name('store');
         Route::post('update/{id}', 'Admin\ScheduleController@update')->name('update');
+        Route::delete('delete/{id}', 'Admin\ScheduleController@destroy')->name('delete');
+        Route::post('delete/{id}', 'Admin\ScheduleController@destroy')->name('post_delete');
         Route::get('{id}', 'Admin\ScheduleController@show')->name('show');
-        Route::delete('{id}', 'Admin\ScheduleController@destroy')->name('delete');
     });
 
     Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
