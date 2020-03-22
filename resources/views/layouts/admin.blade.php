@@ -16,20 +16,19 @@
 
 <body class="bg-gray-200 min-h-screen relative">
 
-@include('admin.shared.header')
+    @include('admin.shared.header')
 
-<main class="flex pt-20" id="admin">
-    @include('components.admin.sidebar')
+    <main class="flex pt-20" id="admin">
+        @include('components.admin.sidebar')
 
-    <section class="w-full sm:w-9/12 m-1 min-h-full pb-32 flex justify-center">
-        @component('components.admin.page', ['title' => isset($title) ? $title : null])
+        <section class="w-full sm:w-9/12 m-1 min-h-full pb-32 flex justify-center">
+            @component('components.admin.page', ['title' => isset($title) ? $title : null])
             @yield('content')
-        @endcomponent
-    </section>
-</main>
+            @endcomponent
+        </section>
+    </main>
 
-@include('app.shared.footer')
-
-<script src="{{ asset('js/app.js')}}"></script>
+    <script src="{{ asset('js/app.js')}}"></script>
 </body>
+
 </html>

@@ -14,7 +14,7 @@
 // admin routes
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', 'Admin\HomeController@index')->name('index');
     Route::get('/gallery', 'ImageController@show')->name('gallery');
     Route::group(['prefix' => 'post', 'as' => 'post.'], function () {

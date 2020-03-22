@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminRoutes;
 use App\Http\Middleware\SharedData;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -43,6 +44,9 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+        'admin' => [
+            AdminRoutes::class
+        ]
     ];
 
     /**

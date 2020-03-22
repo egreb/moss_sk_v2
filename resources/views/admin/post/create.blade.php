@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+    <h2 class="text-3xl">Opprett nyhet</h2>
     <div id="app"></div>
 
     <form class="w-full" method="post"

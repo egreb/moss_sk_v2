@@ -1,8 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-    @sect(['customClasses' => 'mt-3'])
-
     <h2 class="text-3xl">
         @isset($tournmanet)
             Rediger resultat
@@ -58,5 +56,4 @@
             <input type="hidden" name="id" value="{{ $tournament->id }}">
         @endisset
     </form>
-    @endsect
 @endsection

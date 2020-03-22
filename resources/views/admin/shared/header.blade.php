@@ -1,29 +1,14 @@
-@extends('shared.nav')
+@extends('shared.nav', ['class' => 'mx-0', 'section_class' => 'w-full hidden flex flex-grow flex-col lg:justify-end items-end lg:flex lg:flex-row lg:items-center lg:w-auto justify-between'])
 
 @section('menu')
-    <a href="{{ route('admin.member.home') }}"
-       class="menu-item">
-        Medlemmer
-    </a>
-    <a href="{{ route('admin.post.index') }}"
-       class="menu-item">
-        Nyheter
-    </a>
+@foreach ($routes as $route)
+    <a href="{{ $route['route'] }}" class="menu-item lg:hidden">{{ $route['title']}}</a>
+@endforeach
 
-    <a href="{{ route('admin.schedule.index') }}"
-       class="menu-item">
-        Terminlister
-    </a>
-
-    <a href="{{ route('home') }}" class="menu-item">
-        Se nettsiden
-    </a>
-
-
-    <form method="POST" action="/logout">
-        @csrf
-        <button class="menu-item">
-            Logg ut
-        </button>
-    </form>
+<form class="hidden lg:block" method="POST" action="/logout">
+    @csrf
+    <button class="menu-item">
+        Logg ut
+    </button>
+</form>
 @endsection
