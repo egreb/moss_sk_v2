@@ -11,7 +11,6 @@
         <h2 class="text-2xl text-gray-800 mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
             {{ $post->title }}
         </h2>
-        <p class="text-gray-700">Publisert {{ $post->updated_at->format('h:m d.m.Y') }}</p>
     </section>
     @if(!is_null($post->ingress))
         <section>
@@ -20,7 +19,8 @@
             </p>
         </section>
     @endif
-    <footer class="flex mt-6">
+    <footer class="flex mt-6 justify-between items-center">
+        <p class="text-gray-700">Publisert {{ !is_null($post->published_at) ? $post->published_at->format('d.m.Y') : $post->updated_at->format('d.m.Y') }}</p>
         <a href="{{ route('post', ['slug' => $post->slug]) }}" class="btn btn-blue">Les mer</a>
     </footer>
 </article>

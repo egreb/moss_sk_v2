@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon;
 
 class Post extends Model
 {
     protected $guarded = [];
+
+    protected $dates = [
+        'published_at',
+    ];
 
     public function authors()
     {

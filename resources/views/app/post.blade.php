@@ -10,7 +10,7 @@
             <h1 class="text-2xl text-gray-800 mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
                 {{ $post->title }}
             </h1>
-            <p class="text-gray-700">Publisert {{ $post->updated_at->format('h:m d.m.Y') }}
+            <p class="text-gray-700">Publisert {{ !is_null($post->published_at) ? $post->published_at->format('d.m.Y') : $post->updated_at->format('d.m.Y') }}
                 av {{ $post->author_string() }}</p>
         </header>
 

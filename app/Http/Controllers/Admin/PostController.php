@@ -114,6 +114,11 @@ class PostController extends Controller
         $post->story = $request->story;
         $post->draft = $request->has('draft') ? false : true;
         $post->image_id = $request->image_id;
+
+        if ($request->has('published_at')) {
+            $post->published_at = $request->published_at;
+        }
+
         $post->touch(); // update timestamp
         $post->save();
         $post->authors()->syncWithoutDetaching([Auth::id()]);

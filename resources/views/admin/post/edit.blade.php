@@ -37,7 +37,7 @@
             <markdown-area name="story" value="{{ old('story') ?? $post->story }}" :upload-image="true"></markdown-area>
         </div>
 
-        <div class="mb-6">
+        <div class="mb-6 flex">
             <label class="custom-label flex" for="draft">
                 <span class="select-none mr-3">Publiser</span>
                 <div class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2">
@@ -54,6 +54,7 @@
                     </svg>
                 </div>
             </label>
+            <input class="ml-5" type="date" name="published_at" value="{{ old('published_at') ?? $post->published_at }}">
         </div>
 
         <div class="flex items-center pb-32">
