@@ -3,7 +3,13 @@
     <button class="btn btn-blue" @click="toggleModal">Toggle modal</button>
 
     <modal :show="showModal" :close="toggleModal">
-      <p>Hello world</p>
+      <h2 class="text-2xl">Galleri</h2>
+
+      <div class="grid flex flex-col">
+        <figure v-for="image in images" :key="image.id">
+          <img class="object-contain" style="max-height:100px;" :src="image.url" />
+        </figure>
+      </div>
     </modal>
   </div>
 </template>
@@ -41,10 +47,10 @@ export default {
             "X-CSRF-Token": csrfToken
           }
         });
-        console.log("resp", response);
-        // const json = await response.json();
 
-        // console.log("json", json);
+        const json = await response.json();
+
+        this.images = json.data;
       } catch (error) {
         console.error("gallery.fetchData:", error);
         alert(

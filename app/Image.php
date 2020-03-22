@@ -2,17 +2,26 @@
 
 namespace App;
 
-use App\Repositories\ImageRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable = [
-        'name',
-        'uploaded_by',
+    protected $appends = [
         'url',
-        'public_id'
+        'srcset'
     ];
+
+    protected $guarded = [];
+
+    public function getSrcSetAttribute()
+    {
+        return $this->srcset();
+    }
+
+    public function getUrlAttribute()
+    {
+        return $this->url('small');
+    }
 
     public function url($size = 'large')
     {

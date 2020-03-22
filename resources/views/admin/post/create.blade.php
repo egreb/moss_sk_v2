@@ -3,7 +3,7 @@
 @section('content')
     <h2 class="text-3xl">Opprett nyhet</h2>
     <div id="app"></div>
-
+    <gallery></gallery>
     <form class="w-full" method="post"
           action="{{ route('admin.post.store') }}" enctype="multipart/form-data">
         @csrf
