@@ -1,9 +1,11 @@
 <article class="flex flex-col bg-white overflow-hidden w-full py-2 px-5 lg:px-16 mb-6 border-b pb-8">
     @if(!is_null($post->image))
         <div class="pb-2/3">
-            <img class="object-contain w-full rounded" style="max-height:400px;" src="{{ $post->image->url() }}"
-                 srcset="{{ $post->image->srcset() }}"
-                 alt="{{ $post->title }}">
+            <a href="{{ route('post', ['slug' => $post->slug]) }}">
+                <img class="object-contain w-full rounded" style="max-height:400px;" src="{{ $post->image->url() }}"
+                    srcset="{{ $post->image->srcset() }}"
+                    alt="{{ $post->title }}">
+            </a>
         </div>
     @endif
 
