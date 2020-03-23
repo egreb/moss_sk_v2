@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('updated_at')->take(5)->get();
+        $posts = Post::orderByDesc('published_at')->take(5)->get();
         $schedules = Schedule::orderBy('updated_at')->take(5)->get();
 
         return view('admin.home', ['posts' => $posts, 'schedules' => $schedules]);
