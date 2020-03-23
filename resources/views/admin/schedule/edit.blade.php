@@ -8,7 +8,9 @@
         </label>
         <input id="schedule_title" type="text" placeholder="Tittel" name="schedule_title" class="w-64"
                value="{{ $schedule->title }}">
-
+        @error('schedule_title')
+            <p class="text-red-500">{{ $message }}</p>
+        @enderror
 
         <label>Events</label>
         <ul class="block">
@@ -27,8 +29,13 @@
             <input type="date" placeholder="Dato" name="date[]" value="[]" id="date"/>
             <input type="hidden" value="" name="event_id[]"/>
         </div>
-        <div class="mt-1">
+        <div class="mt-1 flex flex-col items-start">
             <button class="btn btn-teal" name="create-event" id="create-event">Legg til</button>
+            @if(!empty($errors))
+            @foreach ($errors->all() as $error)
+                <p class="text-red-500">{{ $error }}</p>
+            @endforeach
+            @endif
         </div>
 
         <label class="custom-label flex my-6 bg-gray-600 p-2 text-white w-32 justify-center" for="active">
@@ -51,9 +58,9 @@
 
 
         <footer class="flex max-w-2xl w-full mt-12">
-            <button class="btn btn-blue">Lagre</button>
-            <a href="{{ route('admin.schedule.index') }}" class="btn">Avbryt</a>
-            <a class="btn btn-danger ml-auto">Slett</a>
+            <button class="btn btn-blue mr-3" name="store">Lagre</button>
+            <a href="{{ route('admin.schedule.index') }}" class="btn">Tilbake</a>
+            <button class="btn btn-danger ml-auto" name="delete">Slett</button>
         </footer>
     </form>
 

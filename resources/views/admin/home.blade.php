@@ -11,7 +11,12 @@
                     @foreach($posts as $post)
                         <a class="page-list-element" href="{{ route('admin.post.edit', ['id' => $post->id]) }}">
                             <span class="text-xl">{{ $post->title }}</span>
-                            <span class="text-gray-500">Oppdatert {{ $post->updated_at->format('h:t d-m-y') }}</span>
+
+                            @if($post->draft)
+                                <div class="text-red-500 border-red-500 border py-1 px-2 text-center">Upublisert</div>
+                            @else
+                                <span class="text-blue-500 border border-blue-500 py-1 px-2 rounded">Publisert <time>{{ $post->published_at->format('d-m-y') }}</time></span>
+                            @endif
                         </a>
 
                     @endforeach

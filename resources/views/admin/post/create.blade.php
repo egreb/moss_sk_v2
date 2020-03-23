@@ -3,7 +3,7 @@
 @section('content')
     <h2 class="text-3xl">Opprett nyhet</h2>
     <div id="app"></div>
-    <gallery></gallery>
+
     <form class="w-full" method="post"
           action="{{ route('admin.post.store') }}" enctype="multipart/form-data">
         @csrf
@@ -44,8 +44,8 @@
             </div>
         </div>
 
-        <div class="mb-6">
-            <label class="custom-label flex" for="draft">
+        <div class="mb-6 flex">
+            <label class="custom-label flex " for="draft">
                 <span class="select-none mr-3">Publiser</span>
                 <div class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2">
                     <input type="checkbox" class="hidden" name="draft" id="draft">
@@ -60,6 +60,8 @@
                     </svg>
                 </div>
             </label>
+
+        <input class="ml-5" type="date" name="published_at" value="{{ old('published_at') ?? date("Y-m-j") }}">
         </div>
 
         <div class="flex justify-start items-center pb-10">

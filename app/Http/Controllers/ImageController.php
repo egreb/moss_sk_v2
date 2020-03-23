@@ -45,7 +45,7 @@ class ImageController extends Controller
         $limit = $request->query('limit', 10);
         $offset = $request->query('offset', 0);
 
-        $images = $this->imageRepo->get();
+        $images = $this->imageRepo->get($limit, $offset);
 
         return response()->json([
             'success' => true,

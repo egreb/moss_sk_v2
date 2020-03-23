@@ -65,10 +65,25 @@ class ScheduleController extends Controller
         if (is_null($schedule)) {
             abort(404);
         }
+        if ($request->has('delete')) {
+            return $this->destroy($schedule->id);
+        }
 
-        $validatedData = $request->validate([
-            'schedule_title' => 'required|max:255'
-        ]);
+
+        if (!$request->has('store')) {
+            $validate = [
+                'schedule_title' => 'required|max:255',
+                'date' => 'required|array|distinct',
+                'date.*' => 'required|string',
+                'title' => 'required|array|distinct',
+                'title.*' => 'required|string|min:3'
+            ];
+        } else {
+            $validate = [
+                'schedule_title' => 'required|max:255',
+            ];
+        }
+        $request->validate($validate);
 
         $active = $request->has('active') ? true : false;
 
@@ -77,7 +92,7 @@ class ScheduleController extends Controller
         $schedule->touch();
 
         if ($active) {
-            $schedules = Schedule::where('id', '!=', intval($id));
+            $schedules = Schedule::where('id', '!=', intval($id))->get();
             foreach ($schedules as $s) {
                 $s->active = false;
                 $s->touch();
@@ -118,7 +133,7 @@ class ScheduleController extends Controller
 
         $schedule->delete();
 
-        return view('admin.schedules.index');
+        return view('admin.schedule.index');
     }
 
     public function alter(Request $request)

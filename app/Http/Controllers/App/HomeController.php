@@ -4,17 +4,16 @@ namespace App\Http\Controllers\App;
 
 use App\BoardMember;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\ScheduleController;
 use App\Post;
 use App\Schedule;
-use App\TournamentYear;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('draft', false)->get()->sortByDesc('created_at');
+        $posts = Post::where('draft', false)->where('published_at', '<=', Carbon::now('Europe/Oslo'))->get()->sortByDesc('published_at');
 
         return view('app.index', ['posts' => $posts]);
     }
@@ -82,7 +81,7 @@ class HomeController extends Controller
     /**
      * The old website had /main.
      * Redirect from this to avoid any confusion for new users.
-     * @return Request      
+     * @return Request
      */
     public function redirectFromOldMainRoute()
     {
