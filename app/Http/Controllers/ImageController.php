@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use Illuminate\Http\Request;
 use App\Repositories\ImageRepository;
 
@@ -39,9 +40,13 @@ class ImageController extends Controller
         return view('admin.gallery', ['images' => $images->toArray()]);
     }
 
-    public function fetch()
+    public function fetch(Request $request)
     {
-        $images = $this->imageRepo->get();
+        $limit = $request->query('limit', 10);
+        $offset = $request->query('offset', 0);
+
+        $images = $this->imageRepo->get($limit, $offset);
+
         return response()->json([
             'success' => true,
             'data' => $images

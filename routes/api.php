@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,5 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('image', 'ImageController@fetch');
-Route::post('image', 'ImageController@store');
+Route::group(['middleware' => []], function () {
+    Route::group(['prefix' => 'image', 'as' => 'image'], function () {
+        Route::get('/', 'ImageController@fetch');
+        Route::post('/', 'ImageController@store');
+    });
+});

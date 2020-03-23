@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+    <h2 class="text-3xl">Rediger nyhet</h2>
     <form class="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4" method="post"
           action="{{ route('admin.post.update', ['id' => $post->id]) }}" enctype="multipart/form-data">
         @csrf

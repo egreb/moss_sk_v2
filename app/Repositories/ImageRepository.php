@@ -34,10 +34,13 @@ class ImageRepository
         ];
 
         foreach ($imageSizes as $size => $width) {
-            $img = Image::make(public_path() . '/img/uploads/full/' . $filename)->resize($width, null,
+            $img = Image::make(public_path() . '/img/uploads/full/' . $filename)->resize(
+                $width,
+                null,
                 function ($constraint) {
                     $constraint->aspectRatio();
-                });
+                }
+            );
 
             $img->save('img/uploads/' . $size . '/' . $filename);
         }
@@ -51,7 +54,7 @@ class ImageRepository
 
     public function get($limit = 10, $offset = 0): Collection
     {
-        return DB::table('images')->offset($offset)->limit($limit)->get();
+        return ImageModel::skip($offset)->take($limit)->get();
     }
 
     public function getPath($size, $filename)
