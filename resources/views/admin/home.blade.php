@@ -15,7 +15,8 @@
                             @if($post->draft)
                                 <div class="text-red-500 border-red-500 border py-1 px-2 text-center">Upublisert</div>
                             @else
-                                <span class="text-blue-500 border border-blue-500 py-1 px-2 rounded">Publisert <time>{{ $post->published_at->format('d-m-y') }}</time></span>
+                                <span class="text-blue-500 border border-blue-500 py-1 px-2 rounded">Publisert <time>
+                                    {{ !is_null($post->published_at) ? $post->published_at->format('d-m-y') : $post->created_at->format('d-m-y')  }}</time></span>
                             @endif
                         </a>
 
