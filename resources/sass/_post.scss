@@ -8,5 +8,13 @@ article.post {
             margin: 0 auto;
             @apply my-3;
         }
+
+        ul {
+            list-style: disc;
+        }
+
+        ol {
+            list-style: decimal;
+        }
     }
 }
