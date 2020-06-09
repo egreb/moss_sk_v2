@@ -61,7 +61,8 @@
                 </div>
             </label>
 
-        <input class="ml-5" type="date" name="published_at" value="{{ old('published_at') ?? date("Y-m-j") }}">
+            <input class="ml-5" type="date" name="published_at"
+                   value="{{ !is_null(old('published_at')) ? old('published_at') : date("Y-m-d") }}">
         </div>
 
         <div class="flex justify-start items-center pb-10">
