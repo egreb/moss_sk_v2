@@ -22,14 +22,6 @@ class Schedule extends Model
 
     public function nextEvent()
     {
-        foreach ($this->events as $event) {
-            $interval[] = abs(strtotime($event->date) - strtotime(Carbon::now()));
-        }
-        if (empty($interval)) {
-            return null;
-        }
-
-        asort($interval);
-        return $this->events[key($interval)];
+        return $this->events()->where('date', '>', Carbon::now()->addHours(5)->format('Y-m-d'))->first();
     }
 }

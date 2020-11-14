@@ -32,14 +32,14 @@
 <main class="min-h-screen pt-20">
     @include('app.shared.header')
 
-    @container(['class' => 'mt-4 flex-col lg:flex-row'])
-    <article class="w-full justify-center mb-3 lg:pb-40 {{ isset($width) ? $width : 'lg:w-8/12' }}">
-        @yield('content')
-    </article>
-    @if (!isset($sidebar) || $sidebar)
-        @include('app.shared.sidebar')
-    @endif
-    @endcontainer
+    <div class="container flex mx-auto mt-4 flex-col lg:flex-row">
+        <article class="w-full justify-center mb-3 lg:pb-40 {{ isset($width) ? $width : 'lg:w-8/12' }}">
+            @yield('content')
+        </article>
+        @if (!isset($sidebar) || $sidebar)
+            @include('app.shared.sidebar')
+        @endif
+    </div>
 </main>
 @include('app.shared.footer')
 <script src="{{ asset('js/main.js')}}"></script>
