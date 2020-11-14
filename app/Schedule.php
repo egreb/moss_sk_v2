@@ -22,6 +22,6 @@ class Schedule extends Model
 
     public function nextEvent()
     {
-        return $this->events()->where('date', '>', Carbon::now()->addHours(5)->format('Y-m-d'))->first();
+        return $this->events()->where('date', '>', Carbon::now()->addHours(5)->format('Y-m-d'))->orderBy('date')->first();
     }
 }
