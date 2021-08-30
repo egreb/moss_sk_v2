@@ -20,9 +20,9 @@ class HomeController extends Controller
 
     public function about()
     {
-        $leader = BoardMember::Create('Thomas Wasenius', 'Leder', 'thomas.wasenius21@gmail.com', 90229514);
+        $leader = BoardMember::Create('Paal Tveiten', 'Leder', 'paal@keysmarineservice.no', 90229514);
         $secondleader = BoardMember::Create('Torbjørn Bakke Henriksen', 'Nestleder', 'tbh@getmail.no', 40247353);
-        $secretary = BoardMember::Create('Svein Rishovd', 'Sekretær', 'svein@flexipharma.no', 94816322);
+        $secretary = BoardMember::Create('Simen Berge', 'Sekretær', 'bergesimen@gmail.com', 94816322);
         $youthleader = BoardMember::Create('Jonathan M. Andersen', 'Ungdomsleder', 'sjakkjonis@hotmail.com', 95976686);
         $tournamentdirector = BoardMember::Create(
             'Arnstein Johansen',
@@ -30,8 +30,8 @@ class HomeController extends Controller
             'arnstein.joh@gmail.com',
             48095594
         );
-        $firstvara = BoardMember::Create('Lasse Dahl', '1.vara', 'lasseda@hotmail.com', 97961957);
-        $secondvara = BoardMember::Create('Håvard Gunnerud', '2.vara', 'gunneru@online.no', 91347644);
+        $cashier = BoardMember::Create('Helge Antonsen', 'Kasserer', 'helge.antonsen@coop.no');
+
 
         $boardmembers = [
             $leader,
@@ -39,8 +39,7 @@ class HomeController extends Controller
             $secretary,
             $youthleader,
             $tournamentdirector,
-            $firstvara,
-            $secondvara
+            $cashier
         ];
 
         $teams = [

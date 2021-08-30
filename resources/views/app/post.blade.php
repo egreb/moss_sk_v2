@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    @page()
+<x-page>
     <article class="post px-1 lg:px-16">
         <header class="flex flex-col text-gray-800">
             @if($post->image)
-                <img class="rounded object-contain" style="max-height:400px;" src="{{ $post->image->url() }}" alt="{{ $post->title }}"/>
+            <img class="rounded object-contain" style="max-height:400px;" src="{{ $post->image->url() }}" alt="{{ $post->title }}" />
             @endisset
             <h1 class="text-2xl text-gray-800 mb-0 {{ !is_null($post->image) ? 'mt-3' : '' }}">
                 {{ $post->title }}
@@ -22,5 +22,5 @@
             {!! parsedown($post->story) !!}
         </section>
     </article>
-    @endpage
+</x-page>
 @endsection

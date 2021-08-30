@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    @page
+<x-page>
     <h1 class="page-title">Regler</h1>
 
     <h2 class="page-subtitle">§ 1 Regelverk</h2>
-    <p>Moss Schakklub spiller etter FIDEs regler for sjakk slik de er oversatt av NSF: <a
-            href="http://www.sjakk.no/lover-og-reglementer/sjakkreglene/">http://www.sjakk.no/lover-og-reglementer/sjakkreglene/</a>
+    <p>Moss Schakklub spiller etter FIDEs regler for sjakk slik de er oversatt av NSF: <a href="http://www.sjakk.no/lover-og-reglementer/sjakkreglene/">http://www.sjakk.no/lover-og-reglementer/sjakkreglene/</a>
     </p>
 
     <p>Fra FIDE-reglene gjøres det her unntak for mobilreglene i § 6, og presisering i forhold til fremmøtetidspunkter i
@@ -89,13 +88,12 @@
         </li>
     </ul>
 
-    <h2 class="page-subtitle">§ 9 Poenglikhet</h2>
-
+    <h1 class="page-subtitle">§ 9 Poenglikhet</h1>
     <p class="p-1 mb-2">Ved poenglikhet mellom spillere benyttes turneringens kvalitetsberegning for å rangere spillerne
         og kåre en vinner.</p>
 
     <p class="p-1 mb-2">Det spilles kun stikkamp dersom spillerne i kampen om en klubbmestertittel ikke kan skilles med
         turneringens kvalitetsberegning. I en slik situasjon bestemmer turneringsleder gjennomføringsmåte og
         betenkningstid for stikkampen.</p>
-    @endpage
+</x-page>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @page
+<x-page>
     <h1 class="page-title">Vedtekter</h1>
 
     <h2 class="page-subtitle">§ 1 Formål/Bakgrunn</h2>
@@ -14,11 +14,11 @@
     <h2 class="page-subtitle">§ 2 Medlemskap</h2>
     <p class="p-1 mb-2">
         Moss Schakklub er tilsluttet Norges Sjakkforbund gjennom Østfold sjakkrets.
-        <br/><br/>
+        <br /><br />
         Klubben er i prinsippet åpen for alle interesserte, såfremt ikke vedkommende på grunn av opptreden eller
         handlemåte antas å komme til å skade klubben, miljøet eller klubbens omdømme. Styret kan avslå søknaden om
         medlemskap hvis forpliktelser til annen klubb tilsluttet Norges Sjakkforbund ikke er oppfylt.
-        <br/><br/>
+        <br /><br />
         Klubbkveldene er i prinsippet åpne for både medlemmer og andre sjakkinteresserte, men det kreves medlemskap for
         deltagelse i følgende turneringer: KM langsjakk, KM lynsjakk, KM hurtigsjakk og høstmesterskapet.
     </p>
@@ -30,7 +30,7 @@
 
     <p class="p-1 mb-2">Medlemskontingentens størrelse blir fastsatt av generalforsamlingen. Kontingenten betales til
         klubbens
-        driftskonto etter anvisning fra kasserer. <br/>
+        driftskonto etter anvisning fra kasserer. <br />
         Æresmedlemmer i klubben skal ha fri kontingent. Trygdede og streikende
         medlemmer kan søke om nedsettelse av, eventuelt fritakelse av kontingent. Betalt kontingent gir adgang til
         klubbens lokaler og til deltagelse i turneringer.</p>
@@ -50,12 +50,12 @@
     <h2 class="page-subtitle">§ 5 Generalforsamling</h2>
 
     <p class="p-1 mb-2">
-        Ordinær generalforsamling holdes i januar, og innkalles av styret med 14 - fjorten dagers varsel. <br/>
+        Ordinær generalforsamling holdes i januar, og innkalles av styret med 14 - fjorten dagers varsel. <br />
         Saksliste, årsberetning, innkomne forslag og revidert årsregnskap samt valgkomiteens innstilling legges
         tilgjengelig for klubbens medlemmer i klubbens lokale på generalforsamlingen eller tilgjengeliggjøres/fremvises
         på annen måte. Forslag som ønskes behandlet på generalforsamlingen må være styret i hende senest 1 - en uke før
-        møtet.<br/>
-        Etter denne tid kan bare et forslag behandles dersom 2/3 av de fremmøtte medlemmer vedtar dette.<br/>
+        møtet.<br />
+        Etter denne tid kan bare et forslag behandles dersom 2/3 av de fremmøtte medlemmer vedtar dette.<br />
         Klubbens nedre stemmerettsalder er 14 år. Unntatt fra dette er, klubbens bimedlemmer som kun har forslagsrett.
     </p>
 
@@ -77,9 +77,9 @@
     <p class="p-1 mb-2">
         På ordinær generalforsamling foretas alle valg. Ved stemmelikhet foretas omvalg. Bare stemmeberettigede
         medlemmer er valgbare og pliktige til å motta valg. Styrets medlemmer kan frasi seg gjenvalg for 1 - ett-år.
-        <br/>
+        <br />
         Klubbens styre skal bestå av 6 - seks medlemmer: Leder, nestleder, kasserer, sekretær, turneringsleder og
-        ungdomsleder. Til styret velges 2-to varamenn. <br/>
+        ungdomsleder. Til styret velges 2-to varamenn. <br />
         Foruten styret skal det på generalforsamlingen velges: 1 - en revisor med 1 - en varamann, valgkomite på 2 - to
         medlemmer. Det tredje medlemmet utpekes av det kommende styret. Representanter til Krets- og Forbundstinget
         utpekes av det kommende styret.
@@ -97,13 +97,13 @@
         <li>e) Valgkomiteens innstilling.</li>
     </ol>
 
-    <h2 class="page-subtitle">§ 10 Voteringer</h2>
+    <h2 class="page-subtitle">§ 9 Voteringer</h2>
 
     <p class="p-1 mb-2">Alle saker som behandles på generalforsamlingen med unntak av vedtektsendringer, avgjøres ved
         alminnelig
         flertall. Ved stemmelikhet er lederens stemme utslagsgivende.</p>
 
-    <h2 class="page-subtitle">§ 11 Styremøter</h2>
+    <h2 class="page-subtitle">§ 10 Styremøter</h2>
 
     <p class="p-1 mb-2">
         Styret ivaretar klubbens interesser i overenstemmelse med klubbens lover og generalforsamlingens vedtak.
@@ -120,13 +120,13 @@
         alminnelig flertall - ved stemmelikhet er lederens stemme utslagsgivende. Styrets medlemmer har taushetsplikt.
     </p>
 
-    <h2 class="page-subtitle">§ 12 Styrets oppgaver</h2>
+    <h2 class="page-subtitle">§ 11 Styrets oppgaver</h2>
 
     <p class="p-1 mb-2">Styret handler på vegne av Moss Schakklub og klubbens medlemmer. Styremedlemmene fordeler
         arbeidet ut i fra hva
         som faller naturlig til hvert enkelt verv og arbeidsfordelinger internt i styret.</p>
 
-    <h2 class="page-subtitle">§ 13 Bankkontoer</h2>
+    <h2 class="page-subtitle">§ 12 Bankkontoer</h2>
 
     <p class="p-1 mb-2">Klubben skal ha 2-to adskilte bankkontoer.</p>
 
@@ -151,17 +151,17 @@
         klubbens bankforbindelse.
     </p>
 
-    <h2 class="page-subtitle">§ 14 Utmeldelser</h2>
+    <h2 class="page-subtitle">§ 13 Utmeldelser</h2>
 
     <p class="p-1 mb-2">Utmeldelser av klubben må meldes til styret. Et utmeldt eller strøket medlem hefter fremdeles
         for enhver gjeld
         til klubben.</p>
 
-    <h2 class="page-subtitle">§ 15 Vedtektsendring</h2>
+    <h2 class="page-subtitle">§ 14 Vedtektsendring</h2>
 
     <p class="p-1 mb-2">Forandring av vedtekter kan kun skje på generalforsamling. Det krever 2/3 flertall.</p>
 
-    <h2 class="page-subtitle">§ 16 Oppløsning</h2>
+    <h2 class="page-subtitle">§ 15 Oppløsning</h2>
 
     <p class="p-1 mb-2">
         Moss Schakklub kan ikke oppløses hvis minst 6-seks-medlemmer vil opprettholde den.
@@ -170,7 +170,7 @@
         gjenopptagelse av klubben.
     </p>
 
-    <h2 class="page-subtitle">§ 17 Turneringsreglement</h2>
+    <h2 class="page-subtitle">§ 16 Turneringsreglement</h2>
 
     <p class="p-1 mb-2">
         Turneringsreglementet av 2019, utarbeidet med fullmakt fra generalforsamlingen 2019, gjelder som en del av disse
@@ -187,5 +187,5 @@
             8.februar 2018, 31.januar 2019 og 16.januar 2020.
         </b>
     </p>
-    @endpage
+</x-page>
 @endsection
