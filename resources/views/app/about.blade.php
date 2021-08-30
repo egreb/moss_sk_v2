@@ -16,27 +16,27 @@
             <li>
             <li class="flex flex-wrap border-gray-800 border-b">
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Hovedmedlem, inkl. startavgifter, junior</div>
-                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1650</div>
+                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.900</div>
             <li>
             <li class="flex flex-wrap border-gray-800 border-b">
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Hovedmedlem, uten startavgifter, voksne</div>
-                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1650</div>
+                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1100</div>
             <li>
             <li class="flex flex-wrap border-gray-800 border-b">
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Bimedlemskap, uten startavgifter, voksne</div>
-                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1650</div>
+                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.500</div>
             <li>
             <li class="flex flex-wrap border-gray-800 border-b">
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Bimedlemskap, uten startavgifter, junior</div>
-                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1650</div>
+                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.250</div>
             <li>
             <li class="flex flex-wrap border-gray-800 border-b">
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Pensjonister/trygdede, inkl. startavgifter</div>
-                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1650</div>
+                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1350</div>
             <li>
             <li class="flex flex-wrap border-gray-800 border-b">
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Studenter under 30 år, inkl startavgifter</div>
-                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1650</div>
+                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800">kr.1350</div>
             <li>
             <li class="flex flex-wrap border-gray-800 border-b">
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Førstegangsmedlemmer som er med i MSU</div>
