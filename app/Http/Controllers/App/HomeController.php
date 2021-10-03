@@ -13,7 +13,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('draft', false)->where('published_at', '<=', Carbon::now('Europe/Oslo'))->get()->sortByDesc('published_at');
+        $posts = Post::where('draft', false)
+            ->where('published_at', '<=', Carbon::now('Europe/Oslo'))
+            ->get()
+            ->sortByDesc('published_at')
+            ->sortByDesc('created_at');
 
         return view('app.index', ['posts' => $posts]);
     }

@@ -24,7 +24,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@tailwindcss/forms": "^0.3.4",
         "easymde": "https://github.com/egreb/easy-markdown-editor.git",
-        "tailwindcss": "1.1.3"
+        "tailwindcss": "^2.2.16"
     }
 }

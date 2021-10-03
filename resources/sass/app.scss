@@ -47,10 +47,10 @@ body.modal-active {
     }
 
     &.btn-teal {
-        @apply bg-teal-500 text-white;
+        @apply bg-indigo-500 text-white;
 
         &:hover {
-            @apply bg-teal-800;
+            @apply bg-indigo-800;
         }
     }
 
@@ -168,25 +168,6 @@ a {
     }
 }
 
-input {
-    &[type="text"],
-    &[type="date"],
-    &[type="datetime-local"],
-    &[type="number"],
-    &[type="email"],
-    &[type="password"] {
-        @apply shadow appearance-none border rounded py-3 px-3 text-xl text-gray-800 leading-tight max-w-lg mt-1;
-
-        &:focus {
-            @apply outline-none shadow-outline;
-        }
-    }
-
-    &[type="date"] {
-        @apply text-sm;
-    }
-}
-
 .items-start {
     align-items: flex-start;
 }
@@ -225,7 +206,7 @@ a.page-list-element {
 }
 
 .menu-item {
-    @apply block mt-4 text-teal-200 list-none text-lg;
+    @apply block mt-4 text-indigo-200 list-none text-lg;
 
     @media (min-width: 1024px) {
         @apply inline-block mt-0 mr-8;
@@ -252,7 +233,7 @@ a.page-list-element {
     @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
 
     &:focus {
-        @apply outline-none shadow-outline;
+        @apply outline-none;
     }
 }
 
