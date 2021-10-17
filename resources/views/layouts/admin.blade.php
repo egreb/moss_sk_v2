@@ -10,18 +10,19 @@
 
     <!-- Fonts -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
 
 </head>
 
-<body class="bg-gray-200 min-h-screen relative">
+<body class="bg-gray-100 min-h-screen relative">
 
     @include('admin.shared.header')
 
-    <main class="flex pt-20" id="admin">
+    <main class="flex pt-20 dashboard" id="admin">
         @include('components.admin.sidebar')
 
-        <section class="w-full sm:w-9/12 m-1 min-h-full pb-32 flex justify-center">
+        <section class="m-1 min-h-full pb-32 flex max-w-6xl">
             @component('components.admin.page', ['title' => isset($title) ? $title : null])
             @yield('content')
             @endcomponent
