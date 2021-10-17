@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
@@ -13,17 +16,17 @@ class Image extends Model
 
     protected $guarded = [];
 
-    public function getSrcSetAttribute()
+    public function getSrcSetAttribute(): string
     {
         return $this->srcset();
     }
 
-    public function getUrlAttribute()
+    public function getUrlAttribute(): string
     {
         return $this->url('small');
     }
 
-    public function url($size = 'large')
+    public function url($size = 'small'): string
     {
         return '/img/uploads/' . $size . '/' . $this->name;
     }

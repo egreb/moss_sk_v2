@@ -61,7 +61,7 @@ class PostController extends Controller
             'draft' => $request->has('draft') ? false : true
         ]);
 
-        $post = Post::create($request->except('file'));
+        $post = Post::create($request->except('file', 'image'));
         $post->save();
         $post->authors()->sync([Auth::id()]);
 

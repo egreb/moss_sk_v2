@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon;
 
 class Post extends Model
 {

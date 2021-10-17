@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\App;
 
 use App\BoardMember;
@@ -8,10 +10,11 @@ use App\Post;
 use App\Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $posts = Post::where('draft', false)
             ->where('published_at', '<=', Carbon::now('Europe/Oslo'))
