@@ -222,7 +222,7 @@ a.page-list-element {
 }
 
 .page-subtitle {
-    @apply text-2xl text-gray-800 mt-5;
+    @apply text-xl lg:text-2xl text-gray-800 mt-5 mb-2;
 }
 
 .text-danger {
