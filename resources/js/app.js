@@ -1,15 +1,15 @@
-window.Vue = require("vue");
-Vue.component("markdown-area", require("./components/MarkdownArea").default);
-Vue.component("post-image", require("./components/PostImage").default);
-Vue.component("relevant-links", require("./components/RelevantLinks").default);
-Vue.component("gallery", require("./components/Gallery").default);
-new Vue({
-    el: "#admin"
-});
+import {createApp} from 'vue';
+const app = createApp({})
+app.component("markdown-area", require("./components/MarkdownArea").default);
+app.component("post-image", require("./components/PostImage").default);
+app.component("relevant-links", require("./components/RelevantLinks").default);
+app.component("gallery", require("./components/Gallery").default);
+
+app.mount("#admin");
 
 const toggleMenuButton = document.getElementById("toggle-menu");
 if (toggleMenuButton) {
-    toggleMenuButton.addEventListener("click", function() {
+    toggleMenuButton.addEventListener("click", function () {
         const menu = document.querySelector("#menu");
         if (menu) {
             menu.classList.toggle("hidden");
@@ -19,7 +19,7 @@ if (toggleMenuButton) {
 
 const deletePostBtn = document.getElementById("delete-post");
 if (deletePostBtn) {
-    deletePostBtn.addEventListener("click", function(event) {
+    deletePostBtn.addEventListener("click", function (event) {
         event.preventDefault();
         const ok = confirm("Vil du slette denne posten?");
         if (ok) {
@@ -49,7 +49,7 @@ if (deletePostBtn) {
 
 const uploadPostImage = document.getElementById("image");
 if (uploadPostImage) {
-    uploadPostImage.addEventListener("change", function() {
+    uploadPostImage.addEventListener("change", function () {
         this.form.submit();
     });
 }
