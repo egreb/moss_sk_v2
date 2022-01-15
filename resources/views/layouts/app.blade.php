@@ -4,11 +4,15 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161547446-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'UA-161547446-1');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-161547446-1');
     </script>
 
     <meta charset="utf-8">
@@ -28,20 +32,24 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-gray-200 relative">
-<main class="min-h-screen pt-20">
+<body class="bg-gray-200">
+<main class="min-h-screen relative">
     @include('app.shared.header')
 
-    <div class="container flex mx-auto mt-4 flex-col lg:flex-row">
-        <article class="w-full justify-center mb-3 lg:pb-40 {{ isset($width) ? $width : 'lg:w-8/12' }}">
-            @yield('content')
-        </article>
-        @if (!isset($sidebar) || $sidebar)
-            @include('app.shared.sidebar')
-        @endif
-    </div>
+    <section class="container max-w-4xl mx-auto">
+        <section class="grid grid-cols-3 gap-x-3 py-4">
+            <article class="w-full mb-3 md:pb-40 col-span-3 lg:col-span-2">
+                @yield('content')
+            </article>
+
+            @if (!isset($sidebar) || $sidebar)
+                @include('app.shared.sidebar')
+            @endif
+        </section>
+    </section>
+    @include('app.shared.footer')
 </main>
-@include('app.shared.footer')
 <script src="{{ asset('js/main.js')}}"></script>
+<script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
 </body>
 </html>

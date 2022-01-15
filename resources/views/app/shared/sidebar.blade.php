@@ -1,4 +1,4 @@
-<aside class="sidebar flex lg:justify-center px-0 lg:px-2 pb-40 lg:pb-0 w-full lg:w-4/12">
+<aside class="sticky top-0 col-span-3 lg:col-span-1">
     <div class="flex flex-col items-center bg-white rounded shadow pb-6 lg:pb-0 w-full">
         @include('app.shared.event', ['class' => 'hidden lg:flex'])
 

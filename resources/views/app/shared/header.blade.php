@@ -1,60 +1,45 @@
-@extends('shared.nav')
-
-@section('menu')
-@isset($about_routes)
-@component('components.header.menu_item', ['route' => '#toggle-menu', 'icon' => true])
-<div class="menu-item flex justify-end list-none lg:flex-row-reverse cursor-pointer">
-    <span class="text-white mr-2 lg:ml-1 lg:mr-0">+</span>Om klubben
-</div>
-
-<ul class="flex flex-col rounded relative lg:absolute hidden submenu">
-    @foreach($about_routes as $name => $url)
-    <a class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:p-2 lg:px-4 relative w-full lg:mr-0" href="{{ $url }}" onclick="event.stopPropagation();">
-        <div class="flex items-center w-full justify-end lg:justify-center pr-2 lg:pr-0">
-            {{ $name }}
-        </div>
-    </a>
-    @endforeach
-</ul>
-@endcomponent
-@endisset
-
-<a href="{{ route('schedule') }}" class="menu-item">
-    Terminliste
-</a>
-
-@includeIf('app.shared.results-menu-item', ['results' => $results])
-
-@component('components.header.menu_item', ['route' => '#toggle-menu', 'icon' => true])
-<div class="menu-item flex justify-end list-none lg:flex-row-reverse cursor-pointer">
-    <span class="text-white mr-2 lg:ml-1 lg:mr-0">+</span>Online
-</div>
-
-<ul class="flex flex-col rounded relative lg:absolute hidden submenu">
-    <a class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full lg:mr-0" href="https://www.chess.com/club/moss-schakklub" onclick="event.stopPropagation();">
-        <div class="flex items-center w-full justify-end lg:justify-center pr-2 lg:pr-0">
-            chess.com
-        </div>
-    </a>
-    <a class="menu-item toggle-menu lg:bg-gray-800 lg:pt-4 lg:pb-2 lg:px-4 relative w-full pr-2 lg:mr-0" href="https://lichess.org/team/moss-schakklub" onclick="event.stopPropagation();">
-        <div class="flex items-center w-full justify-end lg:justify-center lg:pr-0">
-            lichess.org
-        </div>
-    </a>
-</ul>
-@endcomponent
-
-<section class="flex ml-auto mt-6 lg:mt-0 items-center">
-    <a href="https://www.facebook.com/pages/category/Sports-Team/Moss-Schakklub-1543400812547928/" target="_blank">
-        <svg class="text-teal-200 hover:text-white fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h7v-7H8V9.525h2v-2.05c0-2.164 1.212-3.684 3.766-3.684l1.803.002v2.605h-1.197c-.994 0-1.372.746-1.372 1.438v1.69h2.568L15 12h-2v7h4c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2z" />
-        </svg>
-    </a>
-
-    <a href="mailto:post@sjakknet.no" class="ml-6 lg:ml-3">
-        <svg class="text-teal-200 hover:text-white fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path d="M14.608 12.172c0 .84.239 1.175.864 1.175 1.393 0 2.28-1.775 2.28-4.727 0-4.512-3.288-6.672-7.393-6.672-4.223 0-8.064 2.832-8.064 8.184 0 5.112 3.36 7.896 8.52 7.896 1.752 0 2.928-.192 4.727-.792l.386 1.607c-1.776.577-3.674.744-5.137.744-6.768 0-10.393-3.72-10.393-9.456 0-5.784 4.201-9.72 9.985-9.72 6.024 0 9.215 3.6 9.215 8.016 0 3.744-1.175 6.6-4.871 6.6-1.681 0-2.784-.672-2.928-2.161-.432 1.656-1.584 2.161-3.145 2.161-2.088 0-3.84-1.609-3.84-4.848 0-3.264 1.537-5.28 4.297-5.28 1.464 0 2.376.576 2.782 1.488l.697-1.272h2.016v7.057h.002zm-2.951-3.168c0-1.319-.985-1.872-1.801-1.872-.888 0-1.871.719-1.871 2.832 0 1.68.744 2.616 1.871 2.616.792 0 1.801-.504 1.801-1.896v-1.68z" />
-        </svg>
-    </a>
-</section>
-@endsection
+<header class="bg-gray-800 px-4 py-8 w-full">
+    <nav class="container mx-auto max-w-4xl">
+        <section class="grid grid-cols-2">
+            <section class="flex items-center flex-1">
+                <a href="/" class="text-white hover:text-yellow-500">
+                    <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 360.42 360.42"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m358.95 150.51c2.597-11.582 1.212-22.53-0.127-33.119-1.144-9.042-2.223-17.581-0.591-25.51 3.869-18.796-8.128-39.427-19.013-55.301-12.143-17.708-25.283-20.22-42.522-21.836-0.932-0.087-1.884-0.132-2.829-0.132-11.568 0-21.231 6.474-26.423 9.952-1.347 0.902-2.739 1.835-3.147 1.917-0.646 0.129-2.158 0.149-4.071 0.175-5.138 0.068-13.736 0.183-23.974 2.376-9.976 2.138-17.97 7.219-17.821 11.327 0.056 1.556 1.194 3.561 6.298 4.274 10.694 1.495 20.149 4.392 27.746 6.719 1.502 0.46 2.911 0.892 4.218 1.277 8.22 2.426 15.813 5.741 18.413 19.486 1.809 9.558-14.625 20.525-29.123 30.202-6.014 4.013-11.693 7.804-16.268 11.521-15.954 12.963-46.374 39.235-56.119 48.467-9.237 8.751-86.918 62.013-107.8 72.199-21.338 10.409-42.134 26.726-47.345 37.147-1.168 2.336-1.418 3.816-0.812 4.797 0.265 0.428 0.812 0.938 1.915 0.938 1.313 0 3.111-0.757 4.662-1.491 2e-3 0.188 0.037 0.381 0.119 0.578 0.463 1.119 1.955 1.262 3.203 1.262 3.411 0 10.521-1.401 19.192-3.771-3.114 2.302-9.293 6.265-14.915 9.871-22.224 14.26-32.093 21.185-31.813 24.534 0.154 1.855 1.38 4.066 6.345 4.066 3.048 0 6.762-0.783 9.747-1.412 1.549-0.326 2.891-0.609 3.818-0.717-0.338 0.709-1.205 1.928-1.82 2.794-1.992 2.802-4.052 5.7-2.585 7.534 0.44 0.551 1.189 0.819 2.287 0.819 3.285 0 10.301-2.437 17.086-4.794 4.844-1.683 9.419-3.272 12.184-3.825 4.222-0.844 24.688-11.443 44.479-21.693 14.766-7.647 31.502-16.314 33.303-16.512 3.507 0 31.84-2.067 49.711-7.174 3.983-1.138 8.238-1.715 12.647-1.715 10.719 0 21.066 3.333 29.931 6.643-0.055 2.158-0.109 4.802-0.165 8.048-0.151 8.905-0.218 18.128-0.196 20.565 0.029 3.404 6.457 9.411 15.534 17.525 3.734 3.338 8.317 7.436 9.159 8.91-1.521 0.946-3.853 0.974-6.745 1.009-5.052 0.061-11.97 0.144-19.146 5.616-4.179 3.187-6.942 7.744-7.569 9.963-0.059 0.205-0.234 0.828 0.152 1.339 0.215 0.283 0.545 0.446 0.906 0.446 0.301 0 0.604-0.112 0.93-0.342l0.737-0.527c2.341-1.677 7.822-5.605 10.766-6.725 3.979-1.514 6.902-2.131 10.092-2.131 4.188 0 9.138 1.076 16.806 3.063 4.696 1.216 8.705 1.808 12.256 1.808 4.619 0 7.973-0.978 11.523-2.013 4.131-1.204 8.401-2.449 15.383-2.449 1.297 0 2.665 0.044 4.067 0.132 7.649 0.479 14.502 4.462 17.796 6.376 1.418 0.824 1.847 1.073 2.311 1.073l0.706-0.028 0.265-0.59c0.347-0.771-0.089-1.261-2.182-3.619-3.516-3.959-6.806-6.381-9.986-7.947 1.944-0.378 3.739-0.896 5.584-1.434 4.131-1.204 8.401-2.449 15.382-2.449 1.297 0 2.665 0.044 4.067 0.132 7.649 0.479 14.503 4.462 17.796 6.375 1.419 0.825 1.848 1.073 2.312 1.073l0.706-0.028 0.265-0.59c0.347-0.771-0.089-1.261-2.182-3.619-7.444-8.383-13.889-9.927-20.382-10.875-2.55-0.371-4.478-1.228-4.688-2.082-0.173-0.699 0.774-1.882 2.534-3.164 3.122-2.274 6.262-3.427 9.333-3.427 5.441 0 8.826 3.572 9.194 4.93 0.166 0.616 0.653 0.834 1.021 0.834 0.375 0 0.87-0.228 1.03-0.868 0.301-1.196-0.06-6.437-4.487-8.808-2.211-1.185-5.633-1.837-9.636-1.837-9.456 0-19.744 3.326-28.221 9.011-1.689-0.342-3.622-0.526-5.722-0.526-0.583 0-1.17 0.018-1.758 0.043-7.241-5.788-19.983-19.26-20.717-23.842-0.483-3.021-0.765-12.566-0.765-21.797v-0.103c6-2.984 12.091-6.5 19.155-10.656 35.36-20.796 63.799-86.286 68.592-107.67zm-108.14 128.37c-0.079 6.328-0.111 11.825-0.095 13.628 0.03 3.403 6.457 9.41 15.533 17.524 3.53 3.155 7.813 6.985 8.984 8.641-0.794 0.338-1.582 0.693-2.362 1.069-1.208 0.168-2.619 0.19-4.206 0.209-3.271 0.04-7.325 0.098-11.724 1.612-7.352-6.351-18.116-18.122-18.793-22.343-0.366-2.289-0.5-8.327-0.576-15.135 2.92-1.001 7.269-2.596 13.239-5.205z"/>
+                    </svg>
+                    <span class="font-semibold text-xl tracking-tight">Moss Schakklub</span>
+                </a>
+            </section>
+            <section class="flex items-center justify-end px-4 md:px-0 md:hidden">
+                <button data-collapse-toggle="mobile-menu" type="button"
+                        class="inline-flex justify-center items-center ml-3 text-gray-400 rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
+                        aria-controls="mobile-menu-2" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                    <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </section>
+            <section class="hidden w-full md:flex md:w-auto col-span-2 md:col-span-1 items-end md:items-center"
+                     id="mobile-menu">
+                <ul class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium items-end">
+                    <x-nav-button id="about_the_club_id" dropdown="about_the_club_dropdown" title="Om klubben"
+                                  :routes="$about_routes"></x-nav-button>
+                    <x-nav-button id="tournaments_id" dropdown="tournaments_dropdown" title="Turneringer"
+                                  :routes="$tournaments"></x-nav-button>
+                    <x-nav-button id="online_sites_id" dropdown="online_sites_dropdown" title="Online"
+                                  :routes="$online_sites"></x-nav-button>
+                </ul>
+            </section>
+        </section>
+    </nav>
+</header>

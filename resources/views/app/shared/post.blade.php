@@ -1,4 +1,4 @@
-<article class="flex flex-col bg-white overflow-hidden w-full py-2 px-5 lg:px-16 mb-6 border-b pb-8">
+<article class="flex flex-col bg-white w-full py-6 px-6 rounded-md border-b pb-8 shadow-md">
     @if(!is_null($post->image))
         <div class="pb-2/3">
             <a href="{{ route('post', ['slug' => $post->slug]) }}">
