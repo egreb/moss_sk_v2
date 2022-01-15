@@ -1,7 +1,7 @@
 <header class="bg-gray-800 px-4 py-8 w-full">
     <nav class="container mx-auto max-w-4xl">
-        <section class="grid grid-cols-2">
-            <section class="flex items-center flex-1">
+        <section class="grid grid-cols-4">
+            <section class="flex items-center flex-1 col-span-1">
                 <a href="/" class="text-white hover:text-yellow-500">
                     <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 360.42 360.42"
                          xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +11,7 @@
                     <span class="font-semibold text-xl tracking-tight">Moss Schakklub</span>
                 </a>
             </section>
-            <section class="flex items-center justify-end px-4 md:px-0 md:hidden">
+            <section class="flex items-center justify-end px-4 md:px-0 md:hidden col-span-3">
                 <button data-collapse-toggle="mobile-menu" type="button"
                         class="inline-flex justify-center items-center ml-3 text-gray-400 rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
                         aria-controls="mobile-menu-2" aria-expanded="false">
@@ -29,15 +29,26 @@
                     </svg>
                 </button>
             </section>
-            <section class="hidden w-full md:flex md:w-auto col-span-2 md:col-span-1 items-end md:items-center"
+            <section class="hidden w-full md:flex md:w-auto col-span-4 md:col-span-3 items-end md:items-center justify-end"
                      id="mobile-menu">
-                <ul class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium items-end">
+                <ul class="flex flex-col md:flex-row md:space-x-2 mt-4 md:mt-0 md:text-sm md:font-medium items-end">
                     <x-nav-button id="about_the_club_id" dropdown="about_the_club_dropdown" title="Om klubben"
                                   :routes="$about_routes"></x-nav-button>
                     <x-nav-button id="tournaments_id" dropdown="tournaments_dropdown" title="Turneringer"
                                   :routes="$tournaments"></x-nav-button>
                     <x-nav-button id="online_sites_id" dropdown="online_sites_dropdown" title="Online"
                                   :routes="$online_sites"></x-nav-button>
+                    <li>
+                        <a href="mailto:post@sjakknet.no" class="nav-link">
+                            Kontakt oss
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://www.facebook.com/pages/category/Sports-Team/Moss-Schakklub-1543400812547928/"
+                           target="_blank">
+                            Facebook
+                        </a>
+                    </li>
                 </ul>
             </section>
         </section>

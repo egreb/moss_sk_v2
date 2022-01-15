@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="nb">
 <head>
+    @production
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161547446-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161547446-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+            function gtag() {
+                dataLayer.push(arguments);
+            }
 
-        gtag('js', new Date());
+            gtag('js', new Date());
 
-        gtag('config', 'UA-161547446-1');
-    </script>
+            gtag('config', 'UA-161547446-1');
+        </script>
+    @endproduction
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +34,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-gray-100">
 <main class="min-h-screen relative">
     @include('app.shared.header')
 

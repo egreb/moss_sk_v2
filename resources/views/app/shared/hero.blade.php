@@ -1,8 +1,8 @@
-<section class="flex flex-col bg-white rounded px-4 py-2 shadow-md">
+<section class="flex flex-col px-4 py-2">
     <div class="px-0 sm:px-4 py-4 sm:flex justify-center">
         <div class="w-4/4">
-            <h1 class="text-2xl sm:text-3xl border-b w-full text-center">Velkommen til Moss Schakklub</h1>
-            <p class="mt-2 text-center font-medium font-semibold leading-6">
+            <h1 class="text-2xl sm:text-3xl border-b border-gray-400 w-full text-center">Velkommen til Moss Schakklub</h1>
+            <p class="pt-6 pb-4 text-center font-medium font-semibold leading-6">
                 I Moss Schakklub har vi åpent for alle som vil spille sjakk. <br/>
                 Klubben ble stiftet i 1918, og har siden den gang fostret frem mange gode spillere. <br/>
                 Vi treffes i lokalene til <a
