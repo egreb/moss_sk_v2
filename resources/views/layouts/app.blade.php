@@ -35,7 +35,7 @@
 </head>
 
 <body class="bg-gray-100">
-<main class="min-h-screen relative">
+<main class="flex flex-col min-h-screen relative">
     @include('app.shared.header')
 
     <section class="container max-w-4xl mx-auto">

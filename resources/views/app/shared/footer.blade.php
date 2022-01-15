@@ -1,4 +1,4 @@
-<footer class="bg-gray-400 text-gray-800 text-center p-2 absolute bottom-0 w-full flex flex-col items-center">
+<footer class="bg-gray-400 text-gray-800 text-center p-2 w-full flex flex-col items-center mt-auto">
     <p class="text-xs mt-1">© Copyright 2004-2019 - Moss Schakklub ORG 983764886.</p>
     <p class="text-xs mt-1">Post sendes: Postboks 234, 1501 Moss.</p>
     <p class="text-xs mt-1">
