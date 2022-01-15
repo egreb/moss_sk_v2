@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @page
+<x-page>
     <h1 class="page-title">Æresmedlemmer</h1>
 
     <h2 class="page-subtitle">Andreas Guldbrandsen <span>1906 - †1989</span></h2>
@@ -49,8 +49,7 @@
         <li>Æresmedlemsskapet er et tegn på, og takk for, lang og tro tjeneste for Moss schakklub.</li>
     </ul>
 
-    <h2 class="page-subtitle">Erik <span>Lind Pedersen 1937 -</span></h2>
-
+    <h2 class="page-subtitle">Erik <span>Lind Pedersen 1937 - †2021</span></h2>
     <ul class="list-disc pl-5">
         <li>Født i Danmark, og meldte seg inn i Moss Schakklub i 1968.</li>
         <li>Hatt alle verv i sjakklubben, de fleste som kasserer.</li>
@@ -85,5 +84,17 @@
         <li>Klubbmester i langsjakk 4 ganger, i hurtigsjakk 12 ganger og i lynsjakk 8 ganger</li>
         <li>En ildsjel som har lagt stor vekt på det sosiale i klubben</li>
     </ul>
-    @endpage
+
+    <h2 class="page-subtitle">Espen Lofstad Andersen <span>1964</span></h2>
+    <ul class="list-disc pl-5">
+        <li> Aktiv i barne- og ungomssjakken i MSK siden 1980-tallet.</li>
+        <li> Har vært formann i klubben to ganger.</li>
+        <li>Har ledet hovedkomiteen under Landsturneringene Moss SK arrangerte i 2006 og 2018.</li>
+        <li>Tildelt Norges Sjakkforbunds hederstegn i gull.</li>
+        <li>Leder av Ungdommens Sjakkforbund to ganger</li>
+        <li>Tildelt UFSs hederstegn i gull.</li>
+        <li>Forbundsdommer.</li>
+        <li>Dommer under sjakk-OL i Tromsø i 2014</li>
+    </ul>
+</x-page>
 @endsection

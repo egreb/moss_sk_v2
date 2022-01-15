@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\App;
 
 use App\BoardMember;
@@ -8,19 +10,24 @@ use App\Post;
 use App\Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $posts = Post::where('draft', false)->where('published_at', '<=', Carbon::now('Europe/Oslo'))->get()->sortByDesc('published_at');
+        $posts = Post::where('draft', false)
+            ->where('published_at', '<=', Carbon::now('Europe/Oslo'))
+            ->get()
+            ->sortByDesc('published_at')
+            ->sortByDesc('created_at');
 
         return view('app.index', ['posts' => $posts]);
     }
 
     public function about()
     {
-        $leader = BoardMember::Create('Paal Tveiten', 'Leder', 'paal@keysmarineservice.no', 90229514);
+        $leader = BoardMember::Create('Paal Tveiten', 'Leder', 'paal@keysmarineservice.no', 98080464);
         $secondleader = BoardMember::Create('Torbjørn Bakke Henriksen', 'Nestleder', 'tbh@getmail.no', 40247353);
         $secretary = BoardMember::Create('Simen Berge', 'Sekretær', 'bergesimen@gmail.com', 94816322);
         $youthleader = BoardMember::Create('Jonathan M. Andersen', 'Ungdomsleder', 'sjakkjonis@hotmail.com', 95976686);
@@ -43,10 +50,8 @@ class HomeController extends Controller
         ];
 
         $teams = [
-            ['name' => 'Lag 1', 'leader' => 'Svein Rishovd', 'phone' => 94816322],
-            ['name' => 'Lag 2', 'leader' => 'Svein Rishovd', 'phone' => 94816322],
-            ['name' => 'Lag 3', 'leader' => 'Svein Rishovd', 'phone' => 94816322],
-            ['name' => 'Lag 4', 'leader' => 'Svein Rishovd', 'phone' => 94816322]
+            ['name' => 'Lag 1', 'leader' => $leader->name, 'phone' => $leader->phone],
+            ['name' => 'Lag 2', 'leader' => $tournamentdirector->name, 'phone' => $tournamentdirector->phone],
         ];
 
         return view('app.about', ['boardmembers' => $boardmembers, 'teams' => $teams]);

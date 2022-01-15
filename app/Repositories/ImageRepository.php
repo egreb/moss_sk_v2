@@ -42,7 +42,7 @@ class ImageRepository
                 }
             );
 
-            $img->save('img/uploads/' . $size . '/' . $filename);
+            $img->save(public_path() . '/img/uploads/' . $size . '/' . $filename);
         }
 
         $imageModel = ImageModel::create([

@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ImageRepository;
+use Carbon\Carbon;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -43,7 +44,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $published_at = Carbon::now('Europe/Oslo')->format('Y-m-d\TH:i');
+        return view('admin.post.create', ['published_at' => $published_at]);
     }
 
     /**
@@ -59,7 +61,7 @@ class PostController extends Controller
             'draft' => $request->has('draft') ? false : true
         ]);
 
-        $post = Post::create($request->except('file'));
+        $post = Post::create($request->except('file', 'image'));
         $post->save();
         $post->authors()->sync([Auth::id()]);
 
@@ -91,7 +93,9 @@ class PostController extends Controller
             return redirect()->route('admin.post.index');
         }
 
-        return view('admin.post.edit', ['post' => $post]);
+        $published_at = !is_null($post->published_at) ? Carbon::createFromDate($post->published_at)->format('Y-m-d\TH:i') : Carbon::now('Europe/Oslo')->format('Y-m-d\TH:i');
+
+        return view('admin.post.edit', ['post' => $post, 'published_at' => $published_at]);
     }
 
     /**

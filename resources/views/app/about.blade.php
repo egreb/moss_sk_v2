@@ -55,7 +55,7 @@
                 <div class="flex items-center w-3/4 p-4 bg-gray-200">Klubbmesterskap Langsjakk <br /> Hurtig <br />
                     Lyn
                 </div>
-                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800"> 250 kr <br /> 200 kr <br /> 150 kr
+                <div class="flex items-center w-1/4 bg-gray-400 p-4 text-gray-800"> 250 kr <br /> 150 kr <br /> 150 kr
                 </div>
             </li>
             <li class="flex flex-wrap border-gray-800 border-b">

@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="border border-gray-400">
         <textarea
             ref="textarea"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline h-32"
+            class="appearance-none border-none rounded w-full py-2 px-3 text-gray-700 mb-3 focus:outline-none focus:shadow-outline h-32"
             :name="name"/>
 
         <modal title="Link" :show="showModal" :callback="insertLink" :close="closeModal">
@@ -16,7 +16,11 @@
         </modal>
     </div>
 </template>
-
+<style>
+    .editor-toolbar {
+        border: none!important;
+    }
+</style>
 <script>
     import EasyMDE from 'easymde'
     import Modal from './Modal.vue'
