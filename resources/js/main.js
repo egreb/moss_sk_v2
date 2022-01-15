@@ -1,19 +1,21 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
     const top_level_menu = document.querySelectorAll(
-        'a[href="#toggle-menu"], li.toggle-menu:not(.menu-item)'
+        '.nav-item'
     );
-    top_level_menu.forEach(function(item) {
-        item.addEventListener("click", function(event) {
+    console.log({top_level_menu})
+    top_level_menu.forEach(function (item) {
+        console.log({item})
+        item.addEventListener("click", function (event) {
             event.preventDefault();
             event.stopPropagation();
 
             const menu = this.querySelector("ul");
-
             if (menu.classList.contains("hidden")) {
                 const already_active = document.querySelector(
-                    ".submenu:not(.hidden)"
+                    ".nav-item__menu:not(.hidden)"
                 );
-                if (already_active && already_active !== this) {
+                console.log({already_active, this:this, equal: already_active && already_active.isEqualNode(this)})
+                if (already_active && already_active.isEqualNode(this)) {
                     already_active.classList.toggle("hidden");
                 }
             }
@@ -24,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     const submenu_items = document.querySelectorAll("li.toggle-menu.menu-item");
     if (submenu_items) {
-        submenu_items.forEach(function(menu) {
-            menu.addEventListener("click", function(event) {
+        submenu_items.forEach(function (menu) {
+            menu.addEventListener("click", function (event) {
                 event.stopPropagation();
                 this.querySelector("ul").classList.toggle("hidden");
             });
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     const toggleMenuButton = document.getElementById("toggle-menu");
     if (toggleMenuButton) {
-        toggleMenuButton.addEventListener("click", function(event) {
+        toggleMenuButton.addEventListener("click", function (event) {
             event.stopPropagation();
             const menu = document.querySelector("#menu");
             if (menu) {
@@ -48,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.querySelector("#menu").classList.add("hidden");
         }
 
-        document.querySelectorAll("ul.submenu").forEach(function(menuItem) {
+        document.querySelectorAll("ul.submenu").forEach(function (menuItem) {
             menuItem.classList.add("hidden");
 
-            menuItem.querySelectorAll("ul").forEach(function(subMenuItem) {
+            menuItem.querySelectorAll("ul").forEach(function (subMenuItem) {
                 subMenuItem.classList.add("hidden");
             });
         });
