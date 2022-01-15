@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nb">
 <head>
-    @production
+@production
     <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161547446-1"></script>
         <script>
@@ -30,7 +30,6 @@
     <title>Moss Schakklub</title>
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -51,7 +50,6 @@
     </section>
     @include('app.shared.footer')
 </main>
-<script src="{{ asset('js/main.js')}}"></script>
 <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
 </body>
 </html>
