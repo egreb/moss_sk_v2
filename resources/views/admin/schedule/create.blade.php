@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.admin')
 
 @section('content')
     <form method="POST" action="{{ route('admin.schedule.store') }}">

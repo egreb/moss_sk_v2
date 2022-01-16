@@ -14,63 +14,17 @@
 // admin routes
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/', 'Admin\HomeController@index')->name('index');
-
-    Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
-        Route::get('/', 'Admin\PostController@index')->name('index');
-        Route::get('/create', 'Admin\PostController@create')->name('create');
-        Route::get('/{id}', 'Admin\PostController@edit')->name('edit');
-
-        Route::post('/', 'Admin\PostController@store')->name('store');
-        Route::post('store', 'Admin\PostController@store')->name('store');
-        Route::delete('{id}/image/delete', 'Admin\PostController@deleteImage')->name('post.delete.image');
-        Route::post('{id}/image/upload', 'Admin\PostController@uploadImage')->name('post.upload.image');
-        Route::post('{id}', 'Admin\PostController@update')->name('update');
-        Route::delete('{id}', 'Admin\PostController@destroy')->name('delete');
+Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
+    Route::get('/', function() {
+        return inertia('Dashboard');
+    });
+    Route::get('/posts', function() {
+        return inertia('Posts');
+    });
+    Route::get('/tournaments', function() {
+        return inertia('Tournaments');
     });
 
-    Route::group(['prefix' => 'schedule', 'as' => 'schedule.'], function () {
-        Route::get('/', 'Admin\ScheduleController@index')->name('index');
-        Route::get('create', 'Admin\ScheduleController@create')->name('create');
-        Route::post('alter', 'Admin\ScheduleController@alter')->name('alter');
-        Route::get('edit/{id}', 'Admin\ScheduleController@edit')->name('edit');
-        Route::post('store', 'Admin\ScheduleController@store')->name('store');
-        Route::post('update/{id}', 'Admin\ScheduleController@update')->name('update');
-        Route::delete('delete/{id}', 'Admin\ScheduleController@destroy')->name('delete');
-        Route::post('delete/{id}', 'Admin\ScheduleController@destroy')->name('post_delete');
-        Route::get('{id}', 'Admin\ScheduleController@show')->name('show');
-    });
-
-    Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
-        Route::post('store', 'Admin\ScheduleEventController@store')->name('store');
-    });
-
-    Route::group(['prefix' => 'member', 'as' => 'member.'], function () {
-        Route::get('/', 'MemberController@index')->name('home');
-        Route::get('create', 'MemberController@create')->name('create');
-        Route::post('store', 'MemberController@store')->name('store');
-
-        Route::get('{id}', 'MemberController@edit')->name('edit');
-    });
-
-    Route::group(['prefix' => 'tournament', 'as' => 'tournament.'], function () {
-        Route::get('/', 'TournamentController@index')->name('index');
-        Route::get('create', 'TournamentController@create')->name('create');
-        Route::post('store', 'TournamentController@store')->name('store');
-        Route::get('{tournament}', 'TournamentController@edit')->name('edit');
-        Route::post('{tournament}', 'TournamentController@update')->name('update');
-    });
-
-    Route::group(['prefix' => 'tournament_year', 'as' => 'tournament_year.'], function () {
-        Route::post('/', 'TournamentYearController@store')->name('store');
-    });
-
-    Route::group(['prefix' => 'relevant_links', 'as' => 'relevant_links.'], function () {
-        Route::get('/', 'RelevantLinksController@index')->name('index');
-        Route::post('store', 'RelevantLinksController@store')->name('store');
-        Route::delete('{id}', 'RelevantLinksController@delete')->name('delete');
-    });
 });
 
 // authentication

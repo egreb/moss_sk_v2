@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.admin')
 
 @section('content')
 <h2 class="text-3xl">Rediger nyhet</h2>

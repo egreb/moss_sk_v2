@@ -1,8 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "dev": "npm run mix",
         "watch": "mix watch",
         "hot": "mix watch --hot",
         "prod": "npm run production",
@@ -23,6 +22,9 @@
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@inertiajs/progress": "^0.2.7",
         "easymde": "https://github.com/egreb/easy-markdown-editor.git",
         "tailwindcss": "3.0.13",
         "vue-loader": "^17.0.0"
