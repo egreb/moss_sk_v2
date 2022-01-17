@@ -6,14 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Schedule;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderByDesc('published_at')->take(5)->get();
-        $schedules = Schedule::orderBy('updated_at')->take(5)->get();
+        $posts = Post::latest()->take(5)->get();
+        $schedules = Schedule::latest()->take(5)->get();
 
-        return view('admin.home', ['posts' => $posts, 'schedules' => $schedules]);
+        return Inertia::render('Dashboard', ['posts' => $posts, 'schedules' => $schedules]);
     }
 }

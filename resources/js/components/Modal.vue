@@ -1,10 +1,12 @@
 <template>
   <div
     v-if="show"
-    class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50"
     id="modal"
+    class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50"
   >
-    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    <div
+      class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
+    />
 
     <div
       class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto"
@@ -55,14 +57,18 @@
           <button
             v-if="typeof callback !== 'undefined'"
             type="button"
-            @click="callback"
             class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
-          >Lagre</button>
+            @click="callback"
+          >
+            Lagre
+          </button>
           <button
             type="button"
             class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400"
             @click="close"
-          >Lukk</button>
+          >
+            Lukk
+          </button>
         </div>
       </div>
     </div>
@@ -71,28 +77,27 @@
 
 <script>
 export default {
+  name: 'Modal',
   props: {
     title: String,
     show: Boolean,
     callback: Function,
-    close: Function
+    close: Function,
   },
   watch: {
-    show: function() {
-      document.querySelector("body").classList.toggle("modal-active");
-    }
+    show: function () {
+      document.querySelector('body').classList.toggle('modal-active')
+    },
   },
-  name: "Modal",
+  unmounted() {
+    document.querySelector('body').classList.remove('modal-active')
+  },
   methods: {
     submit() {
-      this.callback();
-    }
+      this.callback()
+    },
   },
-  destroyed() {
-    document.querySelector("body").classList.remove("modal-active");
-  }
-};
+}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

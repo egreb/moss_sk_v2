@@ -12,19 +12,21 @@
 */
 
 // admin routes
+
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
-    Route::get('/', function() {
-        return inertia('Dashboard');
-    });
-    Route::get('/posts', function() {
+    Route::get('/', [HomeController::class, 'index'])
+        ->name('dashboard')
+        ->middleware('auth');
+
+    Route::get('/posts', function () {
         return inertia('Posts');
     });
-    Route::get('/tournaments', function() {
+    Route::get('/tournaments', function () {
         return inertia('Tournaments');
     });
-
 });
 
 // authentication

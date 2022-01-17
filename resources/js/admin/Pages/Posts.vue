@@ -1,9 +1,9 @@
 <template>
-    <h1>Poster</h1>
+  <h1>Poster</h1>
 </template>
 
 <script>
 export default {
-    name: "Posts",
+  name: 'Posts',
 }
 </script>
