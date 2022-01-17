@@ -1,5 +1,5 @@
 <template>
-  <aside class="col-span-1 bg-gray-800">
+  <aside class="col-span-2 bg-gray-800">
     <section class="p-4">
       <ul class="flex flex-col space-y-4">
         <NavLink href="">Dashboard</NavLink>
