@@ -1,6 +1,6 @@
 <template>
   <PageHeader>Ny post</PageHeader>
-  <form action="" class="max-w-xl mx-auto space-y-4">
+  <form action="" class="max-w-4xl mx-auto space-y-4">
     <div class="flex flex-col">
       <label for="title" class="font-medium pb-2 text-gray-600">Tittel</label>
       <input id="title" v-model="form.title" type="text" name="title" placeholder="Tittel.." class="border rounded-md px-4 py-2" />
@@ -8,12 +8,12 @@
     </div>
     <div class="flex flex-col">
       <label for="ingress" class="font-medium pb-2 text-gray-600">Ingress</label>
-      <textarea id="ingress" v-model="form.ingress" type="text" name="ingress" placeholder="Ledetekst.." class="border rounded-md px-4 py-2 h-32" />
+      <v-md-editor id="ingress" v-model="form.ingress" left-toolbar="undo redo" type="text" name="ingress" placeholder="Ledetekst.." class="border rounded-md px-4 py-2 h-32" />
       <div v-if="errors.ingress" class="text-red-500 text-sm mt-1" v-html="errors.ingress" />
     </div>
     <div class="flex flex-col">
       <label for="content" class="font-medium pb-2 text-gray-600">Post</label>
-      <textarea id="content" v-model="form.content" type="text" name="content" placeholder="Tekst.." class="border rounded-md px-4 py-2 h-64" />
+      <v-md-editor id="content" v-model="form.content" left-toolbar="undo redo" type="text" name="content" placeholder="Tekst.." class="border rounded-md px-4 py-2 h-64" />
       <div v-if="errors.content" class="text-red-500 text-sm mt-1" v-html="errors.content" />
     </div>
     <div class="flex flex-col">
