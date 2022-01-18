@@ -33,7 +33,10 @@
         "@inertiajs/progress": "^0.2.7",
         "@kangc/v-md-editor": "^2.3.13",
         "easymde": "https://github.com/egreb/easy-markdown-editor.git",
+        "filepond": "^4.30.3",
+        "filepond-plugin-file-validate-type": "^1.2.6",
         "tailwindcss": "3.0.13",
+        "vue-filepond": "^7.0.2",
         "vue-loader": "^17.0.0"
     }
 }

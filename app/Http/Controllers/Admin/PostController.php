@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Post as PostRequest;
 use Auth;
 use App\Post;
 use App\Services\Slug;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ImageRepository;
 use Carbon\Carbon;
 use Illuminate\View\View;
+use Request;
+use Illuminate\Http\Request as HttpRequest;
 
 class PostController extends Controller
 {
@@ -50,22 +50,26 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param  $request PostRequest
      * @return RedirectResponse
      * @throws \Exception
      */
-    public function store(PostRequest $request)
+    public function store(HttpRequest $request)
     {
-        $request->merge([
-            'slug' => $this->slug_generator->createSlug($request->title),
-            'draft' => $request->has('draft') ? false : true
+        Request::validate([
+            'title' => 'required',
+            'ingress' => 'required',
+            'story' => 'required',
         ]);
 
-        $post = Post::create($request->except('file', 'image'));
-        $post->save();
+        $request->merge([
+            'slug' => $this->slug_generator->createSlug($request->title),
+            'draft' => !$request->has('draft'),
+        ]);
+
+        $post = Post::create($request->except(['file', 'image']));
         $post->authors()->sync([Auth::id()]);
 
-        return redirect()->route('admin.post.index');
+        return redirect('/dashboard');
     }
 
     /**

@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center pb-4">
     <PageHeader>Poster</PageHeader>
-    <Link href="/dashboard/post/create" class="text-sm ml-4 px-4 py-2 bg-blue-400 text-white hover:bg-blue-500 rounded-md">Ny post</Link>
+    <Link href="/dashboard/posts/create" class="text-sm ml-4 px-4 py-2 bg-blue-400 text-white hover:bg-blue-500 rounded-md">Ny post</Link>
   </div>
   <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
