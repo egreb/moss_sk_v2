@@ -76,8 +76,8 @@ body.modal-active {
 }
 
 .post {
-    p > a, p > img {
-        float: left;
+    p {
+        @apply pb-3 overflow-x-hidden;
     }
 }
 
