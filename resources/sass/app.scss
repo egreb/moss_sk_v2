@@ -263,7 +263,7 @@ ul.list {
 }
 
 .nav-dropdown {
-    @apply z-10 text-lg md:text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 md:w-52;
+    @apply z-10 text-lg bg-gray-500 md:text-base list-none rounded divide-y divide-gray-100 shadow dark:bg-gray-700 md:w-52;
     width: 90vw;
     left: 5px;
 
