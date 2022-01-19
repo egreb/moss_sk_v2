@@ -1,5 +1,5 @@
 <header class="bg-gray-800 px-4 py-8 w-full">
-    <nav class="container mx-auto max-w-4xl">
+    <nav class="container mx-auto max-w-6xl">
         <section class="grid grid-cols-4">
             <section class="flex items-center flex-1 col-span-1">
                 <a href="/" class="text-white hover:text-yellow-500">
@@ -29,11 +29,15 @@
                     </svg>
                 </button>
             </section>
-            <section class="hidden w-full md:flex md:w-auto col-span-4 md:col-span-3 items-end md:items-center justify-end"
-                     id="mobile-menu">
+            <section
+                class="hidden w-full md:flex md:w-auto col-span-4 md:col-span-3 items-end md:items-center justify-end"
+                id="mobile-menu">
                 <ul class="flex flex-col md:flex-row md:space-x-2 mt-4 md:mt-0 md:text-sm md:font-medium items-end">
                     <x-nav-button id="about_the_club_id" dropdown="about_the_club_dropdown" title="Om klubben"
                                   :routes="$about_routes"></x-nav-button>
+                    <li>
+                        <a href="/terminliste" class="nav-link">Terminliste</a>
+                    </li>
                     <x-nav-button id="tournaments_id" dropdown="tournaments_dropdown" title="Turneringer"
                                   :routes="$tournaments"></x-nav-button>
                     <x-nav-button id="online_sites_id" dropdown="online_sites_dropdown" title="Online"
@@ -44,7 +48,8 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="https://www.facebook.com/pages/category/Sports-Team/Moss-Schakklub-1543400812547928/"
+                        <a class="nav-link"
+                           href="https://www.facebook.com/pages/category/Sports-Team/Moss-Schakklub-1543400812547928/"
                            target="_blank">
                             Facebook
                         </a>
