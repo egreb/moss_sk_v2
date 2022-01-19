@@ -76,29 +76,8 @@ body.modal-active {
 }
 
 .post {
-    @apply mt-4;
-
-    p {
-        @apply mb-2 text-lg;
-    }
-
-    time {
-        @apply text-gray-800;
-    }
-
-    &:first-child {
-        @apply mt-0;
-    }
-
-    section.ingress {
-        @apply text-gray-800;
-        a {
-            @apply text-blue-600;
-        }
-
-        p {
-            @apply py-2;
-        }
+    p > a, p > img {
+        float: left;
     }
 }
 
