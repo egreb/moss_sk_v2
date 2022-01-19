@@ -7,3 +7,4 @@ mix.js(["resources/js/app.js"], "public/js")
         postCss: [tailwindcss("tailwind.config.js")]
     })
     .vue({version: 3})
+    .version()
