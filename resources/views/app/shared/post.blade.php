@@ -1,4 +1,4 @@
-<article class="flex flex-col bg-white w-full py-6 px-6 rounded-md border-b pb-8 shadow-md">
+<article class="post flex flex-col bg-white w-full py-6 px-6 rounded-md border-b pb-8 shadow-md">
     @if(!is_null($post->image))
         <div class="pb-2/3">
             <a href="{{ route('post', ['slug' => $post->slug]) }}">
@@ -16,7 +16,7 @@
     </section>
     @if(!is_null($post->ingress))
         <section>
-            <p class="text-3xl">
+            <p class="ingress text-3xl">
                 {!! parsedown($post->ingress) !!}
             </p>
         </section>

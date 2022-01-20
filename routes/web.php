@@ -47,6 +47,7 @@ Route::group(['middleware' => ['web', 'shared']], function () {
     Route::get('rules', 'App\HomeController@rules')->name('rules');
     Route::get('laws', 'App\HomeController@laws')->name('laws');
     Route::get('schedule', 'App\HomeController@schedule')->name('schedule');
+    Route::get('terminliste', 'App\HomeController@schedule')->name('schedule');
 
     Route::get('main', 'App\HomeController@redirectFromOldMainRoute');
     Route::get('{slug}', 'PostController@get')->name('post');

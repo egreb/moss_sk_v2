@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $leader = BoardMember::Create('Paal Tveiten', 'Leder', 'paal@keysmarineservice.no', 98080464);
         $secondleader = BoardMember::Create('Torbjørn Bakke Henriksen', 'Nestleder', 'tbh@getmail.no', 40247353);
-        $secretary = BoardMember::Create('Simen Berge', 'Sekretær', 'bergesimen@gmail.com', 94816322);
+        $secretary = BoardMember::Create('Simen Berge', 'Sekretær', 'bergesimen@gmail.com', 48213036);
         $youthleader = BoardMember::Create('Jonathan M. Andersen', 'Ungdomsleder', 'sjakkjonis@hotmail.com', 95976686);
         $tournamentdirector = BoardMember::Create(
             'Arnstein Johansen',
