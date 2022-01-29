@@ -6,6 +6,7 @@ import VueMarkdownEditor from '@kangc/v-md-editor'
 import '@kangc/v-md-editor/lib/style/base-editor.css'
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js'
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css'
+import {createPinia} from 'pinia'
 
 VueMarkdownEditor.use(vuepressTheme)
 
@@ -20,6 +21,7 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(VueMarkdownEditor)
+      .use(createPinia())
       .mount(el)
   },
 })

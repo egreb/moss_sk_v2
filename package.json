@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run mix",
+        "dev": "mix",
         "watch": "mix watch",
         "hot": "mix watch --hot",
         "prod": "npm run production",
@@ -35,6 +35,7 @@
         "easymde": "https://github.com/egreb/easy-markdown-editor.git",
         "filepond": "^4.30.3",
         "filepond-plugin-file-validate-type": "^1.2.6",
+        "pinia": "^2.0.10",
         "tailwindcss": "3.0.13",
         "vue-filepond": "^7.0.2",
         "vue-loader": "^17.0.0"

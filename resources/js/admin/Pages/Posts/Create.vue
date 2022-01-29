@@ -3,8 +3,11 @@
   <form class="max-w-4xl mx-auto space-y-4" @submit.prevent="submit">
     <FormGroup>
       <label for="title" class="font-medium pb-2 text-gray-600">Bilde</label>
-      <figure v-if="state.image.url" class="grid place-items-center py-4">
-        <img v-if="state.image.url" :key="state.image.id" class="w-64 h-64 rounded-lg" :src="state.image.url" :alt="state.image.id" @error="console.error" />
+      <figure v-if="state.image && state.image.url" class="grid place-items-center py-4">
+        <img
+          v-if="state.image && state.image.url" :key="state.image.id" class="w-64 h-64 rounded-lg"
+          :src="state.image.url" :alt="state.image.id" @error="console.error"
+        />
       </figure>
 
       <file-pond

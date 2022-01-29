@@ -73,17 +73,6 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param \App\Post $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param string $id
@@ -140,7 +129,7 @@ class PostController extends Controller
      * @param string $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(string $id)
+    public function delete(string $id)
     {
         $post = Post::find($id);
 
@@ -149,7 +138,7 @@ class PostController extends Controller
         }
 
         $post->delete();
-        return redirect()->route('admin.post.index');
+        return redirect()->route('dashboard');
     }
 
     public function deleteImage(string $id)

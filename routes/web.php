@@ -29,6 +29,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('/posts/create', function () {
         return inertia('Posts/Create');
     });
+
+    Route::delete('/posts/{id}', [PostController::class, 'delete']);
     Route::get('/tournaments', function () {
         return inertia('Tournaments');
     });
