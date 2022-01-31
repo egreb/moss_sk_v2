@@ -28945,29 +28945,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    flash: Object
+    flash: Object({
+      message: String
+    })
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
     var props = __props;
     var state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      hide: true
-    });
-    var show = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      var _props$flash;
-
-      return !state.hide && (props === null || props === void 0 ? void 0 : (_props$flash = props.flash) === null || _props$flash === void 0 ? void 0 : _props$flash.message) !== null;
+      show: false
     });
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(function () {
       return props;
     }, function (prev, curr) {
       var _curr$flash;
 
-      if ((curr === null || curr === void 0 ? void 0 : (_curr$flash = curr.flash) === null || _curr$flash === void 0 ? void 0 : _curr$flash.message) === null) return;
-      if (state.hide) state.hide = false;
+      state.show = ((_curr$flash = curr.flash) === null || _curr$flash === void 0 ? void 0 : _curr$flash.message) !== null;
       setTimeout(function () {
-        state.hide = true;
+        state.show = false;
       }, 5000);
     }, {
       deep: true
@@ -28975,10 +28971,8 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       props: props,
       state: state,
-      show: show,
       reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
-      watch: vue__WEBPACK_IMPORTED_MODULE_0__.watch,
-      computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed
+      watch: vue__WEBPACK_IMPORTED_MODULE_0__.watch
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -29850,7 +29844,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     appear: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [$setup.show ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.props.flash.message), 1
+      return [$setup.state.show ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.props.flash.message), 1
       /* TEXT */
       )])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
@@ -30156,41 +30150,6 @@ var useModal = (0,pinia__WEBPACK_IMPORTED_MODULE_0__.defineStore)('modal', {
       this.text.message = message || null;
       this.text.heading = heading || null;
       this.callback = callback;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/js/admin/Pages/stores/notifications.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/admin/Pages/stores/notifications.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useNotifications": () => (/* binding */ useNotifications)
-/* harmony export */ });
-/* harmony import */ var pinia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pinia */ "./node_modules/pinia/dist/pinia.esm-browser.js");
-
-var useNotifications = (0,pinia__WEBPACK_IMPORTED_MODULE_0__.defineStore)('notifications', {
-  state: function state() {
-    return {
-      items: []
-    };
-  },
-  actions: {
-    add: function add(message) {
-      var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'success';
-      this.items.push({
-        message: message,
-        type: type
-      });
-    },
-    remove: function remove() {
-      this.items.splice(0, 1);
     }
   }
 });
@@ -53914,9 +53873,7 @@ var map = {
 	"./components/Sidebar": "./resources/js/admin/Pages/components/Sidebar.vue",
 	"./components/Sidebar.vue": "./resources/js/admin/Pages/components/Sidebar.vue",
 	"./stores/modal": "./resources/js/admin/Pages/stores/modal.js",
-	"./stores/modal.js": "./resources/js/admin/Pages/stores/modal.js",
-	"./stores/notifications": "./resources/js/admin/Pages/stores/notifications.js",
-	"./stores/notifications.js": "./resources/js/admin/Pages/stores/notifications.js"
+	"./stores/modal.js": "./resources/js/admin/Pages/stores/modal.js"
 };
 
 
