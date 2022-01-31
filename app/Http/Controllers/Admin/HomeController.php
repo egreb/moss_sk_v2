@@ -10,11 +10,16 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $posts = Post::latest()->take(5)->get();
         $schedules = Schedule::latest()->take(5)->get();
+        $notifications = [];
 
-        return Inertia::render('Dashboard', ['posts' => $posts, 'schedules' => $schedules]);
+        $request->session()->flash('message', 'Task was successful!');
+        return Inertia::render('Dashboard', [
+            'posts' => $posts,
+            'schedules' => $schedules,
+        ]);
     }
 }

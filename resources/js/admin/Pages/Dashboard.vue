@@ -8,7 +8,7 @@
       Ny post
     </Link>
   </div>
-  <div class="flex flex-col">
+  <div class="flex flex-col overflow-x-hidden">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -67,8 +67,6 @@
     </div>
   </div>
   <Paginator class="mt-6 flex justify-center" :links="posts" />
-
-  <ConfirmDialog />
 </template>
 
 <script setup>
@@ -81,7 +79,6 @@ import TableHeader from './Shared/Table/TableHeader'
 import TBody from './Shared/Table/TableBody'
 import TableColumn from './Shared/Table/TableColumn'
 import {useModal} from './stores/modal'
-import ConfirmDialog from './Shared/Modal'
 import {defineProps} from 'vue'
 import {Inertia} from '@inertiajs/inertia'
 
@@ -89,11 +86,10 @@ defineProps({
   posts: Object,
   schedules: Object,
 })
-const store = useModal()
+const modal = useModal()
 
 const deletePost = (id, title) => {
-  console.log({id, title})
-  store.toggle({
+  modal.toggle({
     heading: 'Slette?',
     message: `Slette ${title}?`,
     confirm:true,
@@ -102,33 +98,4 @@ const deletePost = (id, title) => {
     },
   })
 }
-// export default {
-//   name: 'Dashboard',
-//   components: {
-//     TableColumn,
-//     TBody,
-//     TableHeader,
-//     TableHead,
-//     Table,
-//     PageHeader,
-//     Paginator,
-//     Link,
-//     ConfirmDialog,
-//   },
-//   props: {
-//     posts: Object,
-//     schedules: Object,
-//   },
-//   data() {
-//     return {
-//       showModal:false,
-//     }
-//   },
-//   methods: {
-//     deletePost(id) {
-//       // Inertia.delete(`/dashboard/posts/${id}`)
-//       this.showModal = true
-//     },
-//   },
-// }
 </script>

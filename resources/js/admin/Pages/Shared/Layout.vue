@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col min-h-screen">
+  <section class="flex flex-col min-h-screen relative">
     <header class="bg-gray-800 px-4 py-6">
       <h1 class="text-xl text-white font-semibold">
         Moss Schakklub - Dashboard
@@ -13,14 +13,13 @@
         </section>
       </main>
     </section>
+    <Modal />
+    <Notifications :flash="$page.props.flash" />
   </section>
 </template>
 
-<script>
+<script setup>
 import Sidebar from '../components/Sidebar.vue'
-
-export default {
-  name: 'Layout',
-  components: { Sidebar },
-}
+import Modal from '../Shared/Modal.vue'
+import Notifications from '../Shared/Notifications'
 </script>

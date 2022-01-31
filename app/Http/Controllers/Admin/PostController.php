@@ -69,7 +69,7 @@ class PostController extends Controller
         $post = Post::create($request->except(['file', 'image']));
         $post->authors()->sync([Auth::id()]);
 
-        return redirect('/dashboard');
+        return redirect()->route('dashboard')->with('message', 'Post opprettet');
     }
 
     /**
@@ -120,7 +120,9 @@ class PostController extends Controller
         $post->save();
         $post->authors()->syncWithoutDetaching([Auth::id()]);
 
-        return redirect()->route('admin.post.index');
+        return redirect()->route('admin.post.index', [
+            'alert' => ['Post opprettet..']
+        ]);
     }
 
     /**
@@ -138,7 +140,7 @@ class PostController extends Controller
         }
 
         $post->delete();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('message', 'Post slettet!');
     }
 
     public function deleteImage(string $id)
