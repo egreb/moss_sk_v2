@@ -902,6 +902,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-y-2 {
   row-gap: 0.5rem;
 }
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+}
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1230,6 +1238,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-5 {
   padding-top: 1.25rem;
+}
+.pl-4 {
+  padding-left: 1rem;
 }
 .text-left {
   text-align: left;

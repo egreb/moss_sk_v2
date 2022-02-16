@@ -4,9 +4,7 @@
     <Link
       href="/dashboard/posts/create"
       class="text-sm ml-4 px-4 py-2 bg-blue-400 text-white hover:bg-blue-500 rounded-md"
-    >
-      Ny post
-    </Link>
+    >Ny post</Link>
   </div>
   <div class="flex flex-col overflow-x-hidden">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -15,12 +13,9 @@
           <Table>
             <TableHead>
               <tr>
-                <TableHeader>
-                  Tittel
-                </TableHeader>
-                <TableHeader>
-                  Opprettet
-                </TableHeader>
+                <TableHeader>Tittel</TableHeader>
+                <TableHeader>Publisert</TableHeader>
+                <TableHeader>Opprettet</TableHeader>
               </tr>
             </TableHead>
             <TBody>
@@ -28,35 +23,26 @@
                 <TableColumn>
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
-                      <img v-if="post.image" class="h-10 w-10 rounded-full" :src="post.image" alt="" />
+                      <img v-if="post.image" class="h-10 w-10 rounded-full" :src="post.image" alt />
                     </div>
                     <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">
-                        {{ post.title }}
-                      </div>
-                      <div class="text-sm text-gray-500">
-                        Publisert av {{ post.by.join(', ') }}
-                      </div>
+                      <div class="text-sm font-medium text-gray-900">{{ post.title }}</div>
+                      <div class="text-sm text-gray-500">Publisert av {{ post.by.join(', ') }}</div>
                     </div>
                   </div>
                 </TableColumn>
-                <TableColumn>
-                  {{ post.created_at }}
-                </TableColumn>
+                <TableColumn>{{ post.published ? 'Publisert' : 'Draft' }}</TableColumn>
+                <TableColumn>{{ post.created_at }}</TableColumn>
                 <TableColumn class="text-right text-sm font-medium">
                   <div class="flex space-x-8 items-center justify-end">
                     <Link
                       :href="`/dashboard/post/${post.id}/edit`"
                       class="text-indigo-600 hover:text-indigo-900"
-                    >
-                      Edit
-                    </Link>
+                    >Edit</Link>
                     <button
                       class="text-red-600 hover:text-red-900"
                       @click="deletePost(post.id, post.title)"
-                    >
-                      Delete
-                    </button>
+                    >Delete</button>
                   </div>
                 </TableColumn>
               </tr>
@@ -70,7 +56,7 @@
 </template>
 
 <script setup>
-import {Link} from '@inertiajs/inertia-vue3'
+import { Link } from '@inertiajs/inertia-vue3'
 import Paginator from './Shared/Paginator'
 import PageHeader from './Shared/PageHeader'
 import Table from './Shared/Table/Table'
@@ -78,9 +64,9 @@ import TableHead from './Shared/Table/TableHead'
 import TableHeader from './Shared/Table/TableHeader'
 import TBody from './Shared/Table/TableBody'
 import TableColumn from './Shared/Table/TableColumn'
-import {useModal} from './stores/modal'
-import {defineProps} from 'vue'
-import {Inertia} from '@inertiajs/inertia'
+import { useModal } from './stores/modal'
+import { defineProps } from 'vue'
+import { Inertia } from '@inertiajs/inertia'
 
 defineProps({
   posts: Object,
@@ -92,7 +78,7 @@ const deletePost = (id, title) => {
   modal.toggle({
     heading: 'Slette?',
     message: `Slette ${title}?`,
-    confirm:true,
+    confirm: true,
     callback: () => {
       Inertia.delete('/dashboard/posts/' + id)
     },

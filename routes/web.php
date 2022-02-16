@@ -13,7 +13,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         ->name('posts.store');
 
     Route::get('/posts/create', function () {
-        return inertia('Posts/Create');
+        $published_at = date('Y-m-d\TH:i');
+        return inertia('Posts/Create', ['published_at' => $published_at]);
     });
 
     Route::delete('/posts/{id}', [PostController::class, 'delete']);

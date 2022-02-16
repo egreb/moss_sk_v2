@@ -63,10 +63,10 @@ class PostController extends Controller
 
         $request->merge([
             'slug' => $this->slug_generator->createSlug($request->title),
-            'draft' => !$request->has('draft'),
+            'draft' => !$request->input('publish'),
         ]);
 
-        $post = Post::create($request->except(['file', 'image']));
+        $post = Post::create($request->except(['file', 'image', 'publish']));
         $post->authors()->sync([Auth::id()]);
 
         return redirect()->route('dashboard')->with('message', 'Post opprettet');
