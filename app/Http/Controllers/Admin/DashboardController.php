@@ -18,7 +18,7 @@ class DashboardController extends Controller
             'image' => $post->image?->url,
             'by' => $post->authors->pluck('name')->toArray(),
             'published' => !$post->draft,
-            'created_at' => $post->created_at->format('h:m d-m-yy')
+            'created_at' => $post->created_at->format('h:m d-m-Y')
         ]);
         $schedules = Schedule::latest()->take(5)->get();
         return Inertia::render('Dashboard', [

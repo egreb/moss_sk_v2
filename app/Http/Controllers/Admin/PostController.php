@@ -44,8 +44,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        $published_at = Carbon::now('Europe/Oslo')->format('Y-m-d\TH:i');
-        return view('admin.post.create', ['published_at' => $published_at]);
+        $post = new Post([
+            'published_at' => Carbon::now('Europe/Oslo')->format('Y-m-d\TH:i'),
+            'draft' => false,
+        ]);
+
+        return view('admin.post.create', ['post' => $post]);
     }
 
     /**
@@ -73,25 +77,6 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param string $id
-     * @return RedirectResponse
-     * @return View
-     */
-    public function edit(string $id)
-    {
-        $post = Post::with('image')->find($id);
-        if (is_null($post)) {
-            return redirect()->route('admin.post.index');
-        }
-
-        $published_at = !is_null($post->published_at) ? Carbon::createFromDate($post->published_at)->format('Y-m-d\TH:i') : Carbon::now('Europe/Oslo')->format('Y-m-d\TH:i');
-
-        return view('admin.post.edit', ['post' => $post, 'published_at' => $published_at]);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -99,30 +84,30 @@ class PostController extends Controller
      * @return RedirectResponse
      * @throws \Exception
      */
-    public function update(PostRequest $request, string $id)
+    public function update(HttpRequest $request, string $id)
     {
         $post = Post::find($id);
         if (is_null($post)) {
-            abort(404);
+            abort(404, 'Post ikke funnet');
         }
 
-        $post->title = $request->title;
-        $post->ingress = $request->ingress;
-        $post->story = $request->story;
-        $post->draft = $request->has('draft') ? false : true;
-        $post->image_id = $request->image_id;
+        Request::validate([
+            'title' => 'required',
+            'ingress' => 'required',
+            'story' => 'required',
+        ]);
 
-        if ($request->has('published_at')) {
-            $post->published_at = $request->published_at;
-        }
+        $request->merge([
+            'draft' => !$request->publish,
+        ]);
+
+        $post->update($request->except(['file', 'image', 'publish', 'created_at', 'updated_at']));
 
         $post->touch(); // update timestamp
         $post->save();
         $post->authors()->syncWithoutDetaching([Auth::id()]);
 
-        return redirect()->route('admin.post.index', [
-            'alert' => ['Post opprettet..']
-        ]);
+        return redirect()->route('dashboard')->with('message', 'Post oppdatert');
     }
 
     /**

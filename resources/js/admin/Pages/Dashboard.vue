@@ -26,7 +26,10 @@
                       <img v-if="post.image" class="h-10 w-10 rounded-full" :src="post.image" alt />
                     </div>
                     <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">{{ post.title }}</div>
+                      <a
+                        :href="`/dashboard/posts/${post.id}/edit`"
+                        class="text-sm font-medium text-blue-500 hover:text-blue-400"
+                      >{{ post.title }}</a>
                       <div class="text-sm text-gray-500">Publisert av {{ post.by.join(', ') }}</div>
                     </div>
                   </div>
@@ -36,7 +39,7 @@
                 <TableColumn class="text-right text-sm font-medium">
                   <div class="flex space-x-8 items-center justify-end">
                     <Link
-                      :href="`/dashboard/post/${post.id}/edit`"
+                      :href="`/dashboard/posts/${post.id}/edit`"
                       class="text-indigo-600 hover:text-indigo-900"
                     >Edit</Link>
                     <button
