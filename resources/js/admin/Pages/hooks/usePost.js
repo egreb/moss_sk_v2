@@ -2,7 +2,6 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { reactive } from "vue";
 
 export function usePost(props) {
-    console.log({ props });
     let state = reactive({
         image: props.image,
     });
@@ -22,5 +21,10 @@ export function usePost(props) {
         form.image_id = state.image.id;
     };
 
-    return { state, submit, handleImage, form };
+    const deleteImage = () => {
+        state.image = null;
+        form.image_id = null;
+    };
+
+    return { state, submit, handleImage, deleteImage, form };
 }

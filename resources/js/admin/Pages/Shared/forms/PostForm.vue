@@ -2,8 +2,13 @@
     <PageHeader>{{ title }}</PageHeader>
     <form class="max-w-4xl mx-auto space-y-4" @submit.prevent="submit">
         <FormGroup>
-            <label for="title" class="font-medium pb-2 text-gray-600">Bilde</label>
-            <figure v-if="state.image && state.image.url" class="grid place-items-center py-4">
+            <label for="title" class="font-medium pb-2 text-gray-600"
+                >Bilde</label
+            >
+            <figure
+                v-if="state.image && state.image.url"
+                class="grid place-items-center py-4"
+            >
                 <img
                     v-if="state.image && state.image.url"
                     :key="state.image.id"
@@ -17,16 +22,26 @@
             <file-pond
                 ref="pond"
                 name="image"
-                :label-idle="state.image && state.image.url ? 'Oppdater bilde' : 'Legg til bilde'"
+                :label-idle="
+                    state.image && state.image.url
+                        ? 'Oppdater bilde'
+                        : 'Legg til bilde'
+                "
                 accepted-file-types="image/*"
                 max-file-size="5mb"
                 :required="false"
                 @processfile="handleImage"
             />
+
+            <div v-if="state.image && state.image.url">
+                <button @click="deleteImage" class="text-red-500">Slett</button>
+            </div>
         </FormGroup>
 
         <FormGroup>
-            <label for="title" class="font-medium pb-2 text-gray-600">Tittel</label>
+            <label for="title" class="font-medium pb-2 text-gray-600"
+                >Tittel</label
+            >
             <input
                 id="title"
                 v-model="form.title"
@@ -35,10 +50,16 @@
                 placeholder="Tittel.."
                 class="border rounded-md px-4 py-2"
             />
-            <div v-if="errors.title" class="text-red-500 text-sm mt-1" v-html="errors.title" />
+            <div
+                v-if="errors.title"
+                class="text-red-500 text-sm mt-1"
+                v-html="errors.title"
+            />
         </FormGroup>
         <FormGroup>
-            <label for="ingress" class="font-medium pb-2 text-gray-600">Ingress</label>
+            <label for="ingress" class="font-medium pb-2 text-gray-600"
+                >Ingress</label
+            >
             <v-md-editor
                 id="ingress"
                 v-model="form.ingress"
@@ -48,10 +69,16 @@
                 placeholder="Ledetekst.."
                 class="border rounded-md px-4 py-2 h-32"
             />
-            <div v-if="errors.ingress" class="text-red-500 text-sm mt-1" v-html="errors.ingress" />
+            <div
+                v-if="errors.ingress"
+                class="text-red-500 text-sm mt-1"
+                v-html="errors.ingress"
+            />
         </FormGroup>
         <FormGroup>
-            <label for="story" class="font-medium pb-2 text-gray-600">Post</label>
+            <label for="story" class="font-medium pb-2 text-gray-600"
+                >Post</label
+            >
             <v-md-editor
                 id="story"
                 v-model="form.story"
@@ -61,11 +88,17 @@
                 placeholder="Tekst.."
                 class="border rounded-md px-4 py-2 h-64"
             />
-            <div v-if="errors.story" class="text-red-500 text-sm mt-1" v-html="errors.story" />
+            <div
+                v-if="errors.story"
+                class="text-red-500 text-sm mt-1"
+                v-html="errors.story"
+            />
         </FormGroup>
         <div class="flex gap-x-1">
             <FormGroup class="w-6/12">
-                <label for="published_at" class="font-medium pb-2 text-gray-600">Publiser</label>
+                <label for="published_at" class="font-medium pb-2 text-gray-600"
+                    >Publiser</label
+                >
                 <input
                     id="published_at"
                     v-model="form.published_at"
@@ -89,7 +122,9 @@
                         name="publish"
                         class="border rounded-md px-4 py-2"
                     />
-                    <label for="publish" class="font-medium text-gray-600">Publiser</label>
+                    <label for="publish" class="font-medium text-gray-600"
+                        >Publiser</label
+                    >
                 </div>
                 <div
                     v-if="errors.publish"
@@ -102,7 +137,9 @@
             <button
                 type="submit"
                 class="self-end rounded-sm ml-auto mt-8 bg-blue-400 hover:bg-blue-500 font-medium px-4 py-2 text-white"
-            >Lagre</button>
+            >
+                Lagre
+            </button>
         </div>
     </form>
 </template>
@@ -112,7 +149,7 @@ import FormGroup from "../FormGroup";
 import { defineProps } from "vue";
 import vueFilePond, { setOptions } from "vue-filepond";
 import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
-import { usePost } from '../../hooks/usePost'
+import { usePost } from "../../hooks/usePost";
 import "filepond/dist/filepond.min.css";
 
 setOptions({
@@ -143,5 +180,5 @@ const props = defineProps({
     errors: Object,
 });
 
-const { submit, handleImage, form, state } = usePost(props)
+const { submit, handleImage, deleteImage, form, state } = usePost(props);
 </script>

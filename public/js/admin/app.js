@@ -29142,6 +29142,7 @@ __webpack_require__.r(__webpack_exports__);
     var _usePost = (0,_hooks_usePost__WEBPACK_IMPORTED_MODULE_4__.usePost)(props),
         submit = _usePost.submit,
         handleImage = _usePost.handleImage,
+        deleteImage = _usePost.deleteImage,
         form = _usePost.form,
         state = _usePost.state;
 
@@ -29150,6 +29151,7 @@ __webpack_require__.r(__webpack_exports__);
       props: props,
       submit: submit,
       handleImage: handleImage,
+      deleteImage: deleteImage,
       form: form,
       state: state,
       PageHeader: _PageHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -29950,64 +29952,67 @@ var _hoisted_2 = {
   "class": "grid place-items-center py-4"
 };
 var _hoisted_3 = ["src", "alt"];
+var _hoisted_4 = {
+  key: 1
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "title",
   "class": "font-medium pb-2 text-gray-600"
 }, "Tittel", -1
 /* HOISTED */
 );
 
-var _hoisted_5 = ["innerHTML"];
+var _hoisted_6 = ["innerHTML"];
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "ingress",
   "class": "font-medium pb-2 text-gray-600"
 }, "Ingress", -1
 /* HOISTED */
 );
 
-var _hoisted_7 = ["innerHTML"];
+var _hoisted_8 = ["innerHTML"];
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "story",
   "class": "font-medium pb-2 text-gray-600"
 }, "Post", -1
 /* HOISTED */
 );
 
-var _hoisted_9 = ["innerHTML"];
-var _hoisted_10 = {
+var _hoisted_10 = ["innerHTML"];
+var _hoisted_11 = {
   "class": "flex gap-x-1"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "published_at",
   "class": "font-medium pb-2 text-gray-600"
 }, "Publiser", -1
 /* HOISTED */
 );
 
-var _hoisted_12 = ["innerHTML"];
-var _hoisted_13 = {
+var _hoisted_13 = ["innerHTML"];
+var _hoisted_14 = {
   "class": "flex gap-x-2 items-center pl-4 pt-6"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "publish",
   "class": "font-medium text-gray-600"
 }, "Publiser", -1
 /* HOISTED */
 );
 
-var _hoisted_15 = ["innerHTML"];
+var _hoisted_16 = ["innerHTML"];
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "submit",
   "class": "self-end rounded-sm ml-auto mt-8 bg-blue-400 hover:bg-blue-500 font-medium px-4 py-2 text-white"
-}, "Lagre")], -1
+}, " Lagre ")], -1
 /* HOISTED */
 );
 
@@ -30025,7 +30030,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     "class": "max-w-4xl mx-auto space-y-4",
-    onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.submit && $setup.submit.apply($setup, arguments);
     }, ["prevent"]))
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FormGroup"], null, {
@@ -30052,16 +30057,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onProcessfile: $setup.handleImage
       }, null, 8
       /* PROPS */
-      , ["label-idle", "onProcessfile"])];
+      , ["label-idle", "onProcessfile"]), $setup.state.image && $setup.state.image.url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        onClick: _cache[1] || (_cache[1] = function () {
+          return $setup.deleteImage && $setup.deleteImage.apply($setup, arguments);
+        }),
+        "class": "text-red-500"
+      }, "Slett")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FormGroup"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      return [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         id: "title",
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $setup.form.title = $event;
         }),
         type: "text",
@@ -30076,17 +30086,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         innerHTML: $props.errors.title
       }, null, 8
       /* PROPS */
-      , _hoisted_5)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      , _hoisted_6)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FormGroup"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_md_editor, {
+      return [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_md_editor, {
         id: "ingress",
         modelValue: $setup.form.ingress,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $setup.form.ingress = $event;
         }),
         "left-toolbar": "undo redo",
@@ -30102,17 +30112,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         innerHTML: $props.errors.ingress
       }, null, 8
       /* PROPS */
-      , _hoisted_7)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      , _hoisted_8)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FormGroup"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_md_editor, {
+      return [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_md_editor, {
         id: "story",
         modelValue: $setup.form.story,
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $setup.form.story = $event;
         }),
         "left-toolbar": "undo redo",
@@ -30128,18 +30138,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         innerHTML: $props.errors.story
       }, null, 8
       /* PROPS */
-      , _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      , _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FormGroup"], {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FormGroup"], {
     "class": "w-6/12"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      return [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         id: "published_at",
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
           return $setup.form.published_at = $event;
         }),
         type: "datetime-local",
@@ -30154,7 +30164,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         innerHTML: $props.errors.published_at
       }, null, 8
       /* PROPS */
-      , _hoisted_12)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      , _hoisted_13)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
@@ -30163,9 +30173,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "w-6/12 flex justify-center"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         id: "publish",
-        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $setup.form.publish = $event;
         }),
         type: "checkbox",
@@ -30173,18 +30183,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "border rounded-md px-4 py-2"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.publish]]), _hoisted_14]), $props.errors.publish ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.publish]]), _hoisted_15]), $props.errors.publish ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
         key: 0,
         "class": "text-red-500 text-sm mt-1",
         innerHTML: $props.errors.publish
       }, null, 8
       /* PROPS */
-      , _hoisted_15)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      , _hoisted_16)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
 
-  })]), _hoisted_16], 32
+  })]), _hoisted_17], 32
   /* HYDRATE_EVENTS */
   )], 64
   /* STABLE_FRAGMENT */
@@ -30298,9 +30308,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 function usePost(props) {
-  console.log({
-    props: props
-  });
   var state = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
     image: props.image
   });
@@ -30321,10 +30328,16 @@ function usePost(props) {
     form.image_id = state.image.id;
   };
 
+  var deleteImage = function deleteImage() {
+    state.image = null;
+    form.image_id = null;
+  };
+
   return {
     state: state,
     submit: submit,
     handleImage: handleImage,
+    deleteImage: deleteImage,
     form: form
   };
 }
