@@ -1,12 +1,10 @@
 <article class="post flex flex-col bg-white w-full py-6 px-6 rounded-md border-b pb-8 shadow-md">
     @if(!is_null($post->image))
-        <div class="pb-2/3">
-            <a href="{{ route('post', ['slug' => $post->slug]) }}">
-                <img class="object-contain w-full rounded" style="max-height:400px;" src="{{ $post->image->url() }}"
-                    srcset="{{ $post->image->srcset() }}"
-                    alt="{{ $post->title }}">
-            </a>
-        </div>
+    <div class="pb-2/3">
+        <a href="{{ route('post', ['slug' => $post->slug]) }}">
+            <img class="object-contain w-full rounded" style="max-height:400px;" src="{{ $post->image->url() }}" srcset="{{ $post->image->srcset() }}" alt="{{ $post->title }}">
+        </a>
+    </div>
     @endif
 
     <section class="mb-2">
@@ -15,14 +13,14 @@
         </h2>
     </section>
     @if(!is_null($post->ingress))
-        <section>
-            <p class="ingress text-3xl">
-                {!! parsedown($post->ingress) !!}
-            </p>
-        </section>
+    <section>
+        <p class="ingress text-3xl">
+            {!! parsedown($post->ingress) !!}
+        </p>
+    </section>
     @endif
     <footer class="flex mt-6 justify-between items-center">
-        <p class="text-gray-700">Publisert {{ !is_null($post->published_at) ? $post->published_at->format('d.m.Y') : $post->updated_at->format('d.m.Y') }}</p>
+        <p class="text-gray-700">Publisert {{ !is_null($post->published_at) ? $post->published_at->format('d.m.Y h:m') : $post->updated_at->format('d.m.Y h:m') }}</p>
         <a href="{{ route('post', ['slug' => $post->slug]) }}" class="btn btn-blue">Les mer</a>
     </footer>
 </article>

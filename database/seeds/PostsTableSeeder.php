@@ -6,13 +6,6 @@ use Carbon\Carbon;
 
 class PostsTableSeeder extends Seeder
 {
-    private $slug_generator;
-
-    public function __construct()
-    {
-        $this->slug_generator = new Slug();
-    }
-
     /**
      * Run the database seeds.
      *
@@ -28,6 +21,7 @@ class PostsTableSeeder extends Seeder
                           Urna neque viverra justo nec ultrices dui sapien eget. Et pharetra pharetra massa massa ultricies. Ac turpis egestas maecenas pharetra convallis posuere. Faucibus vitae aliquet nec ullamcorper sit amet risus. Amet porttitor eget dolor morbi non arcu. Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Adipiscing elit pellentesque habitant morbi. Fringilla phasellus faucibus scelerisque eleifend donec. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Tempor commodo ullamcorper a lacus vestibulum sed. Sodales ut etiam sit amet nisl purus. Sagittis orci a scelerisque purus semper eget duis at tellus. Diam ut venenatis tellus in metus vulputate eu scelerisque. Suspendisse ultrices gravida dictum fusce ut placerat. Et magnis dis parturient montes.',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'published_at' => Carbon::now('Europe/Oslo')->format('Y-m-d\TH:i'),
             'slug' => $slug_generator->createSlug('Min første post'),
             'draft' => false
         ]);
@@ -38,6 +32,7 @@ class PostsTableSeeder extends Seeder
                           Urna neque viverra justo nec ultrices dui sapien eget. Et pharetra pharetra massa massa ultricies. Ac turpis egestas maecenas pharetra convallis posuere. Faucibus vitae aliquet nec ullamcorper sit amet risus. Amet porttitor eget dolor morbi non arcu. Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Adipiscing elit pellentesque habitant morbi. Fringilla phasellus faucibus scelerisque eleifend donec. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Tempor commodo ullamcorper a lacus vestibulum sed. Sodales ut etiam sit amet nisl purus. Sagittis orci a scelerisque purus semper eget duis at tellus. Diam ut venenatis tellus in metus vulputate eu scelerisque. Suspendisse ultrices gravida dictum fusce ut placerat. Et magnis dis parturient montes.',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'published_at' => Carbon::now('Europe/Oslo')->format('Y-m-d\TH:i'),
             'slug' => $slug_generator->createSlug('Min andre post'),
             'draft' => false
         ]);

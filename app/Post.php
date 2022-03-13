@@ -10,9 +10,15 @@ class Post extends Model
 {
     protected $guarded = [];
 
-    // protected $dates = [
-    //     'published_at',
-    // ];
+    /**
+     * @var string
+     */
+    protected $dateFormat = 'd.m.Y h:m';
+
+    protected $dates = [
+        'published_at',
+    ];
+
 
     public function authors()
     {

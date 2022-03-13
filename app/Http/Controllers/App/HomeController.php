@@ -21,7 +21,6 @@ class HomeController extends Controller
             ->get()
             ->sortByDesc('published_at')
             ->sortByDesc('created_at');
-
         return view('app.index', ['posts' => $posts]);
     }
 
