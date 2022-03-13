@@ -9,12 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $guarded = [];
-
-    /**
-     * @var string
-     */
-    protected $dateFormat = 'd.m.Y h:m';
-
     protected $dates = [
         'published_at',
     ];

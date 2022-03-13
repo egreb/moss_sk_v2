@@ -1,6 +1,15 @@
 import { useForm } from "@inertiajs/inertia-vue3";
 import { reactive } from "vue";
 
+function formatDate(d) {
+    d = new Date(d);
+    d.setMinutes(
+        d.getMinutes() - d.getTimezoneOffset()
+    );
+    d = d.toISOString().slice(0, -8);
+    return d
+}
+
 export function usePost(props) {
     let state = reactive({
         image: props.image,
@@ -8,6 +17,7 @@ export function usePost(props) {
 
     const form = useForm({
         ...props.post,
+        published_at: formatDate(props.post.published_at),
         publish: !props.post.draft,
     });
 

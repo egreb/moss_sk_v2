@@ -68,6 +68,7 @@ class PostController extends Controller
         $request->merge([
             'slug' => $this->slug_generator->createSlug($request->title),
             'draft' => !$request->input('publish'),
+            'published_at' => Carbon::createFromFormat('Y-m-d\TH:i', $request->input('published_at'))->format('Y-m-d H:i:s'),
         ]);
 
         $post = Post::create($request->except(['file', 'image', 'publish']));
