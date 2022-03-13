@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\View\View;
 use Request;
 use Illuminate\Http\Request as HttpRequest;
+use App\Image;
 
 class PostController extends Controller
 {
@@ -77,6 +78,20 @@ class PostController extends Controller
         return redirect()->route('dashboard')->with('message', 'Post opprettet');
     }
 
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        if (is_null($post)) {
+            abort(404);
+        }
+        $image = null;
+        if (!is_null($post->image_id)) {
+            $image = Image::find($post->image_id);
+        }
+        $post->published_at = date('Y-m-d\TH:i', strtotime($post->published_at));
+        return inertia('Posts/Edit', ['post' => $post, 'image' => $image]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -102,11 +117,15 @@ class PostController extends Controller
             'draft' => !$request->publish,
         ]);
 
-        $post->update($request->except(['file', 'image', 'publish', 'created_at', 'updated_at']));
+        $post->update($request->except(['file', 'image', 'publish', 'created_at', 'updated_at', 'preview']));
 
         $post->touch(); // update timestamp
         $post->save();
         $post->authors()->syncWithoutDetaching([Auth::id()]);
+
+        if ($request->query('preview') === 'true') {
+            return redirect()->route('post', $post->slug);
+        }
 
         return redirect()->route('dashboard')->with('message', 'Post oppdatert');
     }

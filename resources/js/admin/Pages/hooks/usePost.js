@@ -21,7 +21,10 @@ export function usePost(props) {
         publish: !props.post.draft,
     });
 
-    let submit = () => form.post(props.postUrl);
+    let submit = (event) => {
+        const preview = event.submitter.name === 'preview';
+        form.post(`${props.postUrl}?preview=${preview}`);
+    }
 
     let handleImage = (error, data) => {
         if (error) {

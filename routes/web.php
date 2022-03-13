@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PostController;
-use App\Image;
 use App\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -17,18 +16,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::post('/posts/{id}/update', [PostController::class, 'update'])
         ->name('posts.update');
 
-    Route::get('/posts/{id}/edit/', function ($id) {
-        $post = Post::find($id);
-        if (is_null($post)) {
-            abort(404);
-        }
-        $image = null;
-        if (!is_null($post->image_id)) {
-            $image = Image::find($post->image_id);
-        }
-        $post->published_at = date('Y-m-d\TH:i', strtotime($post->published_at));
-        return inertia('Posts/Edit', ['post' => $post, 'image' => $image]);
-    })->name('posts.edit');
+    Route::get('/posts/{id}/edit/', [PostController::class, 'edit'])->name('posts.edit');
 
     Route::get('/posts/create', function () {
         $post = new Post([

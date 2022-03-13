@@ -133,12 +133,20 @@
                 />
             </FormGroup>
         </div>
-        <div class="flex">
+        <div class="flex gap-x-1">
             <button
                 type="submit"
-                class="self-end rounded-sm ml-auto mt-8 bg-blue-400 hover:bg-blue-500 font-medium px-4 py-2 text-white"
+                name="store"
+                class="self-end rounded-sm ml-auto bg-blue-400 hover:bg-blue-500 font-medium px-4 py-2 text-white"
             >
                 Lagre
+            </button>
+            <button
+                type="submit"
+                name="preview"
+                class="rounded-sm bg-green-400 hover:bg-green-500 font-medium px-4 py-2 text-white"
+            >
+                Forhåndsvis
             </button>
         </div>
     </form>
